@@ -1,0 +1,50 @@
+# go test ./offchain/witness/ -count=1 -v -timeout 100m, run in /home/itsanos/thesis/prover with GOTOOLCHAIN=local GOFLAGS=-mod=mod GOPROXY=off, 2026-11-03; go1.23.6 linux/amd64
+# offchain/witness rc=0 elapsed_seconds=569.2
+
+=== RUN   TestRealBoundaryFixture_ProofVerifiesUnderConsumedDatumKey
+    real_boundary_fixture_test.go:246: public[ 0] = 3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1
+    real_boundary_fixture_test.go:246: public[ 1] = 00000000000000001fab1f3c777b9e054aae95b04e791423dc39b2d45fdadc57
+    real_boundary_fixture_test.go:246: public[ 2] = 000000000000000007315b7ae0d3291a527264cc901b76e6770721ac92005668
+    real_boundary_fixture_test.go:246: public[ 3] = 0000000000000000e3463c30708068b39c65aa55c8e533abad7bd5920c3b1315
+    real_boundary_fixture_test.go:246: public[ 4] = 000000000000000000c1eea99920c9be232e41b3cb82514be7a0d89066107167
+    real_boundary_fixture_test.go:246: public[ 5] = 00000000000000000000000000000000000000000000000000000000000001f9
+    real_boundary_fixture_test.go:246: public[ 6] = 00000000000000000000000000000000fca2bad46e3e5260228fec16653435a6
+    real_boundary_fixture_test.go:246: public[ 7] = 000000000000000000000000000000000c133c4a2bfa02cc443c7923de25f2d2
+    real_boundary_fixture_test.go:246: public[ 8] = 00000000000000000000000000000000735b480fd3356204d0591d927d457cea
+    real_boundary_fixture_test.go:246: public[ 9] = 00000000000000000000000000000000ae10db78213a5cced79fcbfecf24b115
+    real_boundary_fixture_test.go:246: public[10] = 0000000000000000000000000000000000000000000000000000000000dfdfc0
+    real_boundary_fixture_test.go:246: public[11] = 2aed783b4b821cfea89e9cdfd64e2b0a3aeb05896385cfb0d89cba386ec016db
+    real_boundary_fixture_test.go:251: groth16.Verify: the boundary proof verifies under the consumed datum's boundary verifying key (count 505, slot 14671808)
+--- PASS: TestRealBoundaryFixture_ProofVerifiesUnderConsumedDatumKey (0.18s)
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/count_plus_one
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/finalized_slot_equal_to_the_consumed_slot
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/produced_next_commitment_replaced_by_the_consumed_one
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+--- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected (0.49s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/count_plus_one (0.16s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/finalized_slot_equal_to_the_consumed_slot (0.16s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/produced_next_commitment_replaced_by_the_consumed_one (0.15s)
+=== RUN   TestBuildRegular_GoldenPublics
+    witness_test.go:128: PASS: full-512 regular witness — commitment/roots/slot/count all golden; Public() == 11 Fr
+--- PASS: TestBuildRegular_GoldenPublics (0.42s)
+=== RUN   TestBuildBoundary_GoldenPublics
+    witness_test.go:160: PASS: full-512 boundary witness — next commitment golden (87-anchor passed inside the builder); Public() == 12 Fr
+--- PASS: TestBuildBoundary_GoldenPublics (0.66s)
+=== RUN   TestBuildRegular_SignatureVerifiesUnderBuilderApk
+    witness_test.go:216: PASS: the real sync_aggregate σ verifies under the BUILDER's apk (510 participants) — bit↔key alignment cryptographically confirmed
+--- PASS: TestBuildRegular_SignatureVerifiesUnderBuilderApk (0.23s)
+=== RUN   TestBuildRegular_RealElectraSolves
+    witness_test.go:234: PASS: N=8 — the builder's real-data witness solves (current-committee keys + real bits + real finality)
+    witness_test.go:234: PASS: N=16 — the builder's real-data witness solves (current-committee keys + real bits + real finality)
+--- PASS: TestBuildRegular_RealElectraSolves (22.38s)
+=== RUN   TestBuildRegular_RealElectraProves
+    witness_test.go:270: PASS: real-data Groth16 N=2 through the production builder (1044633 constraints)
+--- PASS: TestBuildRegular_RealElectraProves (538.29s)
+=== RUN   TestBuildBoundary_TruncatedRefused
+    witness_test.go:280: PASS: truncated boundary refused as documented: boundary witness is full-size only (numberOfKeys 8, committees 512 current / 512 next): with the real gindex-87 branch a truncated next-committee root cannot reach the real state_root
+--- PASS: TestBuildBoundary_TruncatedRefused (0.00s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/witness	563.420s

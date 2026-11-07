@@ -1,0 +1,63 @@
+=== boundary prove START Mon Jun 15 15:26:25 UTC 2026 on myproject2 ===
+--- swap must be 0 + mem (GiB) ---
+               total        used        free      shared  buff/cache   available
+Mem:             125           0         122           0           2         124
+Swap:              0           0           0
+--- launching /tmp/groth16_prove -circuit boundary -n 512 -iterations 5 (120-min hang-guard) ---
+=== SINGLE-PARTY DEMONSTRATOR SETUP (NOT an MPC) ===
+The proving key embeds toxic-waste-derived material: whoever holds it can forge proofs that
+verify under the resulting vk. pk/ccs -> SCRATCH (never transferred; destroyed at stage end);
+vk/proofs/logs -> OUTPUT (the only dir that ever leaves the machine). The vks are sound only
+under the operator's destruction of the scratch artifacts; production requires the MPC
+ceremony the thesis names. See docs/assembly-design.md "Trusted-setup honesty".
+# groth16_prove circuit=boundary n=512 iterations=5
+# timer = groth16.Prove only (includes internal witness solving); Verify gated every iteration
+15:42:51 DBG constraint system solver done nbConstraints=60889638 took=68459.764126
+15:48:51 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=60889638 took=359997.837694
+15:48:51 DBG verifier done backend=groth16 curve=bls12_381 took=2.830589
+15:50:05 DBG constraint system solver done nbConstraints=60889638 took=73392.100065
+15:56:03 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=60889638 took=358622.731411
+15:56:03 DBG verifier done backend=groth16 curve=bls12_381 took=2.73235
+15:57:15 DBG constraint system solver done nbConstraints=60889638 took=71137.261571
+16:03:11 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=60889638 took=356260.211907
+16:03:11 DBG verifier done backend=groth16 curve=bls12_381 took=2.882204
+16:04:21 DBG constraint system solver done nbConstraints=60889638 took=69538.046537
+16:10:18 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=60889638 took=357429.543817
+16:10:18 DBG verifier done backend=groth16 curve=bls12_381 took=2.970255
+16:11:30 DBG constraint system solver done nbConstraints=60889638 took=72104.52074
+16:17:27 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=60889638 took=357116.192202
+16:17:27 DBG verifier done backend=groth16 curve=bls12_381 took=2.887867
+iteration 0: prove = 428.46s (Verify OK)
+iteration 1: prove = 432.02s (Verify OK)
+iteration 2: prove = 427.40s (Verify OK)
+iteration 3: prove = 426.97s (Verify OK)
+iteration 4: prove = 429.22s (Verify OK)
+prove wall-clock      = median 428.46s  min 426.97s  p95 432.02s  over 5 iterations
+peak RSS              = 96.53 GiB (process high-water mark, incl. pk load)
+public inputs         = 12 Fr (stable across iterations: true)
+proof  -> /home/itsanos/zk-output/proof_boundary_n512.proof (292 bytes)
+publics-> /home/itsanos/zk-output/public_boundary_n512.json
+REMINDER: the scratch dir holds τ-bearing material (pk) — destroy it (and the volume) at stage end.
+=== boundary prove EXIT rc=0 Mon Jun 15 16:17:31 UTC 2026 ===
+--- peak RSS from trace (max VmHWM) ---
+--- final mem ---
+               total        used        free      shared  buff/cache   available
+Mem:             125           0          97           0          27         124
+Swap:              0           0           0
+--- OUTPUT dir ---
+total 64
+drwxrwxr-x 2 itsanos itsanos  4096 Jun 15 16:17 .
+drwxr-x--- 9 itsanos itsanos  4096 Jun 15 15:26 ..
+-rw-rw-r-- 1 itsanos itsanos     0 Jun 15 15:26 boundary-nohup.out
+-rw-rw-r-- 1 itsanos itsanos   292 Jun 15 16:17 proof_boundary_n512.proof
+-rw-rw-r-- 1 itsanos itsanos   292 Jun 15 14:53 proof_regular_n512.proof
+-rw-r--r-- 1 itsanos itsanos   899 Jun 15 16:17 public_boundary_n512.json
+-rw-r--r-- 1 itsanos itsanos   827 Jun 15 14:53 public_regular_n512.json
+-rw-rw-r-- 1 itsanos itsanos  2180 Jun 14 22:19 stage2-setup-boundary.log
+-rw-rw-r-- 1 itsanos itsanos  2132 Jun 14 17:56 stage2-setup-regular.log
+-rw-rw-r-- 1 itsanos itsanos 10513 Jun 15 16:17 stage3-boundary-rss-trace.log
+-rw-rw-r-- 1 itsanos itsanos  4018 Jun 15 16:17 stage3-prove-boundary.log
+-rw-rw-r-- 1 itsanos itsanos  4099 Jun 15 14:53 stage3-prove-regular.log
+-rw-rw-r-- 1 itsanos itsanos  1312 Jun 14 22:16 vk_boundary_n512.vk
+-rw-rw-r-- 1 itsanos itsanos  1264 Jun 14 17:56 vk_regular_n512.vk
+=== self-stop now Mon Jun 15 16:17:31 UTC 2026 ===

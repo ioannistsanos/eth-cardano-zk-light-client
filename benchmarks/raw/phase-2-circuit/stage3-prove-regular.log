@@ -1,0 +1,57 @@
+=== SINGLE-PARTY DEMONSTRATOR SETUP (NOT an MPC) ===
+The proving key embeds toxic-waste-derived material: whoever holds it can forge proofs that
+verify under the resulting vk. pk/ccs -> SCRATCH (never transferred; destroyed at stage end);
+vk/proofs/logs -> OUTPUT (the only dir that ever leaves the machine). The vks are sound only
+under the operator's destruction of the scratch artifacts; production requires the MPC
+ceremony the thesis names. See docs/assembly-design.md "Trusted-setup honesty".
+# groth16_prove circuit=regular n=512 iterations=5
+# timer = groth16.Prove only (includes internal witness solving); Verify gated every iteration
+14:52:00 DBG constraint system solver done nbConstraints=1990745 took=3177.418572
+14:52:12 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=1990745 took=11682.855511
+14:52:12 DBG verifier done backend=groth16 curve=bls12_381 took=2.607039
+14:52:15 DBG constraint system solver done nbConstraints=1990745 took=2874.573318
+14:52:27 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=1990745 took=11713.564469
+14:52:27 DBG verifier done backend=groth16 curve=bls12_381 took=2.616751
+14:52:30 DBG constraint system solver done nbConstraints=1990745 took=2702.805414
+14:52:41 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=1990745 took=11682.23133
+14:52:41 DBG verifier done backend=groth16 curve=bls12_381 took=2.640761
+14:52:44 DBG constraint system solver done nbConstraints=1990745 took=2867.903456
+14:52:56 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=1990745 took=11694.839849
+14:52:56 DBG verifier done backend=groth16 curve=bls12_381 took=2.686726
+14:52:59 DBG constraint system solver done nbConstraints=1990745 took=2626.035514
+14:53:10 DBG prover done acceleration=none backend=groth16 curve=bls12_381 nbConstraints=1990745 took=11915.464891
+14:53:10 DBG verifier done backend=groth16 curve=bls12_381 took=2.703284
+iteration 0: prove = 14.86s (Verify OK)
+iteration 1: prove = 14.59s (Verify OK)
+iteration 2: prove = 14.39s (Verify OK)
+iteration 3: prove = 14.56s (Verify OK)
+iteration 4: prove = 14.54s (Verify OK)
+prove wall-clock      = median 14.56s  min 14.39s  p95 14.86s  over 5 iterations
+peak RSS              = 5.52 GiB (process high-water mark, incl. pk load)
+public inputs         = 11 Fr (stable across iterations: true)
+proof  -> /home/itsanos/zk-output/proof_regular_n512.proof (292 bytes)
+publics-> /home/itsanos/zk-output/public_regular_n512.json
+REMINDER: the scratch dir holds τ-bearing material (pk) — destroy it (and the volume) at stage end.
+	Command being timed: "/tmp/groth16_prove -circuit regular -n 512 -iterations 5 -output-dir /home/itsanos/zk-output -scratch-dir /home/itsanos/zk-scratch"
+	User time (seconds): 921.68
+	System time (seconds): 7.69
+	Percent of CPU this job got: 919%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:41.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5788120
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1660895
+	Voluntary context switches: 102974
+	Involuntary context switches: 25464
+	Swaps: 0
+	File system inputs: 3045704
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

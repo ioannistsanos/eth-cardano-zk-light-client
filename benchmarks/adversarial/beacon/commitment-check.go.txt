@@ -1,0 +1,69 @@
+// Recomputes the Poseidon2 committee commitments stored in the bridge datums from the sync-committee
+// public keys served by the Beacon API, with the project's commitment code.
+package main
+
+import (
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"os"
+	"strings"
+
+	"eth-cardano-zk-light-client/prover/offchain/bootstrap"
+	"eth-cardano-zk-light-client/prover/offchain/commitment"
+)
+
+type update struct {
+	Data struct {
+		NextSyncCommittee struct {
+			Pubkeys         []string `json:"pubkeys"`
+			AggregatePubkey string   `json:"aggregate_pubkey"`
+		} `json:"next_sync_committee"`
+		SignatureSlot string `json:"signature_slot"`
+	} `json:"data"`
+}
+
+func commit(path string) (string, int, error) {
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		return "", 0, err
+	}
+	var updates []update
+	if err := json.Unmarshal(raw, &updates); err != nil {
+		return "", 0, err
+	}
+	keys := updates[0].Data.NextSyncCommittee.Pubkeys
+	compressed := make([][48]byte, len(keys))
+	for i, s := range keys {
+		b, err := hex.DecodeString(strings.TrimPrefix(s, "0x"))
+		if err != nil || len(b) != 48 {
+			return "", 0, fmt.Errorf("pubkey %d: bad length or hex", i)
+		}
+		copy(compressed[i][:], b)
+	}
+	points, err := bootstrap.DecompressCommittee(compressed)
+	if err != nil {
+		return "", 0, err
+	}
+	fe := commitment.Commit(points)
+	b := fe.Bytes()
+	return hex.EncodeToString(b[:]), len(keys), nil
+}
+
+func main() {
+	dir := "/home/itsanos/thesis/benchmarks/adversarial/beacon/"
+	cases := []struct{ file, committee, expected, role string }{
+		{"light_client_update_period_1789.json", "1790", "4b0faa29c3a3a3e480e9323e36da8a596cac9b2adce2c4771140613e1ac92e3d", "consumed datum current_committee_commitment"},
+		{"light_client_update_period_1790.json", "1791", "3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1", "consumed datum next_committee_commitment, produced datum current_committee_commitment"},
+		{"light_client_update_period_1791.json", "1792", "2aed783b4b821cfea89e9cdfd64e2b0a3aeb05896385cfb0d89cba386ec016db", "produced datum next_committee_commitment"},
+	}
+	for _, c := range cases {
+		got, n, err := commit(dir + c.file)
+		if err != nil {
+			fmt.Printf("committee %s: error %v\n", c.committee, err)
+			continue
+		}
+		fmt.Printf("committee of period %s (next_sync_committee of the period-%s update, %d keys): Poseidon2 commitment %s | datum value %s | equal %v | %s\n",
+			c.committee, strings.TrimSuffix(strings.TrimPrefix(c.file, "light_client_update_period_"), ".json"), n, got, c.expected, got == c.expected, c.role)
+	}
+}

@@ -1,0 +1,10 @@
+# go test ./offchain/boot/ -count=1 -v -timeout 100m, run in /home/itsanos/thesis/prover with GOTOOLCHAIN=local GOFLAGS=-mod=mod GOPROXY=off, 2026-11-03; go1.23.6 linux/amd64
+# offchain/boot rc=0 elapsed_seconds=1.5
+
+=== RUN   TestBuildGenesisValues_RealPositive
+    boot_test.go:52: PASS: §2.1.6 gate → genesis values match the golden datum (current 0x10041e8ce930…, slot 13107200)
+--- PASS: TestBuildGenesisValues_RealPositive (0.42s)
+=== RUN   TestBuildGenesisValues_LoadFailureAborts
+--- PASS: TestBuildGenesisValues_LoadFailureAborts (0.00s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/boot	0.428s

@@ -1,0 +1,17 @@
+# Build artifacts and trusted-setup keys for the Phase-2 Go / gnark module.
+#
+# Compile-check with `go build -o /dev/null ./...` (emits no binary) rather than
+# `go build ./...`, which drops an executable named after each cmd/ directory in
+# this module root.
+
+# Stray command binaries (e.g. from `go build ./...`)
+/helloworld
+/bin/
+
+# Groth16 trusted-setup / circuit artifacts — can be VERY large for the real
+# circuits and must NEVER be committed (proving keys, verification keys,
+# compiled constraint systems, exported Solidity verifiers).
+*.pk
+*.vk
+*.ccs
+*.sol

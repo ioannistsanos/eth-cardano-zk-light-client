@@ -1,0 +1,46 @@
+{
+  "seed": 2877850153,
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "kind": {
+      "unit": 2,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "real_n512_bridge_test",
+      "summary": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "kind": {
+          "unit": 2,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "boundary_update_accepted",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 684650,
+            "cpu": 6086719015
+          }
+        },
+        {
+          "title": "regular_update_accepted",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 650438,
+            "cpu": 5944631108
+          }
+        }
+      ]
+    }
+  ]
+}

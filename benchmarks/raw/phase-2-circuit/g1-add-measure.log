@@ -1,0 +1,31 @@
+=== RUN   TestG1AddUnifiedProvesOverBLS12381
+    g1add_test.go:57: PASS: AddUnified(3G,5G)==8G verified over BLS12-381 (1890 R1CS constraints)
+--- PASS: TestG1AddUnifiedProvesOverBLS12381 (0.80s)
+PASS
+ok  	github.com/jTsanos/zkbridge-phase-a/prover/circuits/common	(cached)
+# Phase 2a-1: non-native BLS12-381 G1-add R1CS constraint cost
+# native field = BLS12-381 scalar field; compile-only; each count x2 (determinism)
+method            N    constraints      elapsed
+Add               1           1022         33ms
+AddUnified        1           1738         40ms
+Add               2           1776         43ms
+AddUnified        2           3207         62ms
+# fit(N<=2):  Add[slope=754.0 icpt=268.0 R2=1.000000 512x=386048]  AddUnified[slope=1469.0 icpt=269.0 R2=1.000000 512x=752128]
+Add              10           7807        125ms
+AddUnified       10          14961        211ms
+# fit(N<=10):  Add[slope=753.9 icpt=268.2 R2=1.000000 512x=385988]  AddUnified[slope=1469.2 icpt=268.7 R2=1.000000 512x=752247]
+Add              50          35848        541ms
+AddUnified       50          68857        955ms
+# fit(N<=50):  Add[slope=709.0 icpt=446.8 R2=0.999875 512x=362998]  AddUnified[slope=1365.7 icpt=680.4 R2=0.999821 512x=699258]
+Add             100          68772        950ms
+AddUnified      100         129772       1.776s
+# fit(N<=100):  Add[slope=685.2 icpt=707.6 R2=0.999628 512x=350821]  AddUnified[slope=1296.6 icpt=1438.7 R2=0.999149 512x=663845]
+Add             200         129312        1.81s
+AddUnified      200         251313       3.063s
+# fit(N<=200):  Add[slope=646.8 icpt=1624.9 R2=0.998802 512x=331161]  AddUnified[slope=1253.6 icpt=2465.4 R2=0.999417 512x=641842]
+
+# FINAL regression (constraints = intercept + slope*N)
+method            slope/add      intercept         R2        512*slope
+Add                  646.80        1624.89   0.998802           331161
+AddUnified          1253.60        2465.37   0.999417           641842
+# safety premium (AddUnified - Add): 606.80 /add (93.8%)

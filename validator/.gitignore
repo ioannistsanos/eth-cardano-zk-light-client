@@ -1,0 +1,4 @@
+build/
+artifacts/
+*.cache
+plutus.applied.json

@@ -1,0 +1,37 @@
+## run A (2026-06-10)
+# bootstrap Verify wall-clock cost (AC-14; TC-07g) — real period-1600 fixtures; one-time deployer-side genesis verification
+# Go wall-clock, machine-dependent — NOT comparable to on-chain CPU steps, NOT proving time
+# go1.23.6 linux/amd64, 12 CPUs (full machine line: benchmarks/phase-2-circuit/bootstrap-verify-cost.md)
+# N=100 samples/line (10 warm-ups discarded), runtime.GC() before each; MEDIAN is the headline (min/p95 shown — min is unstable across runs on this machine: turbo/thermal shifts the baseline); golden-datum assert EVERY end-to-end run
+# decompression timed ONCE as the shared prelude (Verify's actual structure); (d)/(e) exclude it — the lines sum to ~ the end-to-end total; gap reported
+
+end-to-end Verify                  min=146.32ms  median=161.85ms  p95=186.27ms   golden 100/100 (+10 warm-ups)
+
+decompress prelude (serves d+e)    min=107.35ms  median=116.79ms  p95=142.15ms
+(a) current@gindex-86 + checkpoint min=626µs  median=669µs  p95=850µs
+(b) next@gindex-87                 min=616µs  median=666µs  p95=895µs
+(c) finality@gindex-169            min=9µs  median=9µs  p95=15µs   (K=1000-batched)
+(d) BLS sync-aggregate             min=2.61ms  median=2.72ms  p95=3.07ms
+(e) two Poseidon commitments       min=35.03ms  median=36.59ms  p95=49.96ms
+
+sum of line medians = 157.45ms vs end-to-end median = 161.85ms -> gap 4.4ms (+2.7%)   [the no-double-count cross-check]
+sum of line minima  = 146.24ms vs end-to-end min    = 146.32ms -> gap 79µs (+0.1%)   [minima: per-loop machine states differ — not additive, shown for transparency]
+
+## run B (2026-06-10, immediately after — cross-run stability evidence)
+# bootstrap Verify wall-clock cost (AC-14; TC-07g) — real period-1600 fixtures; one-time deployer-side genesis verification
+# Go wall-clock, machine-dependent — NOT comparable to on-chain CPU steps, NOT proving time
+# go1.23.6 linux/amd64, 12 CPUs (full machine line: benchmarks/phase-2-circuit/bootstrap-verify-cost.md)
+# N=100 samples/line (10 warm-ups discarded), runtime.GC() before each; MEDIAN is the headline (min/p95 shown — min is unstable across runs on this machine: turbo/thermal shifts the baseline); golden-datum assert EVERY end-to-end run
+# decompression timed ONCE as the shared prelude (Verify's actual structure); (d)/(e) exclude it — the lines sum to ~ the end-to-end total; gap reported
+
+end-to-end Verify                  min=96.84ms  median=121.12ms  p95=187.84ms   golden 100/100 (+10 warm-ups)
+
+decompress prelude (serves d+e)    min=69.73ms  median=83.47ms  p95=124.08ms
+(a) current@gindex-86 + checkpoint min=626µs  median=688µs  p95=929µs
+(b) next@gindex-87                 min=616µs  median=674µs  p95=905µs
+(c) finality@gindex-169            min=6µs  median=9µs  p95=16µs   (K=1000-batched)
+(d) BLS sync-aggregate             min=1.68ms  median=1.8ms  p95=2.07ms
+(e) two Poseidon commitments       min=22.73ms  median=25.96ms  p95=32.5ms
+
+sum of line medians = 112.6ms vs end-to-end median = 121.12ms -> gap 8.52ms (+7.0%)   [the no-double-count cross-check]
+sum of line minima  = 95.39ms vs end-to-end min    = 96.84ms -> gap 1.45ms (+1.5%)   [minima: per-loop machine states differ — not additive, shown for transparency]

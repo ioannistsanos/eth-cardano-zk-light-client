@@ -1,0 +1,105 @@
+// Derives a key pair that belongs to no sync committee and signs the boundary fixture's signing root
+// with it, under the project's domain computation and signature ciphersuite.
+package main
+
+import (
+	"crypto/sha256"
+	"encoding/hex"
+	"fmt"
+	"math/big"
+	"os"
+	"regexp"
+
+	bls12381 "github.com/consensys/gnark-crypto/ecc/bls12-381"
+	"github.com/consensys/gnark-crypto/ecc/bls12-381/fr"
+
+	"eth-cardano-zk-light-client/prover/offchain/bls"
+)
+
+func constHex(source, name string) []byte {
+	pattern := regexp.MustCompile(`pub const ` + name + `: ByteArray =\s*#"([0-9a-f]+)"`)
+	match := pattern.FindStringSubmatch(source)
+	if match == nil {
+		fmt.Fprintf(os.Stderr, "constant %s not found\n", name)
+		os.Exit(1)
+	}
+	value, err := hex.DecodeString(match[1])
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "constant %s: %v\n", name, err)
+		os.Exit(1)
+	}
+	return value
+}
+
+func main() {
+	raw, err := os.ReadFile("/home/itsanos/thesis/validator/lib/zkbridge/real_n512_boundary.ak")
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+	source := string(raw)
+	var fork [4]byte
+	copy(fork[:], constHex(source, "real_fork"))
+	var genesisValidatorsRoot, attestedRoot [32]byte
+	copy(genesisValidatorsRoot[:], constHex(source, "real_gvr"))
+	copy(attestedRoot[:], constHex(source, "real_attested_root"))
+	realApk := constHex(source, "real_apk")
+	realSignature := constHex(source, "real_signature")
+
+	domain := bls.ComputeDomain(bls.DomainSyncCommittee, fork, genesisValidatorsRoot)
+	signingRoot := bls.ComputeSigningRoot(attestedRoot, domain)
+	fmt.Printf("fork_version            %x\n", fork)
+	fmt.Printf("genesis_validators_root %x\n", genesisValidatorsRoot)
+	fmt.Printf("attested_header_root    %x\n", attestedRoot)
+	fmt.Printf("domain                  %x\n", domain)
+	fmt.Printf("signing_root            %x\n", signingRoot)
+	fmt.Printf("DST                     %s\n", bls.EthereumDST)
+
+	// the secret key: a fixed seed hashed into the scalar field
+	seedDigest := sha256.Sum256([]byte("zkbridge adversarial rogue key, boundary fixture c8b296a9"))
+	var secretKey fr.Element
+	secretKey.SetBytes(seedDigest[:])
+	var secretKeyInt big.Int
+	secretKey.BigInt(&secretKeyInt)
+	fmt.Printf("secret_key (Fr)         %064x\n", &secretKeyInt)
+
+	_, _, g1Generator, _ := bls12381.Generators()
+	var publicKey bls12381.G1Affine
+	publicKey.ScalarMultiplication(&g1Generator, &secretKeyInt)
+	publicKeyUncompressed := publicKey.RawBytes()
+	publicKeyCompressed := publicKey.Bytes()
+
+	hashedMessage, err := bls12381.HashToG2(signingRoot[:], bls.EthereumDST)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+	var signature bls12381.G2Affine
+	signature.ScalarMultiplication(&hashedMessage, &secretKeyInt)
+	signatureCompressed := signature.Bytes()
+
+	fmt.Printf("rogue_apk (96 B X||Y)   %x\n", publicKeyUncompressed[:])
+	fmt.Printf("rogue_apk compressed    %x\n", publicKeyCompressed[:])
+	fmt.Printf("rogue_signature (96 B)  %x\n", signatureCompressed[:])
+
+	verified, err := bls.FastAggregateVerify([]bls12381.G1Affine{publicKey}, signingRoot, signature)
+	fmt.Printf("FastAggregateVerify(rogue_apk, signing_root, rogue_signature) = %v (err %v)\n", verified, err)
+
+	var realApkPoint bls12381.G1Affine
+	if _, err := realApkPoint.SetBytes(realApk); err != nil {
+		fmt.Fprintln(os.Stderr, "real apk:", err)
+		os.Exit(1)
+	}
+	var realSignaturePoint bls12381.G2Affine
+	if _, err := realSignaturePoint.SetBytes(realSignature); err != nil {
+		fmt.Fprintln(os.Stderr, "real signature:", err)
+		os.Exit(1)
+	}
+	verifiedReal, _ := bls.FastAggregateVerify([]bls12381.G1Affine{realApkPoint}, signingRoot, realSignaturePoint)
+	fmt.Printf("FastAggregateVerify(real_apk, signing_root, real_signature)   = %v\n", verifiedReal)
+	crossOne, _ := bls.FastAggregateVerify([]bls12381.G1Affine{realApkPoint}, signingRoot, signature)
+	crossTwo, _ := bls.FastAggregateVerify([]bls12381.G1Affine{publicKey}, signingRoot, realSignaturePoint)
+	fmt.Printf("FastAggregateVerify(real_apk, signing_root, rogue_signature)  = %v\n", crossOne)
+	fmt.Printf("FastAggregateVerify(rogue_apk, signing_root, real_signature)  = %v\n", crossTwo)
+	fmt.Printf("rogue_apk == real_apk: %v\n", publicKey.Equal(&realApkPoint))
+}

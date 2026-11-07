@@ -1,0 +1,9 @@
+# go run . in a module outside the repository (source: stored-key-structure.go.txt; gnark v0.13.0 from the module cache), 2026-11-03
+# the two stored key files are the earlier demonstrator keys (D24), not the live bridge's keys; they come from the same circuit code and show the commitment structure the live keys share
+
+/home/itsanos/zk-artifacts/vk_regular_n512.vk
+  alpha aca2f634ad5259ac
+  ic 13, commitment keys 1, PublicAndCommitmentCommitted [[]]
+/home/itsanos/zk-artifacts/vk_boundary_n512.vk
+  alpha a67164c9376fa5a1
+  ic 14, commitment keys 1, PublicAndCommitmentCommitted [[]]

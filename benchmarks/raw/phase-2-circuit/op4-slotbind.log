@@ -1,0 +1,18 @@
+=== RUN   TestSlotBindProvesAgainstOfficialRoot
+    slotbind_test.go:99: PASS: slot 16101738745833384750 bound to official root 0xa2672769763d19c79dd7a584f37fd3391c0510c1fd6eba54ec0cd78748a84800 over BLS12-381 (292396 constraints)
+--- PASS: TestSlotBindProvesAgainstOfficialRoot (85.88s)
+PASS
+ok  	github.com/jTsanos/zkbridge-phase-a/prover/circuits/common	86.088s
+# Phase 2a-2-ii-A: slot-binding Merkle circuit (op-4) R1CS cost
+# native field = BLS12-381 scalar field; compile-only; each count x2
+steps       constraints
+1                185052
+2                238725
+3                292396
+
+# decomposition: constraints = intercept + slope*steps
+per-Merkle-step (1 node-hash = 64B = 2 compression blocks) = 53672.0
+intercept (leaf-encoding + uints/lookup setup + 32B assert) = 131380.0
+linearity check: c2 == intercept+2*slope ? false (c2=238725, pred=238724)
+op-4 (3 steps) MEASURED = 292396
+# D8 ref: 27,627/compression block => 2*D8=55255/node-hash, 6 blocks=165765

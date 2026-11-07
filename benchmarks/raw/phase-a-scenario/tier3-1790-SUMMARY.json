@@ -1,0 +1,1208 @@
+{
+  "completed": 60,
+  "plan_steps": 3,
+  "phases": [
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14669984,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 0.050405118,
+      "prove_seconds": 14.673030519,
+      "submit_seconds": 45.09649007,
+      "total_seconds": 59.865793901,
+      "completed_unix": 1782864995,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "4ba8f81a370f1dd38fdacfcc07d887749486d683366227ac77d984f47a43ad42",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670016,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 30.100194101,
+      "prove_seconds": 14.507127308,
+      "submit_seconds": 44.259777947,
+      "total_seconds": 88.912151656,
+      "completed_unix": 1782865084,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "aac865296f1a2f73beaff2e82fb11a4d2faa233ceae21fdae1cf4f039b32cfeb",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670048,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.604992298,
+      "prove_seconds": 14.643930251,
+      "submit_seconds": 64.573556713,
+      "total_seconds": 379.867524024,
+      "completed_unix": 1782865464,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "4a84abf9f335486fa386e44c95f26e6f5e7aebf6483d72e9c97655cbcf05b957",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670080,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.642481555,
+      "prove_seconds": 14.625554057,
+      "submit_seconds": 64.647051736,
+      "total_seconds": 409.961116385,
+      "completed_unix": 1782865874,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "c0217552be7c2e4d8bdb391f1830b997d658987eae8f1b056163fea16ed9d14b",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670112,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.638804996,
+      "prove_seconds": 14.641630354,
+      "submit_seconds": 64.370493026,
+      "total_seconds": 379.695952969,
+      "completed_unix": 1782866254,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "6d823af2702d9504ea5fc8d22a93c7d7e530c9902845e9b1e63882073238823c",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670144,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.569678822,
+      "prove_seconds": 14.677553311,
+      "submit_seconds": 64.193865778,
+      "total_seconds": 379.486929365,
+      "completed_unix": 1782866633,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "1b41b0ced4a7434948a267f0fa754f6fac49b8623e5f8dab2f813fc95f8cda20",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670176,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.558060131,
+      "prove_seconds": 14.647563665,
+      "submit_seconds": 44.46357986,
+      "total_seconds": 359.713877065,
+      "completed_unix": 1782866993,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "80a664b49b856f9d4af7fb55c32db7dd7e7dbb267666252fa9891de493e9a2b7",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670208,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.623341378,
+      "prove_seconds": 14.675060156,
+      "submit_seconds": 64.630370405,
+      "total_seconds": 409.973815598,
+      "completed_unix": 1782867403,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "5d2e18160f20a01a75d2b92e6d018ae2079da6473e770ac840442b0c8b0e01ac",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670240,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.55849986,
+      "prove_seconds": 14.592777357,
+      "submit_seconds": 44.302977129,
+      "total_seconds": 359.499397989,
+      "completed_unix": 1782867762,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "bbc28612ce2ac519473416297ba3bd9c58f64874cca0199da228d62b1221abd2",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670272,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.629297514,
+      "prove_seconds": 14.610703432,
+      "submit_seconds": 44.258199297,
+      "total_seconds": 389.543266807,
+      "completed_unix": 1782868152,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "89d51d3c6be4704a1d4151da21a3fc96af47207911960e5d01bc0ab9ab55faf8",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670304,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.582320492,
+      "prove_seconds": 14.634912592,
+      "submit_seconds": 104.879852785,
+      "total_seconds": 420.142690191,
+      "completed_unix": 1782868572,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "8063420adbb13e2c960993c2ba667eab45d71044a3869e584c5371937d37a500",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670336,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 270.515818839,
+      "prove_seconds": 14.528744344,
+      "submit_seconds": 145.392628098,
+      "total_seconds": 430.481958726,
+      "completed_unix": 1782869002,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "b60d2a5dbbc4d7a599dd28b20fcf11365c01227788bf6afc47d6f6579d0ccca1",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670368,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 240.503614769,
+      "prove_seconds": 14.36708887,
+      "submit_seconds": 64.630302036,
+      "total_seconds": 319.54627056,
+      "completed_unix": 1782869322,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "8b87f2ba082b6f23397a6b3989a074293c670d44e69d1d9d5598cfc6f1cd99d4",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670400,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.5688781,
+      "prove_seconds": 14.572163762,
+      "submit_seconds": 64.453876231,
+      "total_seconds": 379.639744142,
+      "completed_unix": 1782869702,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "4fb9bc2970f107a4769350d51328fd4ff5e68ef047cfc0ca5f6727c258e4008a",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670432,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.575966083,
+      "prove_seconds": 14.578418918,
+      "submit_seconds": 64.217477025,
+      "total_seconds": 379.416667922,
+      "completed_unix": 1782870081,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "88cdfc47bb56f50db90ebeaee3d41b3fd2fc4edba86b7240106a67739ffba89b",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670464,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.557863157,
+      "prove_seconds": 14.67551031,
+      "submit_seconds": 64.63237301,
+      "total_seconds": 379.910268506,
+      "completed_unix": 1782870461,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "9cb9e55345466b305408a04d455ce3b9ea798d1c440b6806b2ec77fcd264ca35",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670496,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.597782529,
+      "prove_seconds": 14.639746105,
+      "submit_seconds": 44.157046815,
+      "total_seconds": 359.439743433,
+      "completed_unix": 1782870820,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "c9838b35d91cbc865f08e6bb2ae6d189ac20be4926351ac2a95816491f5ac33e",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670528,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.652668213,
+      "prove_seconds": 14.542815711,
+      "submit_seconds": 44.162271436,
+      "total_seconds": 389.402866652,
+      "completed_unix": 1782871210,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "ea20e1a94c14eb2eec771866ffd7767e4ed83365647e9f3f322d845fbfcca681",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670560,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.665420378,
+      "prove_seconds": 14.608407303,
+      "submit_seconds": 44.176860248,
+      "total_seconds": 389.496582882,
+      "completed_unix": 1782871599,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "77f7ee2a62c8d8d2adc51154c4d10d658a87938eb5f31fce1494c4e85b057bdc",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670592,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.631222648,
+      "prove_seconds": 14.626703254,
+      "submit_seconds": 44.387687868,
+      "total_seconds": 389.690538036,
+      "completed_unix": 1782871989,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "ee8f72e48a4e8d01ad4bed1dbdcf216d0f714a5555105ec6bd9016cd98a58684",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670624,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.662504014,
+      "prove_seconds": 14.563830223,
+      "submit_seconds": 44.289963124,
+      "total_seconds": 389.561187861,
+      "completed_unix": 1782872379,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "e6da6de948452c61f7ca5c2a55f41f5b6b11e7a28ea383b7226ff12950ee107f",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670656,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.547151261,
+      "prove_seconds": 14.763355657,
+      "submit_seconds": 84.887377907,
+      "total_seconds": 400.243077146,
+      "completed_unix": 1782872779,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "7e21956a193dd12bc55b8e50ea1f6ec213a3259093b6da31af8e95975d71e4b2",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670688,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.626150822,
+      "prove_seconds": 14.635928343,
+      "submit_seconds": 104.986300941,
+      "total_seconds": 420.293201249,
+      "completed_unix": 1782873199,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "92eb621d7f1191b179ad8395f3d537e7cc5d15db7b117cb3b02d1065bedc4778",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670720,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 270.548517751,
+      "prove_seconds": 14.711794417,
+      "submit_seconds": 64.496741988,
+      "total_seconds": 349.802023107,
+      "completed_unix": 1782873549,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "08e221710bdbc924cf6712de7d166558f0d96b79fcc77f46692d9d557c3218cc",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670752,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.595621026,
+      "prove_seconds": 14.697158731,
+      "submit_seconds": 44.527388203,
+      "total_seconds": 359.865030204,
+      "completed_unix": 1782873909,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "00f9162b9853ee26d1ff55347f83aff4f1ffe520d210852a32474e47d8b37db7",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670784,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.624055309,
+      "prove_seconds": 14.631013586,
+      "submit_seconds": 44.42136106,
+      "total_seconds": 389.722543755,
+      "completed_unix": 1782874298,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "83daaa43d9682d3b4f1dc5997b6afcc96bf9e767b789daff88cbe3b08060b34c",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670816,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.609163206,
+      "prove_seconds": 14.594999315,
+      "submit_seconds": 44.533897263,
+      "total_seconds": 359.783294985,
+      "completed_unix": 1782874658,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "687fa471aad213ebea4bbd1cdc010acd831925192af1b684afb388406d2ae8d5",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670848,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.593866498,
+      "prove_seconds": 14.556966667,
+      "submit_seconds": 44.095459275,
+      "total_seconds": 389.291250231,
+      "completed_unix": 1782875048,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "6a690f0016ec006ab4c193c3fca991ef989b2ec8fede2340a825a5525ad45770",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670880,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.602222143,
+      "prove_seconds": 14.583379815,
+      "submit_seconds": 64.547551279,
+      "total_seconds": 409.778018885,
+      "completed_unix": 1782875457,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "e8137c101c53842b4dcca60333d9f66c89f12a4b2f028e589e2e62c6917571ab",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670912,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.543171887,
+      "prove_seconds": 14.629897436,
+      "submit_seconds": 44.30823733,
+      "total_seconds": 359.526344673,
+      "completed_unix": 1782875817,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "911ab8a2e8100119b831d0c62b5891e62109d1a54626aa890d373f2e5d3fb3b5",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670944,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.604218992,
+      "prove_seconds": 14.599151879,
+      "submit_seconds": 85.078565211,
+      "total_seconds": 430.327364356,
+      "completed_unix": 1782876247,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "eec02ebc5edf27dbb9efbc772f7d769807b830113a81ea6b50c76d2cad318474",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14670976,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 270.641250782,
+      "prove_seconds": 14.569556305,
+      "submit_seconds": 64.282440758,
+      "total_seconds": 349.53817884,
+      "completed_unix": 1782876597,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "0311da4442c9a2e0c40eff39e4a5f4c5ba2d5f8ec6a9667bd4907310cce5ed49",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671008,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.65404852,
+      "prove_seconds": 14.494836011,
+      "submit_seconds": 44.407282473,
+      "total_seconds": 389.601274503,
+      "completed_unix": 1782876986,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "2df78871f1f75ba5670b613e12629be839dc92f7e47abc34a860c623e5c88ab9",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671040,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.628610267,
+      "prove_seconds": 14.483392277,
+      "submit_seconds": 145.581646999,
+      "total_seconds": 460.738611756,
+      "completed_unix": 1782877447,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "0ddf8c696518d6c4d3c89cf6afae660af7b1ee1e366c233a824726bcdbb734f6",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671072,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 240.501898682,
+      "prove_seconds": 14.641722556,
+      "submit_seconds": 64.469857672,
+      "total_seconds": 319.65825738,
+      "completed_unix": 1782877767,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "4e2ec16cdb10cb8c144178f928d63ea91b5441d871edae97ce76efaf89a46a57",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671104,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.537209934,
+      "prove_seconds": 14.666947538,
+      "submit_seconds": 44.275854026,
+      "total_seconds": 359.525040274,
+      "completed_unix": 1782878126,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "eb90a5ef344f3606f9b4cbc152461fbbf301436cbfa40e3ca50b665e31574b11",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671136,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.594059715,
+      "prove_seconds": 14.645662757,
+      "submit_seconds": 64.636755646,
+      "total_seconds": 409.921384206,
+      "completed_unix": 1782878536,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "17b65ee00f57a39293d0442b665dd5a7cc9c9b6fe3adbf959de166f12c8bd789",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671168,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.558023997,
+      "prove_seconds": 14.596861567,
+      "submit_seconds": 84.808705605,
+      "total_seconds": 400.008866142,
+      "completed_unix": 1782878936,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "5c76e7117d951e479fc7ba1a447578a732da615239e09798859e05635354ad0f",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671200,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 270.533569888,
+      "prove_seconds": 14.708501722,
+      "submit_seconds": 125.266380566,
+      "total_seconds": 410.553348252,
+      "completed_unix": 1782879347,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "2ec5f09cec1c9e9af1a5496f30e5776fdc1ce6a47724fe87b046acc50f146e38",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671232,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 270.554800097,
+      "prove_seconds": 14.538262041,
+      "submit_seconds": 44.416854126,
+      "total_seconds": 329.55488686,
+      "completed_unix": 1782879676,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "1c0c8df6af1ce7f963c4c726878594e908dfc00d04dbf2ffad573e60f92aef80",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671264,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.636818883,
+      "prove_seconds": 14.605714954,
+      "submit_seconds": 104.725959459,
+      "total_seconds": 420.013258393,
+      "completed_unix": 1782880096,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "64bf8ac963532c82a32f9439a3a87e4a1b0cba63cea6d852c649f853da1c5057",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671296,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 270.547268438,
+      "prove_seconds": 14.623168763,
+      "submit_seconds": 84.729681222,
+      "total_seconds": 369.94518057,
+      "completed_unix": 1782880466,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "edb37b3623bdb8b05c77511270d3c1b0479966645d50f391bbfdacf3b10b7464",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671328,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.669550117,
+      "prove_seconds": 14.592525815,
+      "submit_seconds": 64.621122988,
+      "total_seconds": 379.928062565,
+      "completed_unix": 1782880846,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "9649587c67417da59455924a1ace72bbeb8e7fad2b7fce3964ea0e9f4ee31277",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671360,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.522647589,
+      "prove_seconds": 14.644684336,
+      "submit_seconds": 105.176495668,
+      "total_seconds": 420.389062676,
+      "completed_unix": 1782881267,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "ab1f0dea8fce4a7d70907ffa4d6f4d2bebfb8786a3f256acb712fe77d1a57dae",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671392,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 270.597751779,
+      "prove_seconds": 14.700307128,
+      "submit_seconds": 185.992915907,
+      "total_seconds": 471.336085861,
+      "completed_unix": 1782881738,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "ce860c68d493530475ee91cf0e9230bd9e0e0e92949e2c0c9c5dacc50809b77d",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671424,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 180.397173877,
+      "prove_seconds": 14.690905448,
+      "submit_seconds": 64.484211093,
+      "total_seconds": 259.617398952,
+      "completed_unix": 1782881998,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "9fca38c5b1c11812994ec48fdf54deac22c43c8e24226434ccccec989cdce9c7",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671456,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.550559973,
+      "prove_seconds": 14.632384615,
+      "submit_seconds": 44.281641925,
+      "total_seconds": 359.509597972,
+      "completed_unix": 1782882357,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "7a4f6e66bf01923ce3184709093dc00a56b40c76130f6b5f6426693079851107",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671488,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.590057025,
+      "prove_seconds": 14.635062145,
+      "submit_seconds": 64.434257443,
+      "total_seconds": 409.704501976,
+      "completed_unix": 1782882767,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "3b0aed336e5d788889058039f0873b816c7abdc181ee7c00b3e00d05efc28af1",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671520,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.559195114,
+      "prove_seconds": 14.552860272,
+      "submit_seconds": 44.054936781,
+      "total_seconds": 359.211912746,
+      "completed_unix": 1782883126,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "31241a3a2189ceacddc167d607088562b2b491123a6a26158fc99785b7efe5bc",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671552,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.579714809,
+      "prove_seconds": 14.526771633,
+      "submit_seconds": 44.318591632,
+      "total_seconds": 389.471311778,
+      "completed_unix": 1782883515,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "055ec65805ae4385cf41d9d91086fcbe91cb79d9e9eb47385329d8255f79eb8d",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671584,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.550929065,
+      "prove_seconds": 14.605231113,
+      "submit_seconds": 44.335696291,
+      "total_seconds": 359.537714264,
+      "completed_unix": 1782883875,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "5167b7225924a066a54317abe661d7910f5e90852b9ae120798b8a9d2206b5d0",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671616,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.577493161,
+      "prove_seconds": 14.573991527,
+      "submit_seconds": 64.352945834,
+      "total_seconds": 409.549329781,
+      "completed_unix": 1782884285,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "c1eec54cd1f704c8be85794f50cae35b1f01d960bc0575316d2e7f8bafda3627",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671648,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.546306362,
+      "prove_seconds": 14.605739844,
+      "submit_seconds": 84.535496639,
+      "total_seconds": 399.73288956,
+      "completed_unix": 1782884684,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "9cb27d3ec50ea517bf7da19aa7987844a6cdd4dcf78e9952ef7b68d60368e008",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671680,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.588962555,
+      "prove_seconds": 14.560429327,
+      "submit_seconds": 44.316610657,
+      "total_seconds": 359.51106005,
+      "completed_unix": 1782885044,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "b0acb01fc0687e82347be40c8ded178d1416f25fdb9b9b10d48232a10bc24e7b",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671712,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 330.624678789,
+      "prove_seconds": 14.680240185,
+      "submit_seconds": 44.223205635,
+      "total_seconds": 389.574503185,
+      "completed_unix": 1782885433,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "0a9bd03707dbd5b36609dd42d2b2b73d3205c903eb3d97a9bd47522ae33bd766",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671744,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.528311322,
+      "prove_seconds": 14.590617686,
+      "submit_seconds": 185.491891484,
+      "total_seconds": 500.655821634,
+      "completed_unix": 1782885934,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "59020cd989936b9535d0d7577313b3983a710832c21a5ad2263c58a70ae25f99",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "REGULAR",
+      "finalized_slot": 14671775,
+      "signature_period": 1790,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 210.456663976,
+      "prove_seconds": 14.546078631,
+      "submit_seconds": 44.1715175,
+      "total_seconds": 269.219358786,
+      "completed_unix": 1782886203,
+      "cache_period_after": 1790,
+      "spend": {
+        "tx_hash": "bcae1b1233134ef1493232aedf41ad45fd7cc250e9519ecd2031dcb18e3a38e2",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 0,
+      "kind": "BOUNDARY",
+      "finalized_slot": 14671808,
+      "signature_period": 1791,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 300.92386248,
+      "prove_seconds": 432.030115326,
+      "submit_seconds": 165.833645928,
+      "total_seconds": 898.83260043,
+      "completed_unix": 1782887102,
+      "cache_period_after": 1791,
+      "spend": {
+        "tx_hash": "c8b296a91ab7cf16756f3d5c169a06985544482d817a640d36917e61b1675b55",
+        "ex_units_steps": 7265427726,
+        "ex_units_mem": 655584,
+        "fee_lovelace": 1010791,
+        "tx_size_bytes": 6676
+      },
+      "rotated_new_next": "2aed783b4b821cfea89e9cdfd64e2b0a3aeb05896385cfb0d89cba386ec016db",
+      "rotated_promoted_current": "3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1"
+    },
+    {
+      "plan_step_index": 1,
+      "kind": "REGULAR",
+      "finalized_slot": 14671840,
+      "signature_period": 1791,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 0.153272865,
+      "prove_seconds": 14.914742427,
+      "submit_seconds": 104.637953685,
+      "total_seconds": 119.751202307,
+      "completed_unix": 1782887222,
+      "cache_period_after": 1791,
+      "spend": {
+        "tx_hash": "6a7b6fc0f5c4911a6c3995513a69ff11c9bbf41e379d8521ec293edd1b1189b0",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    },
+    {
+      "plan_step_index": 2,
+      "kind": "REGULAR",
+      "finalized_slot": 14671872,
+      "signature_period": 1791,
+      "skipped_regulars": 0,
+      "poll_detect_seconds": 60.165517168,
+      "prove_seconds": 14.719009486000001,
+      "submit_seconds": 44.302649571,
+      "total_seconds": 119.232064444,
+      "completed_unix": 1782887341,
+      "cache_period_after": 1791,
+      "spend": {
+        "tx_hash": "868bb43968dcb1d9403032b5ea109a041b3dc78e89f71b6c0f8f05cee6c06d56",
+        "ex_units_steps": 7094172930,
+        "ex_units_mem": 611176,
+        "fee_lovelace": 995880,
+        "tx_size_bytes": 6676
+      }
+    }
+  ]
+}

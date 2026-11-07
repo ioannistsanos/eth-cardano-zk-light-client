@@ -1,0 +1,495 @@
+?   	eth-cardano-zk-light-client/prover/cmd/boot_genesis	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/capture_beacon	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/export_bls_fixture	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/export_boundary_fixture	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/export_fixture	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/groth16_prove	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/groth16_setup	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/headervector	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/helloworld	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_bootstrap	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_boundary	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_committee_bind	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_compressed_commit	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_decompress_pubkey	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_g1_validity	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_g1add	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_headerreconstruct	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_op3b	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_op6_assembled	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_poseidon_commit	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_pubkeys_root	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_regular	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_sha256	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/measure_slotbind	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/poc_encoding_sc4	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/poc_rogue_key	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/proof_to_json	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/proof_to_redeemer	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/relayer	[no test files]
+?   	eth-cardano-zk-light-client/prover/cmd/vk_to_json	[no test files]
+?   	eth-cardano-zk-light-client/prover/offchain/beacon	[no test files]
+=== RUN   TestBoundary_PositiveSolves
+    boundary_test.go:193: PASS: N=8 boundary solves — regular core + op-6 (next committee), op-3b fold AND op-6 walk both reach the ONE state_root
+    boundary_test.go:193: PASS: N=16 boundary solves — regular core + op-6 (next committee), op-3b fold AND op-6 walk both reach the ONE state_root
+--- PASS: TestBoundary_PositiveSolves (56.01s)
+=== RUN   TestBoundary_ProvesSmallN
+    boundary_test.go:224: PASS: N=2 boundary Setup->Prove->Verify (1594991 constraints)
+--- PASS: TestBoundary_ProvesSmallN (2342.00s)
+=== RUN   TestBoundary_PublicInputCount
+    boundary_test.go:244: PASS: witness.Public() == 12 Fr (Option-P: regular 11 + next_pubkeys_commitment)
+--- PASS: TestBoundary_PublicInputCount (0.03s)
+=== RUN   TestBoundary_Op6StateRootSingleSource
+    boundary_test.go:287: R7: strawman (separate op-6 state_root) SOLVES the forged next_sync_committee_branch — op-6 hole exploitable
+    boundary_test.go:294: R7 PASS: production REJECTS the same forged branch (op-6 folds to op-3a's authenticated state_root): [assertIsEqual] 57 == 214
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.nextCommitteePath
+        	op6assemble.go:155
+        common.defineBoundary
+        	boundary.go:84
+        common.(*BoundaryCircuit).Define
+        	boundary.go:51
+--- PASS: TestBoundary_Op6StateRootSingleSource (50.22s)
+=== RUN   TestCommitteeBind_PositiveSolves
+    committeebind_test.go:133: PASS: N=8 committee-bind solves (bind matches K, op-2 → apk, count single-sourced)
+    committeebind_test.go:133: PASS: N=16 committee-bind solves (bind matches K, op-2 → apk, count single-sourced)
+--- PASS: TestCommitteeBind_PositiveSolves (0.39s)
+=== RUN   TestCommitteeBind_ProvesSmallN
+    committeebind_test.go:166: PASS: N=2 committee-bind Setup→Prove→Verify (4446 constraints)
+--- PASS: TestCommitteeBind_ProvesSmallN (3.98s)
+=== RUN   TestCommitteeBind_Lock1_BindCatchesValue
+    committeebind_test.go:181: Lock-1 PASS: y+p on bits=0 key REJECTED by the bind: [assertIsEqual] 6965900761299756808659112662542236158931803834190864153530626859937981016146 == 34545736718477029242977902393289627091843427919173958254120432717709289268307
+        common.committeeBindAggregateCount
+        	committeebind.go:99
+        common.(*CommitteeBindCircuit).Define
+        	committeebind.go:62
+--- PASS: TestCommitteeBind_Lock1_BindCatchesValue (0.05s)
+=== RUN   TestCommitteeBind_Lock2_Op2RangeChecksAll
+    committeebind_test.go:202: Lock-2 PASS: out-of-range limb on bits=0 key REJECTED by op-2's range-check (bind passed): non-canonical integer limb wider than emulated parameter
+        emulated.(*Field[...]).enforceWidthConditional
+        	field.go:223
+        emulated.(*Field[...]).reduce
+        	field_reduce.go:17
+        emulated.(*Field[...]).Reduce
+        	field_reduce.go:12
+        emulated.(*Field[...]).IsZero
+        	field_assert.go:117
+        sw_emulated.(*Curve[...]).AddUnified
+        	point.go:243
+        common.committeeBindAggregateCount
+        	committeebind.go:114
+        common.(*CommitteeBindCircuit).Define
+        	committeebind.go:62
+--- PASS: TestCommitteeBind_Lock2_Op2RangeChecksAll (0.05s)
+=== RUN   TestCommitteeBind_SC1_StrawmanExploitable
+    committeebind_test.go:273: SC-1 PASS: two-array strawman SOLVES — forged apk while the commitment is over the real committee (hole exploitable)
+--- PASS: TestCommitteeBind_SC1_StrawmanExploitable (0.13s)
+=== RUN   TestCommitteeBind_SC1_ProductionRejects
+    committeebind_test.go:286: SC-1 PASS: production REJECTS — one array forces forged through the bind, Poseidon(forged) != K(real): [assertIsEqual] 22779406467124539966705878981269772018072288700026072252694723792547893056164 == 26955262150672159439805255733257691736184952754701601027899765088231205683412
+        common.committeeBindAggregateCount
+        	committeebind.go:99
+        common.(*CommitteeBindCircuit).Define
+        	committeebind.go:62
+--- PASS: TestCommitteeBind_SC1_ProductionRejects (0.06s)
+=== RUN   TestDecompressAcceptsRealPoint
+    decompresspubkey_test.go:75: PASS: decompress accepts the real point (recovered (x,y)=P)
+--- PASS: TestDecompressAcceptsRealPoint (0.02s)
+=== RUN   TestDecompressRejectsOffCurveY
+    decompresspubkey_test.go:98: PASS: off-curve y rejected by on-curve: [assertIsEqual] 45874540170042551425575481380003981894455649976454652572605346159890618626155 == 3057138137952404294316780455696351674264937771574465153919809569480284796598
+        emulated.(*mulCheck[...]).check
+        	field_mul.go:181
+        emulated.(*Field[...]).performDeferredChecks.func1
+        	field_mul.go:384
+        multicommit.(*multicommitter).commitAndCall
+        	nativecommit.go:148
+        common.solveDecompress
+        	decompresspubkey_test.go:65
+        common.TestDecompressRejectsOffCurveY
+        	decompresspubkey_test.go:95
+        testing.tRunner
+        	testing.go:1690
+        runtime.goexit
+        	asm_amd64.s:1700
+--- PASS: TestDecompressRejectsOffCurveY (0.02s)
+=== RUN   TestDecompressRejectsWrongSignY
+    decompresspubkey_test.go:117: PASS: wrong-sign -y rejected by sign-match: [assertIsEqual] 0 == 1
+        common.decompressAndValidate
+        	decompresspubkey.go:110
+        common.(*DecompressPubkeyCircuit).Define
+        	decompresspubkey.go:45
+--- PASS: TestDecompressRejectsWrongSignY (0.01s)
+=== RUN   TestDecompressProvesSmallN
+    decompresspubkey_test.go:154: PASS: N=1 Groth16 Setup->Prove->Verify (6813 constraints)
+    decompresspubkey_test.go:154: PASS: N=2 Groth16 Setup->Prove->Verify (13367 constraints)
+--- PASS: TestDecompressProvesSmallN (10.73s)
+=== RUN   TestDecompressRejectsInfinityFlag
+    decompresspubkey_test.go:194: PASS: infinity-flagged byte0 rejected by the flag check: [assertIsEqual] 1 == 0
+        common.decompressAndValidate
+        	decompresspubkey.go:77
+        common.(*DecompressPubkeyCircuit).Define
+        	decompresspubkey.go:45
+--- PASS: TestDecompressRejectsInfinityFlag (0.01s)
+=== RUN   TestDecompressRejectsCompressionClear
+    decompresspubkey_test.go:206: PASS: compression-clear byte0 rejected by the flag check: [assertIsEqual] 0 == 1
+        common.decompressAndValidate
+        	decompresspubkey.go:76
+        common.(*DecompressPubkeyCircuit).Define
+        	decompresspubkey.go:45
+--- PASS: TestDecompressRejectsCompressionClear (0.01s)
+=== RUN   TestDecompressRejectsNonCanonicalY
+    decompresspubkey_test.go:219: PASS: non-canonical y+p rejected by AssertIsLessOrEqual: [assertIsEqual] 52435875175126190479447740508185965837690552500527637822603658699938581184512 == 0
+        emulated.(*Field[...]).AssertIsLessOrEqual
+        	field_assert.go:82
+        common.decompressAndValidate
+        	decompresspubkey.go:106
+        common.(*DecompressPubkeyCircuit).Define
+        	decompresspubkey.go:45
+--- PASS: TestDecompressRejectsNonCanonicalY (0.02s)
+=== RUN   TestG1AddUnifiedProvesOverBLS12381
+    g1add_test.go:57: PASS: AddUnified(3G,5G)==8G verified over BLS12-381 (1890 R1CS constraints)
+--- PASS: TestG1AddUnifiedProvesOverBLS12381 (2.26s)
+=== RUN   TestHeaderReconstructProvesAgainstOfficialRoot
+    headerreconstruct_test.go:59: PASS: header reconstructed to official root 0xa2672769763d19c79dd7a584f37fd3391c0510c1fd6eba54ec0cd78748a84800; state_root extracted 0x77134de1d4dc7a8ffb098e305ae5ccfb7cb27cba5866712f95756ddbc044d328 (504292 constraints)
+--- PASS: TestHeaderReconstructProvesAgainstOfficialRoot (560.81s)
+=== RUN   TestFinalityBranchAnchorsToRealEthereum
+    op3b_test.go:90: PASS: gindex-169 fold reproduces REAL Ethereum (7-element Electra finality branch)
+    op3b_test.go:91:   finalized_header_root (leaf)  = 0x201a1d12d634bcf8de5a9281d8cf5974cb775be0f8741a1cf0123e0383878599
+    op3b_test.go:92:   state_root (matched target)   = 0xf93876060e648faceb03789c7d839596cf0d78baffda8b1c889d1639f1888a6a
+--- PASS: TestFinalityBranchAnchorsToRealEthereum (0.01s)
+=== RUN   TestFinalityBranch_PositiveSolvesOnRealData
+--- PASS: TestFinalityBranch_PositiveSolvesOnRealData (3.98s)
+=== RUN   TestFinalityBranch_ProvesOnRealData
+    op3b_test.go:134: PASS: real finality branch proven (507507 constraints)
+--- PASS: TestFinalityBranch_ProvesOnRealData (434.76s)
+=== RUN   TestFinalityBranch_TamperedLeafRejected
+    op3b_test.go:147: rejected as expected (terminal StateRoot ByteAssertEq): [assertIsEqual] 249 == 206
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.finalityWalk
+        	op3b.go:76
+        common.(*FinalityBranchCircuit).Define
+        	op3b.go:45
+--- PASS: TestFinalityBranch_TamperedLeafRejected (0.33s)
+=== RUN   TestFinalityBranch_TamperedSiblingRejected
+    op3b_test.go:159: rejected as expected (terminal StateRoot ByteAssertEq): [assertIsEqual] 249 == 83
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.finalityWalk
+        	op3b.go:76
+        common.(*FinalityBranchCircuit).Define
+        	op3b.go:45
+--- PASS: TestFinalityBranch_TamperedSiblingRejected (0.34s)
+=== RUN   TestFinalityBranch_WrongFoldRejected
+    op3b_test.go:214: rejected as expected (mutated fold misses the real state_root at the terminal ByteAssertEq): [assertIsEqual] 249 == 9
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.(*wrongFoldFinalityCircuit).Define
+        	op3b_test.go:193
+--- PASS: TestFinalityBranch_WrongFoldRejected (0.36s)
+=== RUN   TestOp6AnchorsToRealEthereum
+    op6anchor_test.go:114: PASS: gindex-87 fold + container layout reproduce REAL Ethereum (fork=electra, attested_slot=13107272, period=1600)
+    op6anchor_test.go:116:   pubkeys_root (gindex 174)       = 0x2ce5d1aebe0e9d52b8ed4f6ec26461c16dc2d92492b9dd06d08af9801bbfc6bd
+    op6anchor_test.go:117:   sync_committee_root (gindex 87) = 0x597eeb16d10b807b662f7e69529775049c54ef6beca51365a8f01d89ae63c930
+    op6anchor_test.go:118:   state_root (matched)            = 0xf93876060e648faceb03789c7d839596cf0d78baffda8b1c889d1639f1888a6a
+--- PASS: TestOp6AnchorsToRealEthereum (0.00s)
+=== RUN   TestOp6RealKeyDecompresses
+    op6anchor_test.go:133: PASS: decompress-and-validate accepts real Electra committee pubkey[0] (on-curve+sign+canonical recovered (x,y))
+--- PASS: TestOp6RealKeyDecompresses (0.02s)
+=== RUN   TestAssembledOp6_PositiveSolves
+    op6assemble_test.go:173: PASS: N=8 assembled solves — derived root walks to state_root (SC-2) + Poseidon (SC-3)
+    op6assemble_test.go:173: PASS: N=16 assembled solves — derived root walks to state_root (SC-2) + Poseidon (SC-3)
+--- PASS: TestAssembledOp6_PositiveSolves (25.60s)
+=== RUN   TestAssembledOp6_ProvesSmallN
+    op6assemble_test.go:206: PASS: N=2 assembled Setup->Prove->Verify (1054631 constraints)
+--- PASS: TestAssembledOp6_ProvesSmallN (796.03s)
+=== RUN   TestGapA_Source_StrawmanExploitable
+    op6assemble_test.go:222: PASS: GAP-a source strawman SOLVES — forged keys authenticated via the witnessed real root (hole exploitable)
+--- PASS: TestGapA_Source_StrawmanExploitable (30.07s)
+=== RUN   TestGapA_Source_ProductionRejects
+    op6assemble_test.go:235: PASS: GAP-a source production REJECTS — merkleize(forged) != real root, walk can't reach state_root: [assertIsEqual] 255 == 234
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.nextCommitteePath
+        	op6assemble.go:155
+        common.defineAssembledOp6
+        	op6assemble.go:103
+        common.(*AssembledOp6Circuit).Define
+        	op6assemble.go:60
+--- PASS: TestGapA_Source_ProductionRejects (2.61s)
+=== RUN   TestGapA_Terminal_StrawmanExploitable
+    op6assemble_test.go:258: PASS: GAP-a terminal strawman SOLVES — forged walk reaches a fresh terminal while op-3a authenticates real (hole exploitable)
+--- PASS: TestGapA_Terminal_StrawmanExploitable (26.93s)
+=== RUN   TestGapA_Terminal_ProductionRejects
+    op6assemble_test.go:275: PASS: GAP-a terminal production REJECTS — forged walk != c.StateRoot (op-3a's authenticated wire): [assertIsEqual] 16 == 53
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.nextCommitteePath
+        	op6assemble.go:155
+        common.defineAssembledOp6
+        	op6assemble.go:103
+        common.(*AssembledOp6Circuit).Define
+        	op6assemble.go:60
+--- PASS: TestGapA_Terminal_ProductionRejects (3.32s)
+=== RUN   TestGapB_StrawmanExploitable
+    op6assemble_test.go:299: PASS: GAP-b strawman SOLVES — real keys authenticated, forged keys committed (SC-1 break exploitable)
+--- PASS: TestGapB_StrawmanExploitable (16.83s)
+=== RUN   TestGapB_ProductionRejectsFork
+    op6assemble_test.go:316: PASS: GAP-b production REJECTS — one array forces forged through SHA too, walk can't reach real state_root: [assertIsEqual] 131 == 235
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.nextCommitteePath
+        	op6assemble.go:155
+        common.defineAssembledOp6
+        	op6assemble.go:103
+        common.(*AssembledOp6Circuit).Define
+        	op6assemble.go:60
+--- PASS: TestGapB_ProductionRejectsFork (1.35s)
+=== RUN   TestGapC_Assembled_OffCurveY
+    op6assemble_test.go:344: PASS: GAP-c assembled off-curve y REJECTED by on-curve (decompress teeth survive): [assertIsEqual] 40437985104136615999102848040282339298379955853456754217876259326095511464842 == 28502630040193203291439329876179885445782799348021769166941510961717481073056
+        common.nextCommitteePath
+        	op6assemble.go:175
+        common.defineAssembledOp6
+        	op6assemble.go:103
+        common.(*AssembledOp6Circuit).Define
+        	op6assemble.go:60
+--- PASS: TestGapC_Assembled_OffCurveY (1.77s)
+=== RUN   TestGapC_Assembled_WrongSignY
+    op6assemble_test.go:358: PASS: GAP-c assembled wrong-sign y REJECTED by sign-match (decompress teeth survive): [assertIsEqual] 0 == 1
+        common.decompressAndValidate
+        	decompresspubkey.go:110
+        common.nextCommitteePath
+        	op6assemble.go:171
+        common.defineAssembledOp6
+        	op6assemble.go:103
+        common.(*AssembledOp6Circuit).Define
+        	op6assemble.go:60
+--- PASS: TestGapC_Assembled_WrongSignY (1.50s)
+=== RUN   TestPackRoot_MatchesBigEndianHalves
+    packing_test.go:86: PASS: packRoot == off-circuit big-endian 16-byte halves (the locked Plutus-verifier spec); msb-probe high half = 0xff·2^120
+--- PASS: TestPackRoot_MatchesBigEndianHalves (0.00s)
+=== RUN   TestPackRoot_Proves
+    packing_test.go:116: PASS: packRoot Groth16 (2 constraints)
+--- PASS: TestPackRoot_Proves (0.03s)
+=== RUN   TestPoseidonParity_CircuitMatchesOffchainCommit
+--- PASS: TestPoseidonParity_CircuitMatchesOffchainCommit (0.01s)
+=== RUN   TestPoseidonParity_WrongDigestRejects
+--- PASS: TestPoseidonParity_WrongDigestRejects (0.01s)
+=== RUN   TestPubkeysRootAnchorsToConsensus
+    pubkeysroot_test.go:94: PASS: off-circuit pubkeys_root anchored to consensus container root = 0xa9acbacc376b3e73dbd8f0657d1144c03ecaaa376eb8f03fa05705ecebf0a70f
+--- PASS: TestPubkeysRootAnchorsToConsensus (0.02s)
+=== RUN   TestPubkeysRootSolves512
+    pubkeysroot_test.go:105: full-512 in-circuit solver OOMs locally (~7GB); AWS-only — set RUN_AWS_HEAVY=1
+--- SKIP: TestPubkeysRootSolves512 (0.00s)
+=== RUN   TestPubkeysRootProvesSmallN
+    pubkeysroot_test.go:157: PASS: N=2 Groth16 Setup->Prove->Verify; root 0xff0ad46349081d8c076b8f3872d9c81391ddb6a445ca769a41becbdf9626ba00 (291838 constraints)
+    pubkeysroot_test.go:157: PASS: N=4 Groth16 Setup->Prove->Verify; root 0x44ae228e3efaef674192c014d96309393d21b84d4d529c881617d76777567490 (505543 constraints)
+--- PASS: TestPubkeysRootProvesSmallN (550.36s)
+=== RUN   TestRegular_PositiveSolves
+    regular_test.go:145: PASS: N=8 regular assembly solves — committee + op-3a + op-3b + op-4 + Option-P packing
+    regular_test.go:145: PASS: N=16 regular assembly solves — committee + op-3a + op-3b + op-4 + Option-P packing
+--- PASS: TestRegular_PositiveSolves (14.19s)
+=== RUN   TestRegular_ProvesSmallN
+    regular_test.go:177: PASS: N=2 regular assembly Setup->Prove->Verify (1044633 constraints)
+--- PASS: TestRegular_ProvesSmallN (678.80s)
+=== RUN   TestRegular_PublicInputCount
+    regular_test.go:198: PASS: witness.Public() == 11 Fr (Option-P layout)
+--- PASS: TestRegular_PublicInputCount (0.02s)
+=== RUN   TestRegular_StateRootSingleSource
+    regular_test.go:255: R7: strawman (separate op-3b state_root) SOLVES the forged finalized_header_root — hole exploitable
+    regular_test.go:262: R7 PASS: production REJECTS the same forged root (op-3b folds to op-3a's authenticated state_root): [assertIsEqual] 76 == 4
+        uints.(*BinaryField[...]).ByteAssertEq
+        	uint8.go:335
+        common.finalityWalk
+        	op3b.go:76
+        common.defineRegularCore
+        	regular.go:141
+        common.defineRegular
+        	regular.go:89
+        common.(*RegularCircuit).Define
+        	regular.go:67
+--- PASS: TestRegular_StateRootSingleSource (22.84s)
+=== RUN   TestSha256ProvesOverBLS12381
+    sha256_test.go:54: PASS: in-circuit SHA-256(64B)==crypto/sha256 over BLS12-381 (185476 constraints, 2 blocks)
+--- PASS: TestSha256ProvesOverBLS12381 (131.81s)
+=== RUN   TestSlotBindProvesAgainstOfficialRoot
+    slotbind_test.go:99: PASS: slot 16101738745833384750 bound to official root 0xa2672769763d19c79dd7a584f37fd3391c0510c1fd6eba54ec0cd78748a84800 over BLS12-381 (292396 constraints)
+--- PASS: TestSlotBindProvesAgainstOfficialRoot (199.96s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/circuits/common	5971.201s
+=== RUN   TestComputeForkDataRoot_SpecVector
+--- PASS: TestComputeForkDataRoot_SpecVector (0.00s)
+=== RUN   TestComputeSigningRoot_SpecVector
+--- PASS: TestComputeSigningRoot_SpecVector (0.00s)
+=== RUN   TestComputeDomain_Wiring
+--- PASS: TestComputeDomain_Wiring (0.00s)
+=== RUN   TestFastAggregateVerify_SpecVectorValid
+--- PASS: TestFastAggregateVerify_SpecVectorValid (0.01s)
+=== RUN   TestFastAggregateVerify_SpecVectorTampered
+--- PASS: TestFastAggregateVerify_SpecVectorTampered (0.00s)
+=== RUN   TestVerifySyncAggregate_SelfSignedRoundTrip
+--- PASS: TestVerifySyncAggregate_SelfSignedRoundTrip (0.11s)
+=== RUN   TestVerifySyncAggregate_TamperedSignatureRejected
+--- PASS: TestVerifySyncAggregate_TamperedSignatureRejected (0.10s)
+=== RUN   TestVerifySyncAggregate_BelowThresholdRejected
+--- PASS: TestVerifySyncAggregate_BelowThresholdRejected (0.10s)
+=== RUN   TestVerifySyncAggregate_AtThresholdAccepted
+--- PASS: TestVerifySyncAggregate_AtThresholdAccepted (0.10s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/bls	0.427s
+=== RUN   TestBuildGenesisValues_RealPositive
+    boot_test.go:52: PASS: §2.1.6 gate → genesis values match the golden datum (current 0x10041e8ce930…, slot 13107200)
+--- PASS: TestBuildGenesisValues_RealPositive (0.24s)
+=== RUN   TestBuildGenesisValues_LoadFailureAborts
+--- PASS: TestBuildGenesisValues_LoadFailureAborts (0.00s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/boot	0.242s
+=== RUN   TestBootstrap_RealPositive
+    bootstrap_realpositive_test.go:79: PASS: real period-1600 genesis verifies end-to-end (gate (iv) BLS on a real signature, 510/512 participation)
+    bootstrap_realpositive_test.go:80:   datum = {current 0x10041e8ce930617c420c43546f39dc8d123cec24e199f3f51dfadcb448529e1e, next 0x483e20c94d6075d0dd670d9b6fe7144456eecc96fadb501ac719e4473625510f, finalized_root 0x201a1d12d634bcf8de5a9281d8cf5974cb775be0f8741a1cf0123e0383878599, finalized_slot 13107200}
+--- PASS: TestBootstrap_RealPositive (0.19s)
+=== RUN   TestBootstrap_PositiveVerifies
+    bootstrap_test.go:211: PASS: all 5 conditions verify → datum {current/next commitments, finalized root/slot}
+--- PASS: TestBootstrap_PositiveVerifies (0.37s)
+=== RUN   TestBootstrap_NonCanonicalKeyRejected
+--- PASS: TestBootstrap_NonCanonicalKeyRejected (0.21s)
+=== RUN   TestBootstrap_WrongCurrentBranchRejected
+--- PASS: TestBootstrap_WrongCurrentBranchRejected (0.32s)
+=== RUN   TestBootstrap_WrongNextBranchRejected
+--- PASS: TestBootstrap_WrongNextBranchRejected (0.32s)
+=== RUN   TestBootstrap_WrongFinalityBranchRejected
+--- PASS: TestBootstrap_WrongFinalityBranchRejected (0.31s)
+=== RUN   TestBootstrap_TamperedAggregateRejected
+--- PASS: TestBootstrap_TamperedAggregateRejected (0.29s)
+=== RUN   TestBootstrap_WrongCheckpointRejected
+--- PASS: TestBootstrap_WrongCheckpointRejected (0.30s)
+=== RUN   TestBootstrap_PeriodEqualityPasses
+--- PASS: TestBootstrap_PeriodEqualityPasses (0.40s)
+=== RUN   TestBootstrap_PeriodMismatchRejected
+--- PASS: TestBootstrap_PeriodMismatchRejected (0.21s)
+=== RUN   TestBootstrap_PoseidonMatchSolveAnchor
+    bootstrap_test.go:360: PASS: bootstrap commitment SOLVES CommitteeBindCircuit — genesis datum validates against the first regular update
+--- PASS: TestBootstrap_PoseidonMatchSolveAnchor (0.12s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/bootstrap	3.144s
+=== RUN   TestCommit_EquivalentToInlineOriginal
+--- PASS: TestCommit_EquivalentToInlineOriginal (0.01s)
+=== RUN   TestCommit_GoldenValue
+    commitment_test.go:72: Commit([G1 generator]) = 4df3ca8a29f6b37c04fefb167022ae638df17383caf668b718bf3b65aa320652
+--- PASS: TestCommit_GoldenValue (0.00s)
+=== RUN   TestCommit_Deterministic
+--- PASS: TestCommit_Deterministic (0.00s)
+=== RUN   TestCommit_ExplicitParametersEquivalent
+--- PASS: TestCommit_ExplicitParametersEquivalent (0.01s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/commitment	0.032s
+=== RUN   TestProverEquivalence_ToyRegular
+    prover_test.go:69: EQUIVALENCE OK — both Verify-OK, 11 identical publics, proof 292 B (in-process 52.893s / standalone 56.194s prove)
+--- PASS: TestProverEquivalence_ToyRegular (1673.27s)
+=== RUN   TestRefuseScratchInsideGitRepository
+    proving_test.go:31: PASS: refused as required: scratch dir /tmp/TestRefuseScratchInsideGitRepository2315758869/002/scratch is inside the git repository rooted at /tmp/TestRefuseScratchInsideGitRepository2315758869/002 — pk/τ material must live OUTSIDE any repo tree
+--- PASS: TestRefuseScratchInsideGitRepository (0.03s)
+=== RUN   TestArtifactPaths_EmbedSizeAndSplitDirs
+--- PASS: TestArtifactPaths_EmbedSizeAndSplitDirs (0.01s)
+=== RUN   TestSetupProveRoundTrip_RegularToy
+    proving_test.go:101: PASS: toy round-trip — setup (1044633 constraints, 1270.7s) → prove ×2 (median 84.95s, Verify nil every iteration) → artifacts in the right dirs
+--- PASS: TestSetupProveRoundTrip_RegularToy (1627.03s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/proving	3301.815s
+=== RUN   TestBuildBLSFields_RegularMatchesFixture
+    bls_fields_test.go:68: BLS-fields gate GREEN — apk/count(510)/σ/attested/fork/gvr byte-identical to bls_regular_period1600.json
+--- PASS: TestBuildBLSFields_RegularMatchesFixture (0.08s)
+=== RUN   TestBuildBLSFields_BoundaryAggregatesSigningCommittee
+    bls_fields_test.go:106: boundary BLS gate GREEN — σ verifies under the signing committee; apk(510 participants) byte-identical to the regular path
+--- PASS: TestBuildBLSFields_BoundaryAggregatesSigningCommittee (0.16s)
+=== RUN   TestDiscern_Regular
+--- PASS: TestDiscern_Regular (0.00s)
+=== RUN   TestDiscern_BoundaryAndRotation
+--- PASS: TestDiscern_BoundaryAndRotation (0.00s)
+=== RUN   TestDiscern_HaltMultiBoundary
+--- PASS: TestDiscern_HaltMultiBoundary (0.00s)
+=== RUN   TestDiscern_NoProgressSkips
+--- PASS: TestDiscern_NoProgressSkips (0.00s)
+=== RUN   TestDiscern_PostBoundaryRegular
+--- PASS: TestDiscern_PostBoundaryRegular (0.00s)
+=== RUN   TestParseSpendJSON_D27
+    live_test.go:36: SPEND-PARSE GATE GREEN — RELAYER_JSON → SpendResult{tx 90c3b3e1…, 7094172930 steps / 611176 mem, fee 995880, 6676 B} (the D27 numbers)
+--- PASS: TestParseSpendJSON_D27 (0.00s)
+=== RUN   TestParseSpendJSON_MissingLine
+--- PASS: TestParseSpendJSON_MissingLine (0.00s)
+=== RUN   TestLoop_FullScenario
+    loop_test.go:141: FULL SCENARIO GREEN — reg,reg,[skip 1]boundary+rotate(1600→1601),reg,reg; STATUS confirmed 5/5; self-stop once
+--- PASS: TestLoop_FullScenario (0.01s)
+=== RUN   TestLoop_HaltBoundaryAtRegularStep
+    loop_test.go:168: SCHEDULE-MISMATCH HALT GREEN — boundary at planned-regular step → halted + self-stop, error recorded
+--- PASS: TestLoop_HaltBoundaryAtRegularStep (0.00s)
+=== RUN   TestLoop_HaltOnExecutorFailureAndStops
+    loop_test.go:189: AUTO-HALT GREEN — executor failure at reg#2 → halted (1/5 done) + self-stop + error in STATUS
+--- PASS: TestLoop_HaltOnExecutorFailureAndStops (0.00s)
+=== RUN   TestLoop_RegularsUntilBoundary
+    loop_test.go:280: REGULAR* GATE GREEN — 3 regulars SPENT (variable) → boundary+rotate(1600→1601) → 2 regulars; 6 phases; STATUS confirmed; self-stop once
+--- PASS: TestLoop_RegularsUntilBoundary (0.01s)
+=== RUN   TestBoundaryRotation_OverrideAlignsWitnessBLSAndCommitment
+    relayer_rotation_test.go:141: Tier-2 GREEN: pubkeys_commitment == datum.next 0037525bb6a5cb7a7471339e8c47bc1503f92ea51136ca6d796bf761749bbcc6; σ@1789 verifies under Σ C_1789 (count 512); apk == proof's apk; op-6 anchor OK
+--- PASS: TestBoundaryRotation_OverrideAlignsWitnessBLSAndCommitment (0.47s)
+=== RUN   TestRotateSigningCommittee_PromotesNextThenAdvances
+    relayer_rotation_test.go:180: Change-C rotation GREEN: current <- C_1789 (0037525bb6a5…), next <- C_1790 (4b0faa29c3a3…)
+--- PASS: TestRotateSigningCommittee_PromotesNextThenAdvances (0.15s)
+=== RUN   TestSeedCache_Period1600KnownGood
+    seed_test.go:35: SEEDING GATE GREEN — seeded current 10041e8ce930… / next 483e20c94d60… (period 1600, slot 13107200) == known-good gate-1/D27 values
+--- PASS: TestSeedCache_Period1600KnownGood (0.18s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/relayer	1.128s
+=== RUN   TestGindex86Walk_SyntheticAnchor
+--- PASS: TestGindex86Walk_SyntheticAnchor (0.00s)
+=== RUN   TestGindex86Walk_OneBitDiffersFromGindex87
+--- PASS: TestGindex86Walk_OneBitDiffersFromGindex87 (0.00s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/ssz	0.003s
+=== RUN   TestRealBoundaryFixture_ProofVerifiesUnderConsumedDatumKey
+    real_boundary_fixture_test.go:246: public[ 0] = 3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1
+    real_boundary_fixture_test.go:246: public[ 1] = 00000000000000001fab1f3c777b9e054aae95b04e791423dc39b2d45fdadc57
+    real_boundary_fixture_test.go:246: public[ 2] = 000000000000000007315b7ae0d3291a527264cc901b76e6770721ac92005668
+    real_boundary_fixture_test.go:246: public[ 3] = 0000000000000000e3463c30708068b39c65aa55c8e533abad7bd5920c3b1315
+    real_boundary_fixture_test.go:246: public[ 4] = 000000000000000000c1eea99920c9be232e41b3cb82514be7a0d89066107167
+    real_boundary_fixture_test.go:246: public[ 5] = 00000000000000000000000000000000000000000000000000000000000001f9
+    real_boundary_fixture_test.go:246: public[ 6] = 00000000000000000000000000000000fca2bad46e3e5260228fec16653435a6
+    real_boundary_fixture_test.go:246: public[ 7] = 000000000000000000000000000000000c133c4a2bfa02cc443c7923de25f2d2
+    real_boundary_fixture_test.go:246: public[ 8] = 00000000000000000000000000000000735b480fd3356204d0591d927d457cea
+    real_boundary_fixture_test.go:246: public[ 9] = 00000000000000000000000000000000ae10db78213a5cced79fcbfecf24b115
+    real_boundary_fixture_test.go:246: public[10] = 0000000000000000000000000000000000000000000000000000000000dfdfc0
+    real_boundary_fixture_test.go:246: public[11] = 2aed783b4b821cfea89e9cdfd64e2b0a3aeb05896385cfb0d89cba386ec016db
+    real_boundary_fixture_test.go:251: groth16.Verify: the boundary proof verifies under the consumed datum's boundary verifying key (count 505, slot 14671808)
+--- PASS: TestRealBoundaryFixture_ProofVerifiesUnderConsumedDatumKey (0.08s)
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/count_plus_one
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/finalized_slot_equal_to_the_consumed_slot
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/produced_next_commitment_replaced_by_the_consumed_one
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+--- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected (0.15s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/count_plus_one (0.04s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/finalized_slot_equal_to_the_consumed_slot (0.04s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/produced_next_commitment_replaced_by_the_consumed_one (0.06s)
+=== RUN   TestBuildRegular_GoldenPublics
+    witness_test.go:128: PASS: full-512 regular witness — commitment/roots/slot/count all golden; Public() == 11 Fr
+--- PASS: TestBuildRegular_GoldenPublics (0.10s)
+=== RUN   TestBuildBoundary_GoldenPublics
+    witness_test.go:160: PASS: full-512 boundary witness — next commitment golden (87-anchor passed inside the builder); Public() == 12 Fr
+--- PASS: TestBuildBoundary_GoldenPublics (0.27s)
+=== RUN   TestBuildRegular_SignatureVerifiesUnderBuilderApk
+    witness_test.go:216: PASS: the real sync_aggregate σ verifies under the BUILDER's apk (510 participants) — bit↔key alignment cryptographically confirmed
+--- PASS: TestBuildRegular_SignatureVerifiesUnderBuilderApk (0.13s)
+=== RUN   TestBuildRegular_RealElectraSolves
+    witness_test.go:234: PASS: N=8 — the builder's real-data witness solves (current-committee keys + real bits + real finality)
+    witness_test.go:234: PASS: N=16 — the builder's real-data witness solves (current-committee keys + real bits + real finality)
+--- PASS: TestBuildRegular_RealElectraSolves (19.42s)
+=== RUN   TestBuildRegular_RealElectraProves
+    witness_test.go:270: PASS: real-data Groth16 N=2 through the production builder (1044633 constraints)
+--- PASS: TestBuildRegular_RealElectraProves (1401.28s)
+=== RUN   TestBuildBoundary_TruncatedRefused
+    witness_test.go:280: PASS: truncated boundary refused as documented: boundary witness is full-size only (numberOfKeys 8, committees 512 current / 512 next): with the real gindex-87 branch a truncated next-committee root cannot reach the real state_root
+--- PASS: TestBuildBoundary_TruncatedRefused (0.01s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/witness	1422.162s

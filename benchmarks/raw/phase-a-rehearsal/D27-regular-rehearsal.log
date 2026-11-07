@@ -1,0 +1,17 @@
+# D24-vk rehearsal Boot + 1 regular spend — Preview, 2026-06-17
+# *** REHEARSAL / DEAD-END BRIDGE *** vk_D24 + the one committed proof_D24 (matched pair); pk_D24 is
+#   DESTROYED (D24) -> no further spend is possible. This is NOT the scenario's vk_fresh bridge.
+# bridge address: addr_test1wzv7typ2ak2m8aew2h65gpca6aswvzm94jx73w4jv9y2djczpg542  (POLICY 40c0b53a…)
+# genesis datum: D24-vk real_input (finalized=0, slot 13107199), sha2_256 ad5b7929…
+
+BOOT  tx 27c9765bcea19cb1b7def355231aa89be87a08c06272386328fec75f32e13db2
+  bridge UTxO 27c9765b…#0 ; minADA 12447280 (12.4473 ADA) ; tx 3598 B ; fee 317085 (0.3171 ADA) ; datum 2632 B
+
+DRY-BUILD (Blockfrost evaluate, regular) — D27 source
+  ExUnits 7094172930 steps / 611176 mem ; fee 995880 (0.9959 ADA) ; tx 6676 B (40.7% of 16384) ; SCRIPT ACCEPTED
+
+SUBMIT  tx 90c3b3e190a452e945ff7b10cc5435e285e38da27fd8edd7f05c6464675151e8
+  new bridge UTxO 90c3b3e1…#0 ; ExUnits 7094172930 / 611176 (== dry-build) ; datum update == 75d154ea (2632 B) CONFIRMED
+
+PRE-REG: CPU ≈ 5,944,631,108 (gate-1) ; mem ≈ 650,438
+MEASURED: CPU 7,094,172,930 (+19.3%) ; mem 611,176 (-6.0%)

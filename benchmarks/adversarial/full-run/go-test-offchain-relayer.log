@@ -1,0 +1,47 @@
+# go test ./offchain/relayer/ -count=1 -v -timeout 100m, run in /home/itsanos/thesis/prover with GOTOOLCHAIN=local GOFLAGS=-mod=mod GOPROXY=off, 2026-11-03; go1.23.6 linux/amd64
+# offchain/relayer rc=0 elapsed_seconds=7.0
+
+=== RUN   TestBuildBLSFields_RegularMatchesFixture
+    bls_fields_test.go:68: BLS-fields gate GREEN — apk/count(510)/σ/attested/fork/gvr byte-identical to bls_regular_period1600.json
+--- PASS: TestBuildBLSFields_RegularMatchesFixture (0.13s)
+=== RUN   TestBuildBLSFields_BoundaryAggregatesSigningCommittee
+    bls_fields_test.go:106: boundary BLS gate GREEN — σ verifies under the signing committee; apk(510 participants) byte-identical to the regular path
+--- PASS: TestBuildBLSFields_BoundaryAggregatesSigningCommittee (0.25s)
+=== RUN   TestDiscern_Regular
+--- PASS: TestDiscern_Regular (0.00s)
+=== RUN   TestDiscern_BoundaryAndRotation
+--- PASS: TestDiscern_BoundaryAndRotation (0.00s)
+=== RUN   TestDiscern_HaltMultiBoundary
+--- PASS: TestDiscern_HaltMultiBoundary (0.00s)
+=== RUN   TestDiscern_NoProgressSkips
+--- PASS: TestDiscern_NoProgressSkips (0.00s)
+=== RUN   TestDiscern_PostBoundaryRegular
+--- PASS: TestDiscern_PostBoundaryRegular (0.00s)
+=== RUN   TestParseSpendJSON_D27
+    live_test.go:36: SPEND-PARSE GATE GREEN — RELAYER_JSON → SpendResult{tx 90c3b3e1…, 7094172930 steps / 611176 mem, fee 995880, 6676 B} (the D27 numbers)
+--- PASS: TestParseSpendJSON_D27 (0.00s)
+=== RUN   TestParseSpendJSON_MissingLine
+--- PASS: TestParseSpendJSON_MissingLine (0.00s)
+=== RUN   TestLoop_FullScenario
+    loop_test.go:141: FULL SCENARIO GREEN — reg,reg,[skip 1]boundary+rotate(1600→1601),reg,reg; STATUS confirmed 5/5; self-stop once
+--- PASS: TestLoop_FullScenario (0.02s)
+=== RUN   TestLoop_HaltBoundaryAtRegularStep
+    loop_test.go:168: SCHEDULE-MISMATCH HALT GREEN — boundary at planned-regular step → halted + self-stop, error recorded
+--- PASS: TestLoop_HaltBoundaryAtRegularStep (0.00s)
+=== RUN   TestLoop_HaltOnExecutorFailureAndStops
+    loop_test.go:189: AUTO-HALT GREEN — executor failure at reg#2 → halted (1/5 done) + self-stop + error in STATUS
+--- PASS: TestLoop_HaltOnExecutorFailureAndStops (0.01s)
+=== RUN   TestLoop_RegularsUntilBoundary
+    loop_test.go:280: REGULAR* GATE GREEN — 3 regulars SPENT (variable) → boundary+rotate(1600→1601) → 2 regulars; 6 phases; STATUS confirmed; self-stop once
+--- PASS: TestLoop_RegularsUntilBoundary (0.02s)
+=== RUN   TestBoundaryRotation_OverrideAlignsWitnessBLSAndCommitment
+    relayer_rotation_test.go:141: Tier-2 GREEN: pubkeys_commitment == datum.next 0037525bb6a5cb7a7471339e8c47bc1503f92ea51136ca6d796bf761749bbcc6; σ@1789 verifies under Σ C_1789 (count 512); apk == proof's apk; op-6 anchor OK
+--- PASS: TestBoundaryRotation_OverrideAlignsWitnessBLSAndCommitment (0.93s)
+=== RUN   TestRotateSigningCommittee_PromotesNextThenAdvances
+    relayer_rotation_test.go:180: Change-C rotation GREEN: current <- C_1789 (0037525bb6a5…), next <- C_1790 (4b0faa29c3a3…)
+--- PASS: TestRotateSigningCommittee_PromotesNextThenAdvances (0.31s)
+=== RUN   TestSeedCache_Period1600KnownGood
+    seed_test.go:35: SEEDING GATE GREEN — seeded current 10041e8ce930… / next 483e20c94d60… (period 1600, slot 13107200) == known-good gate-1/D27 values
+--- PASS: TestSeedCache_Period1600KnownGood (0.51s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/relayer	2.276s

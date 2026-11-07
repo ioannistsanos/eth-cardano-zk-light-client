@@ -1,0 +1,83 @@
+# M5 — Synthetic Phase A REGULAR (Groth16 D1 4-ML + BLS-real D2 + MSM-6) — RAW aiken check output
+# Generated: 2026-05-29T11:21:12Z
+#
+# Command (run from validator/, G7 exact-match per gotcha G7):
+#   aiken check -e -m bench_m5_core -m bench_m5_control --seed 42
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: 037e0c6
+#
+# Determinism: 3 iterations, byte-identical (same md5):
+#   104cc8b5400b4cf3977cbb6b244aa31a    iter 1
+#   104cc8b5400b4cf3977cbb6b244aa31a    iter 2
+#   104cc8b5400b4cf3977cbb6b244aa31a    iter 3
+#
+# Headline:
+#   bench_m5_core      3,191,261,979 cpu / 13,678 mem
+#   bench_m5_control     362,184,888 cpu /  3,648 mem
+#   marginal = core - control = 2,829,077,091 cpu / 10,030 mem
+#
+# Additivity (PRIMARY target, locked before measurement):
+#   target = M1b 1,354,670,882 + M2-real 1,008,845,331 + M3 465,400,878 = 2,828,917,091
+#   Delta  = marginal - target = +160,000  (+0.005656%)   H0 (+/-0.05%) PASS by ~8.8x
+#
+# Secondary (cost-model pure builtins, no CEK):
+#   2,827,725,687 ; marginal - secondary = +1,351,404 total CEK in M5 marginal
+#   expected aggregate per-builtin CEK = +1,191,404 (+448,000 M1b -72,596 M2-real +816,000 M3)
+#   residual = +160,000 = cross-structure CEK (trace symmetric -> no trace artifact)
+#
+# UPLC builtin tally (aiken export + aiken uplc decode --cbor --hex; temp mirrors removed):
+#   pf_m5_core    : 6 millerLoop, 2 mulMlResult, 2 finalVerify, 1 G2_hashToGroup,
+#                   6 G1_scalarMul, 6 G1_add, 4 G1_uncompress, 2 G2_uncompress, 1 sha2_256, 1 trace
+#   pf_m5_control : 4 G1_uncompress, 2 G2_uncompress, 1 sha2_256, 1 trace ; ZERO operation builtins
+#   trace_core (1) == trace_control (1) -> symmetric -> cancels in marginal
+#
+# Gates: operation-counts == union PASS ; trace symmetric PASS ; |Delta%| <= 0.05% PASS.
+# Scope: crypto+MSM only; EXCLUDES datum/redeemer/anchor/NFT/write (Phase 4).
+# ============================================================
+{
+  "seed": 42,
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "kind": {
+      "unit": 2,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m5_phase_a_regular",
+      "summary": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "kind": {
+          "unit": 2,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m5_core",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 13678,
+            "cpu": 3191261979
+          }
+        },
+        {
+          "title": "bench_m5_control",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 3648,
+            "cpu": 362184888
+          }
+        }
+      ]
+    }
+  ]
+}

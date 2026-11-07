@@ -1,0 +1,177 @@
+eth-cardano-zk-light-client
+Copyright 2026 Ioannis Tsanos
+
+Licensed under the Apache License, Version 2.0. See the file LICENSE.
+
+Third-party test vectors
+------------------------
+
+The directories below contain test vectors of ethereum/consensus-spec-tests
+(https://github.com/ethereum/consensus-spec-tests). For each set the release is
+given exactly as this source tree records it.
+
+  prover/offchain/bls/testdata/ssz_static/ForkData/
+  prover/offchain/bls/testdata/ssz_static/SigningData/
+      recorded in prover/offchain/bls/domain_test.go as
+      "consensus-spec-tests v1.5.0 ssz_static/{ForkData,SigningData} (ssz_random case_0)"
+
+  prover/offchain/bls/testdata/fast_aggregate_verify/valid/
+  prover/offchain/bls/testdata/fast_aggregate_verify/tampered_signature/
+      recorded in prover/offchain/bls/verify_test.go as
+      "consensus-spec-tests v1.5.0 bls/fast_aggregate_verify valid_/tampered_signature_3d7576f3c0e3570a"
+
+  prover/circuits/common/testdata/bbh/
+      recorded in prover/cmd/headervector/main.go as an "official consensus-spec-tests
+      BeaconBlockHeader vector (Fulu, mainnet)". No release is recorded
+
+  prover/circuits/common/testdata/synccommittee/
+      recorded in docs/security/SEC-01-committee-binding-rogue-key.md as "the consensus
+      `ssz_static/SyncCommittee` vector". No release is recorded
+
+ethereum/consensus-spec-tests is distributed under the MIT License. Its LICENSE file
+at release v1.5.0 reads, between the two marker lines:
+
+----- begin LICENSE of ethereum/consensus-spec-tests (v1.5.0) -----
+MIT License
+
+Copyright (c) 2019 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+----- end LICENSE of ethereum/consensus-spec-tests (v1.5.0) -----
+
+Third-party source excerpt
+--------------------------
+
+The file below reproduces two excerpts of the source code of the Aiken compiler,
+aiken v1.1.22 (https://github.com/aiken-lang/aiken), which is distributed under the
+Apache License 2.0, the license of this repository (file LICENSE). The two source
+files and the line ranges are given exactly as the headings of the file record them.
+
+The LICENSE file of aiken v1.1.22 carries the following copyright lines:
+
+   Copyright 2016-2022 Louis Pilfold (as Gleam)
+   Copyright 2022-2024 Cardano Foundation (as Aiken)
+   Copyright 2024-Present PRAGMA (as Aiken)
+
+  benchmarks/adversarial/structural/aiken-import-rule-v1.1.22.txt
+      recorded in the heading of line 1 as
+      "aiken v1.1.22, crates/aiken-lang/src/tipo/environment.rs lines 983-1001 (register_import)"
+      and in the heading of line 22 as
+      "crates/aiken-lang/src/ast.rs lines 50-66 (ModuleKind)"
+
+Data sources
+------------
+
+Ethereum mainnet light-client data, retrieved from the beacon API of
+ethereum-beacon-api.publicnode.com:
+
+  prover/circuits/common/testdata/lightclientupdate/electra_period_1600.json
+      endpoint /eth/v1/beacon/light_client/updates?start_period=1600&count=1
+      fetched 2026-06-03
+  prover/offchain/bootstrap/testdata/electra_bootstrap_period_1600.json
+      endpoint /eth/v1/beacon/light_client/bootstrap/0x201a1d12d634bcf8de5a9281d8cf5974cb775be0f8741a1cf0123e0383878599
+      fetched 2026-06-09
+  prover/offchain/relayer/testdata/rotation/electra_period_1788.json
+      endpoint /eth/v1/beacon/light_client/updates?start_period=1788&count=1
+      fetched 2026-06-29T10:08:59Z
+  prover/offchain/relayer/testdata/rotation/electra_period_1789.json
+      endpoint /eth/v1/beacon/light_client/updates?start_period=1789&count=1
+      fetched 2026-06-29T10:08:59Z
+
+The aggregate signature of the period-1600 update, and the aggregate public key
+computed from its participants, also appear in
+validator/fixtures/bls_regular_period1600.json.
+
+Cardano protocol parameters, retrieved from Koios:
+
+  benchmarks/cost-validation/koios-epoch-params-mainnet.json
+      source https://api.koios.rest/api/v1/epoch_params?_epoch_no=657
+      fetched 2026-09-24T11:13:02Z
+  benchmarks/cost-validation/koios-epoch-params-preview.json
+      source https://preview.koios.rest/api/v1/epoch_params?_epoch_no=1430
+      fetched 2026-09-24T11:13:02Z
+
+Records of the Cardano Preview ledger behind the live run, retrieved from the Koios API at
+https://preview.koios.rest/api/v1 and described in benchmarks/ledger-evidence/README.md:
+
+  benchmarks/ledger-evidence/koios/tx_info_scripts.json
+      endpoint POST /tx_info with the body tx_info_request.json
+      fetched 2 November 2026, 17:30 UTC
+  benchmarks/ledger-evidence/koios/tx_info_request.json
+      body of the tx_info request, 2 November 2026, 17:30 UTC
+  benchmarks/ledger-evidence/koios/datum_info.json
+      endpoint POST /datum_info with three datum hashes under _datum_hashes
+      fetched 2 November 2026, 20:33 UTC
+  benchmarks/ledger-evidence/koios/epoch_params_1327_1345.json
+      endpoint GET /epoch_params?_epoch_no=N, one request for each N from 1327 to 1345
+      fetched 2 November 2026, 20:34 UTC
+  benchmarks/ledger-evidence/koios/epoch_params_mem_change.json
+      endpoint GET /epoch_params?_epoch_no=N for N = 1366 and N = 1367
+      fetched 2 November 2026, 20:34 UTC
+
+Beacon API responses behind the live run, retrieved from
+https://ethereum-beacon-api.publicnode.com on 2 November 2026 at 20:31 UTC and
+described in benchmarks/ledger-evidence/README.md:
+
+  benchmarks/ledger-evidence/beacon/genesis.json
+      endpoint GET /eth/v1/beacon/genesis
+  benchmarks/ledger-evidence/beacon/header_14671775.json
+      endpoint GET /eth/v1/beacon/headers/14671775
+  benchmarks/ledger-evidence/beacon/header_14671776.json
+      endpoint GET /eth/v1/beacon/headers/14671776
+  benchmarks/ledger-evidence/beacon/headers_slot_14671776.json
+      endpoint GET /eth/v1/beacon/headers?slot=14671776
+  benchmarks/ledger-evidence/beacon/header_14671777.json
+      endpoint GET /eth/v1/beacon/headers/14671777
+  benchmarks/ledger-evidence/beacon/header_14671808.json
+      endpoint GET /eth/v1/beacon/headers/14671808
+  benchmarks/ledger-evidence/beacon/header_14671872.json
+      endpoint GET /eth/v1/beacon/headers/14671872
+
+benchmarks/ledger-evidence/live-run-transactions.csv is not retrieved data. The file
+benchmarks/ledger-evidence/README.md describes it as a table compiled on 2 November 2026 from
+benchmarks/ledger-evidence/koios/tx_info_scripts.json and the record of the relayer,
+benchmarks/raw/phase-a-scenario/tier3-1790-SUMMARY.json.
+
+Ledger and beacon data under benchmarks/adversarial/, with the endpoint and the date that a
+header or a companion file records:
+
+  benchmarks/adversarial/beacon/light_client_update_period_1789.json
+      read by benchmarks/adversarial/beacon/commitment-check.go.txt as public keys "served by
+      the Beacon API". No endpoint and no date are recorded
+
+  benchmarks/adversarial/beacon/light_client_update_period_1790.json
+  benchmarks/adversarial/beacon/light_client_update_period_1791.json
+      source https://ethereum-beacon-api.publicnode.com/eth/v1/beacon/light_client/updates?start_period={1790,1791}&count=1
+      fetched 2026-11-03
+      recorded in the source member of
+      benchmarks/adversarial/beacon/period_1791_boundary_inputs.json
+
+  benchmarks/adversarial/ledger/tx_cbor.json
+      recorded in benchmarks/adversarial/ledger/decode-summary.txt as
+      "tx_cbor (Koios, fetched 2026-11-03)". The address of the service is not recorded
+
+  benchmarks/adversarial/ledger/koios-tx-info-2026-11-02.json
+      no endpoint and no date are recorded beyond the file name. Its three records are
+      equal to the records of the same transactions in
+      benchmarks/ledger-evidence/koios/tx_info_scripts.json
+
+  benchmarks/adversarial/full-run/koios-tx-cbor-27c9765b.json
+      recorded in benchmarks/adversarial/full-run/rehearsal-consumed-datum-check.txt as
+      "Koios tx_cbor, 2026-11-03". The address of the service is not recorded

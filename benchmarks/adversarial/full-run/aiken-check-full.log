@@ -1,0 +1,579 @@
+# aiken check (whole project, every module), project /home/itsanos/thesis/validator, 2026-11-03
+# aiken aiken v1.1.22+39d6b04; command: script -q -c "aiken check /home/itsanos/thesis/validator" /dev/null
+# aiken.lock sha256 before the run: bcf6dc582ae586e90c12eb8571cdc8cd72a8d53c32c2191eb9d943e171c1c476
+# start 2026-11-03T13:11:42Z
+# end 2026-11-03T13:12:22Z
+# rc=0 elapsed_seconds=40.3
+# aiken.lock sha256 after the run: bcf6dc582ae586e90c12eb8571cdc8cd72a8d53c32c2191eb9d943e171c1c476
+
+    Compiling itsanos/zkbridge-phase-a 0.1.0 (/home/itsanos/thesis/validator)
+    Resolving itsanos/zkbridge-phase-a
+      Fetched 1 package in 0.94s from cache
+    Compiling aiken-lang/stdlib v2 (/home/itsanos/thesis/validator/build/packages/aiken-lang-stdlib)
+   Collecting all tests scenarios across all modules
+      Testing ...
+
+    ┍━ benchmarks/m1_groth16 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   4.31 K, cpu:   1.22 B] bench_m1_groth16_core
+    │ PASS [mem:   4.48 K, cpu:   1.48 B] bench_m1b_groth16_realistic
+    │ PASS [mem:   1.25 K, cpu: 127.82 M] bench_m1_control_setup
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3 tests | 3 passed | 0 failed
+
+
+    ┍━ benchmarks/m2_bls ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   3.62 K, cpu:   1.19 B] bench_m2_bls_core
+    │ PASS [mem:   2.85 K, cpu:   1.19 B] bench_m2_bls_real
+    │ PASS [mem:   2.37 K, cpu: 181.39 M] bench_m2_bls_control
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3 tests | 3 passed | 0 failed
+
+
+    ┍━ benchmarks/m3_msm ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   6.43 K, cpu: 518.50 M] bench_m3_msm_core_n32
+    │ PASS [mem:   6.43 K, cpu: 518.34 M] bench_m3_msm_core_n2
+    │ PASS [mem:   1.11 K, cpu:  53.10 M] bench_m3_msm_control_n32
+    │ PASS [mem:   1.11 K, cpu:  53.10 M] bench_m3_msm_control_n2
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
+
+
+    ┍━ benchmarks/m4_msm_boundary ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   7.27 K, cpu: 596.06 M] bench_m4_msm_boundary_core_n32
+    │ PASS [mem:   7.27 K, cpu: 595.88 M] bench_m4_msm_boundary_core_n2
+    │ PASS [mem:   1.11 K, cpu:  53.10 M] bench_m4_msm_boundary_control_n32
+    │ PASS [mem:   1.11 K, cpu:  53.10 M] bench_m4_msm_boundary_control_n2
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
+
+
+    ┍━ benchmarks/m5_phase_a_regular ━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:  13.67 K, cpu:   3.19 B] bench_m5_core
+    │ PASS [mem:   3.64 K, cpu: 362.18 M] bench_m5_control
+    ┕━━━━━━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
+
+
+    ┍━ benchmarks/m6_phase_a_boundary ━━━━━━━━━━━━━━━━━
+    │ PASS [mem:  14.51 K, cpu:   3.26 B] bench_m6_core
+    │ PASS [mem:   3.64 K, cpu: 362.18 M] bench_m6_control
+    ┕━━━━━━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
+
+
+    ┍━ benchmarks/m7_datum_size ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:  13.22 K, cpu: 125.54 M] bench_m7_datum_size
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━ 1 tests | 1 passed | 0 failed
+
+
+    ┍━ benchmarks/m9_uncompress ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   1.11 K, cpu:  53.10 M] bench_m9_g1_uncompress
+    │ PASS [mem:   1.13 K, cpu:  74.85 M] bench_m9_g2_uncompress
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
+
+
+    ┍━ bridge ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem: 638.62 K, cpu:   4.74 B] full_validator_rejects_low_count
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> redeemer.count >= bls.participation_threshold
+    │ PASS [mem: 638.90 K, cpu:   4.74 B] full_validator_wrong_count_rejects
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_regular(
+    │             input_datum.verifying_key_regular,
+    │             redeemer.proof,
+    │             input_datum.current_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │           )
+    │ PASS [mem: 650.43 K, cpu:   5.94 B] full_validator_real_regular_positive
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3 tests | 3 passed | 0 failed
+
+
+    ┍━ real_n512_bridge_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem: 684.65 K, cpu:   6.08 B] boundary_update_accepted
+    │ PASS [mem: 650.43 K, cpu:   5.94 B] regular_update_accepted
+    │ PASS [mem: 722.81 K, cpu:   4.90 B] boundary_replay_same_slot_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 284.51 K, cpu:   4.76 B] boundary_replay_same_slot_predicates
+    │ PASS [mem: 722.81 K, cpu:   4.90 B] boundary_rollback_lower_slot_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 284.51 K, cpu:   4.76 B] boundary_rollback_lower_slot_predicates
+    │ PASS [mem: 702.27 K, cpu:   4.89 B] boundary_update_resubmitted_against_produced_datum_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 276.87 K, cpu:   4.75 B] boundary_update_resubmitted_against_produced_datum_predicates
+    │ PASS [mem: 660.52 K, cpu:   5.94 B] regular_update_resubmitted_against_produced_datum_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> slot_advances(input_datum, output_datum)
+    │ PASS [mem: 235.85 K, cpu:   4.61 B] regular_update_resubmitted_against_produced_datum_predicates
+    │ PASS [mem:  639.1 K, cpu:   4.75 B] regular_replay_same_slot_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_regular(
+    │             input_datum.verifying_key_regular,
+    │             redeemer.proof,
+    │             input_datum.current_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │           )
+    │ PASS [mem: 246.55 K, cpu:   4.61 B] regular_replay_same_slot_predicates
+    │ PASS [mem: 380.68 K, cpu: 129.18 M] boundary_redeemer_with_regular_kind_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> committees_frozen(input_datum, output_datum)
+    │ PASS [mem:  17.16 K, cpu:   4.82 M] boundary_redeemer_with_regular_kind_predicate
+    │ PASS [mem: 466.74 K, cpu:   1.26 B] regular_redeemer_with_boundary_kind_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem:  51.98 K, cpu:   1.11 B] regular_redeemer_with_boundary_kind_predicates
+    │ PASS [mem: 745.48 K, cpu:   6.10 B] boundary_produced_current_not_promoted_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> committee_rotated(input_datum, output_datum)
+    │ PASS [mem:  18.54 K, cpu:   5.80 M] boundary_produced_current_not_promoted_predicate
+    │ PASS [mem: 723.00 K, cpu:   4.90 B] boundary_produced_next_not_proof_bound_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 282.38 K, cpu:   4.76 B] boundary_produced_next_not_proof_bound_predicate
+    │ PASS [mem: 402.76 K, cpu: 136.76 M] regular_current_commitment_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> committees_frozen(input_datum, output_datum)
+    │ PASS [mem:  24.23 K, cpu:   7.21 M] regular_current_commitment_changed_predicate
+    │ PASS [mem: 423.27 K, cpu: 141.17 M] regular_next_commitment_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> committees_frozen(input_datum, output_datum)
+    │ PASS [mem:  29.44 K, cpu:   9.18 M] regular_next_commitment_changed_predicate
+    │ PASS [mem: 442.83 K, cpu: 135.46 M] anchor_regular_verifying_key_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> anchors_preserved(input_datum, output_datum)
+    │ PASS [mem:  27.49 K, cpu:  15.79 M] anchor_regular_verifying_key_changed_predicate
+    │ PASS [mem: 443.50 K, cpu: 144.64 M] anchor_boundary_verifying_key_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> anchors_preserved(input_datum, output_datum)
+    │ PASS [mem:  34.26 K, cpu:  25.95 M] anchor_boundary_verifying_key_changed_predicate
+    │ PASS [mem: 443.79 K, cpu: 145.39 M] anchor_fork_version_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> anchors_preserved(input_datum, output_datum)
+    │ PASS [mem:  36.85 K, cpu:  27.07 M] anchor_fork_version_changed_predicate
+    │ PASS [mem: 464.46 K, cpu: 150.21 M] anchor_genesis_validators_root_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> anchors_preserved(input_datum, output_datum)
+    │ PASS [mem:  43.22 K, cpu:  29.61 M] anchor_genesis_validators_root_changed_predicate
+    │ PASS [mem: 722.81 K, cpu:   4.90 B] boundary_fabricated_finalized_slot_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 284.01 K, cpu:   4.76 B] boundary_fabricated_finalized_slot_predicates
+    │ PASS [mem: 722.71 K, cpu:   4.90 B] boundary_fabricated_finalized_root_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem:  278.8 K, cpu:   4.75 B] boundary_fabricated_finalized_root_predicate
+    │ PASS [mem: 487.11 K, cpu:   1.32 B] boundary_proof_byte_tampered_rejected
+    │ · with traces
+    │ | blst error BLST_POINT_NOT_ON_CURVE
+    │ PASS [mem:  43.93 K, cpu:   1.16 B] boundary_proof_byte_tampered_check_aborts
+    │ · with traces
+    │ | blst error BLST_POINT_NOT_ON_CURVE
+    │ PASS [mem: 639.21 K, cpu:   4.88 B] boundary_proof_point_substituted_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 282.75 K, cpu:   4.76 B] boundary_proof_point_substituted_predicate
+    │ PASS [mem: 639.44 K, cpu:   4.88 B] boundary_apk_substituted_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 307.05 K, cpu:   5.96 B] boundary_apk_substituted_predicates
+    │ PASS [mem: 639.25 K, cpu:   4.88 B] boundary_count_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 283.58 K, cpu:   4.76 B] boundary_count_changed_predicate
+    │ PASS [mem: 639.28 K, cpu:   4.88 B] boundary_attested_root_changed_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 305.49 K, cpu:   5.95 B] boundary_attested_root_changed_predicates
+    │ PASS [mem: 681.40 K, cpu:   6.08 B] boundary_signature_substituted_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           bls.verify(
+    │             input_datum.fork_version,
+    │             input_datum.genesis_validators_root,
+    │             redeemer.attested_header_root,
+    │             redeemer.signature,
+    │             redeemer.apk,
+    │           )
+    │ PASS [mem: 307.98 K, cpu:   5.96 B] boundary_signature_substituted_predicates
+    │ PASS [mem: 660.72 K, cpu:   5.01 B] boundary_signature_byte_tampered_rejected
+    │ · with traces
+    │ | blst error BLST_POINT_NOT_ON_CURVE
+    │ PASS [mem:  22.40 K, cpu: 137.27 M] boundary_signature_byte_tampered_check_aborts
+    │ · with traces
+    │ | blst error BLST_POINT_NOT_ON_CURVE
+    │ PASS [mem:    801.0, cpu: 188.14 K] participation_threshold_rejects_341
+    │ PASS [mem:    200.0, cpu:   16.1 K] participation_threshold_admits_342
+    │ PASS [mem:  211.0 K, cpu:  61.69 M] boundary_state_token_missing_from_output_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 190.26 K, cpu:  56.80 M] boundary_state_token_missing_from_output_check_aborts
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 232.72 K, cpu:  72.09 M] boundary_state_token_in_two_outputs_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 211.98 K, cpu:  67.19 M] boundary_state_token_in_two_outputs_check_aborts
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 190.06 K, cpu:  55.82 M] boundary_state_token_to_other_credential_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 169.32 K, cpu:  50.93 M] boundary_state_token_to_other_credential_check_aborts
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 168.87 K, cpu:  47.52 M] boundary_input_without_state_token_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> quantity_of(own_input.output.value, state_token, name) == 1
+    │ PASS [mem: 148.13 K, cpu:  42.62 M] boundary_input_without_state_token_check_aborts
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> quantity_of(own_input.output.value, state_token, name) == 1
+    │ PASS [mem: 213.18 K, cpu: 178.16 M] boundary_output_datum_hash_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> InlineDatum(raw) = output.datum
+    │ PASS [mem:  43.92 K, cpu: 125.87 M] boundary_output_datum_hash_check_aborts
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> InlineDatum(raw) = output.datum
+    │ PASS [mem:  34.30 K, cpu:   1.20 B] rogue_key_signature_verifies_alone
+    │ PASS [mem: 639.12 K, cpu:   4.88 B] rogue_key_rejected
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ | expect
+    │           groth16.verify_boundary(
+    │             input_datum.verifying_key_boundary,
+    │             redeemer.proof,
+    │             input_datum.next_committee_commitment,
+    │             redeemer.apk,
+    │             redeemer.count,
+    │             redeemer.attested_header_root,
+    │             output_datum.finalized_header_root,
+    │             output_datum.finalized_slot,
+    │             output_datum.next_committee_commitment,
+    │           )
+    │ PASS [mem: 281.85 K, cpu:   4.76 B] rogue_key_proof_binding_predicate
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65 tests | 65 passed | 0 failed
+
+
+    ┍━ zkbridge/bls_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   1.71 K, cpu: 759.44 K] domain_matches_golden
+    │ PASS [mem:   2.32 K, cpu:   1.30 M] signing_root_matches_golden
+    │ PASS [mem:   5.98 K, cpu:   1.19 B] real_signature_verifies
+    │ PASS [mem:   6.78 K, cpu:   1.19 B] tampered_fork_version_rejects
+    │ PASS [mem:   6.78 K, cpu:   1.19 B] tampered_gvr_rejects
+    │ PASS [mem:   6.78 K, cpu:   1.19 B] tampered_attested_root_rejects
+    │ PASS [mem:   6.78 K, cpu:   1.19 B] wrong_apk_rejects
+    │ PASS [mem:   6.78 K, cpu:   1.19 B] wrong_dst_rejects
+    │ PASS [mem:    154.0, cpu: 127.64 M] malformed_signature_rejects
+    │ · with traces
+    │ | blst error BLST_BAD_ENCODING
+    │ PASS [mem:    801.0, cpu: 188.14 K] count_341_below_threshold
+    │ PASS [mem:    200.0, cpu:   16.1 K] count_342_meets_threshold
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11 tests | 11 passed | 0 failed
+
+
+    ┍━ zkbridge/datum_advance_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   6.31 K, cpu: 119.28 M] real_output_datum_bytepin
+    │ PASS [mem:   6.31 K, cpu: 119.28 M] boundary_output_bytepin
+    │ PASS [mem:  14.09 K, cpu:   4.25 M] boundary_rotation_mapping
+    │ PASS [mem:  14.09 K, cpu:   4.25 M] boundary_committee_rotated_holds
+    │ PASS [mem:  14.29 K, cpu:   4.07 M] boundary_slot_advances
+    │ PASS [mem:  35.18 K, cpu:  26.82 M] boundary_anchors_preserved
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6 tests | 6 passed | 0 failed
+
+
+    ┍━ zkbridge/genesis_datum_test ━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   6.32 K, cpu: 111.63 M] genesis_datum_size
+    │ PASS [mem:   2.02 M, cpu: 643.17 M] genesis_datum_roundtrips
+    │ PASS [mem:   6.31 K, cpu: 119.28 M] genesis_datum_bytepin
+    │ PASS [mem:  16.18 K, cpu: 224.35 M] genesis_datum_tamper_changes_bytes
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
+
+
+    ┍━ zkbridge/groth16_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   8.63 K, cpu:   7.28 M] bsb22_hash_matches_gnark
+    │ PASS [mem:  64.68 K, cpu:  35.62 M] publics_rederive_matches
+    │ PASS [mem: 210.76 K, cpu:   4.60 B] toy_proof_verifies
+    │ PASS [mem: 211.26 K, cpu:   4.60 B] wrong_count_rejects
+    │ PASS [mem: 211.26 K, cpu:   4.60 B] wrong_finalized_root_rejects
+    │ PASS [mem:   9.23 K, cpu:   7.45 M] wrong_dst_differs
+    │ PASS [mem: 194.55 K, cpu:   3.93 B] malformed_point_rejects
+    │ · with traces
+    │ | blst error BLST_BAD_ENCODING
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7 tests | 7 passed | 0 failed
+
+
+    ┍━ zkbridge/real_n512_boundary_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   6.31 K, cpu: 119.28 M] boundary_consumed_datum_bytepin
+    │ PASS [mem:   6.31 K, cpu: 119.28 M] boundary_produced_datum_bytepin
+    │ PASS [mem:   4.66 K, cpu:  29.46 M] boundary_redeemer_bytepin
+    │ PASS [mem:   4.67 K, cpu:  27.52 M] boundary_redeemer_size
+    │ PASS [mem:  14.14 K, cpu: 223.59 M] boundary_datum_sizes
+    │ PASS [mem: 564.44 K, cpu: 175.47 M] boundary_redeemer_roundtrips
+    │ PASS [mem:   4.04 M, cpu:   1.28 B] boundary_datums_roundtrip
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7 tests | 7 passed | 0 failed
+
+
+    ┍━ zkbridge/redeemer_seam_test ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem: 563.34 K, cpu: 175.17 M] redeemer_roundtrips
+    │ PASS [mem:   4.66 K, cpu:  29.46 M] redeemer_bytepin
+    │ PASS [mem:   4.67 K, cpu:  27.52 M] redeemer_size
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━ 3 tests | 3 passed | 0 failed
+
+
+    ┍━ zkbridge/types_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   6.32 K, cpu: 111.63 M] datum_size_option_p
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━ 1 tests | 1 passed | 0 failed
+
+
+    ┍━ zkbridge/validation_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem: 254.20 K, cpu:  83.13 M] continuity_positive
+    │ PASS [mem:  84.18 K, cpu:  24.10 M] continuity_input_without_nft
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> quantity_of(own_input.output.value, state_token, name) == 1
+    │ PASS [mem: 106.21 K, cpu:  34.77 M] continuity_output_without_nft
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 210.99 K, cpu:  65.07 M] continuity_two_nft_outputs
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 126.66 K, cpu:  38.59 M] continuity_nft_to_attacker
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> [continuing_output] = continuing
+    │ PASS [mem: 148.12 K, cpu:  46.54 M] continuity_malformed_datum
+    │ · with traces
+    │ | the validator crashed / exited prematurely
+    │ ✓ <expected> InlineDatum(raw) = output.datum
+    │ PASS [mem:  54.49 K, cpu:  17.06 M] one_shot_positive
+    │ PASS [mem:  39.16 K, cpu:  12.04 M] one_shot_seed_not_consumed
+    │ PASS [mem:  55.09 K, cpu:  17.23 M] one_shot_mint_quantity_two
+    │ PASS [mem:  93.90 K, cpu:  27.80 M] one_shot_extra_token
+    │ PASS [mem:  35.78 K, cpu:  20.09 M] anchors_positive
+    │ PASS [mem:  38.01 K, cpu:  20.91 M] anchors_ignore_mutable
+    │ PASS [mem:  27.99 K, cpu:  12.60 M] anchors_vk_regular_tampered
+    │ PASS [mem:  34.76 K, cpu:  19.21 M] anchors_vk_boundary_tampered
+    │ PASS [mem:  37.35 K, cpu:  20.33 M] anchors_fork_tampered
+    │ PASS [mem:  43.72 K, cpu:  22.87 M] anchors_gvr_tampered
+    │ PASS [mem:  21.01 K, cpu:   6.35 M] committees_frozen_positive
+    │ PASS [mem:  21.41 K, cpu:   6.26 M] committees_frozen_current_changed
+    │ PASS [mem:  26.86 K, cpu:   8.34 M] committees_frozen_next_changed
+    │ PASS [mem:  17.55 K, cpu:   5.13 M] slot_advances_higher
+    │ PASS [mem:  15.49 K, cpu:   4.34 M] slot_advances_equal_rejects
+    │ PASS [mem:  18.15 K, cpu:   5.31 M] slot_advances_lower_rejects
+    │ PASS [mem:  19.20 K, cpu:   5.98 M] committee_rotated_promotion
+    │ PASS [mem:  19.14 K, cpu:   5.90 M] committee_rotated_violation_rejects
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24 tests | 24 passed | 0 failed
+
+
+
+  ⚠ I found an unused (private) module constant: count
+    ╭─[/home/itsanos/thesis/validator/lib/zkbridge/bls_test.ak:33:1]
+ 32 │ 
+ 33 │ const count: Int = 510
+    · ───────────┬──────────
+    ·            ╰── unused (private) constant
+ 34 │ 
+    ╰────
+  help: Perhaps your forgot to make it public using the pub keyword?
+        Otherwise, you might want to get rid of it altogether.
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[/home/itsanos/thesis/validator/lib/benchmarks/m1_groth16.ak:102:7]
+ 101 │ 
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[/home/itsanos/thesis/validator/lib/benchmarks/m1_groth16.ak:103:7]
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 104 │ 
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+      Summary 152 checks, 0 errors, 3 warnings

@@ -1,0 +1,12 @@
+{
+  "n": 512,
+  "circuit": "regular",
+  "note": "REAL n=512 demonstrator proof over the real period-1600 witness (single-party groth16.Setup; pk/τ never left the VM, destroyed at stage end). PUBLIC. Commitment-augmented 5-element (D19): Ar(G1)+Bs(G2)+Krs(G1)+Commitment(G1)+CommitmentPok(G1), compressed points — 292 B as gnark binary, not the design-time vanilla 192 B. On-chain redeemer form differs (uncompressed).",
+  "proof": {
+    "ar": "a7891ea2110b29724559acb9cae29e465e9dc6bcf2f22e0ce417a6b4809d2f41650f2803c7e914778fda044cf4794975",
+    "bs": "971e3c7590840a667e7fd49283f0cb17de8c39bd761db16ee1e93fb66fdaa61dbdc8ffa3b240259fc25de44a640dc50f013c31dfe2527f9ef7711a240b0dee10351ea39a578a7aa397a820a34a86c3bce0488b595293156227b4a264eec1fdef",
+    "krs": "b9c2972c99eec2549f43a3a4204ca038853513d4a502b2bc83a7a9d8a1fcb264ad2b18c11e55ab4d97ad384639b7795f",
+    "commitment": "a630a6f877e0c36f7d6d05940157c516d19b01a81a490bb9301d9ed2b9f4bb70119eb207d64883cef4e2e15754e277c9",
+    "commitment_pok": "904d4780c14e53f558bcbe7220118717c8ecdcc104ad71b6d51acb121e3094ce8a5e508faab61885277950bd5ae9a983"
+  }
+}

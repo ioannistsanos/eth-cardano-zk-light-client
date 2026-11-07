@@ -1,0 +1,96 @@
+# M2 — BLS verification sequence cost (sha2 barrier) — RAW aiken check output
+# Generated: 2026-05-28T11:38:00Z
+#
+# Command (run from validator/):  aiken check -m bench_m2 --seed 42
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: 608c576
+#
+# Determinism: 3 iterations, byte-identical (same md5):
+#   5f02a7a8cd3f9e2af4b9f0cabc02fc0e    iter: m2lock_1.json
+#   5f02a7a8cd3f9e2af4b9f0cabc02fc0e    iter: m2lock_2.json
+#   5f02a7a8cd3f9e2af4b9f0cabc02fc0e    iter: m2lock_3.json
+#
+# Barrier: msg = sha2_256(64-byte preimage) — sha2_256 is NOT folded by
+# Aiken v1.1.22 (gotcha G6), so msg is a runtime ByteArray and
+# bls12_381_g2_hash_to_group(msg, dst) is no longer foldable to a G2
+# constant. UPLC verification confirmed: core+real both contain
+# bls12_381_G2_hashToGroup; control contains zero of the four measured
+# builtins. Aiken export of all three pub fn mirrors succeeded (no panic).
+#
+# Results (cpu steps; 3.62K/2.85K/2.37K mem):
+#   bench_m2_bls_core      1,192,529,541  (Table-2 form, with mul)
+#   bench_m2_bls_real      1,190,243,503  (canonical CIP-381, NO mul — D2)
+#   bench_m2_bls_control     181,398,172  (setup only: 2 G1u + 1 G2u + 1 sha2)
+#   marg_core = core - ctrl = 1,011,131,369
+#   marg_real = real - ctrl = 1,008,845,331
+#   sigma_core (167.06M + 508.01M + 2.17M + 333.85M) = 1,011,091,965
+#   sigma_real (167.06M + 508.01M       + 333.85M)   = 1,008,917,927
+#   Delta_core = +39,404  (+0.00390%) -> H0 (within +/-0.05%)
+#   Delta_real = -72,596  (-0.00720%) -> H0 (within +/-0.05%)
+#   mul_delta = marg_core - marg_real = 2,286,038
+#     vs cost-model mul = 2,174,038 -> excess 112,000 (= M1b-M1 per-let CEK)
+#
+# UPLC builtin tally (aiken export + aiken uplc decode --cbor --hex of
+# temporary pub fn mirrors; mirrors removed before report finalization):
+#   pf_core_fn : 2 G1_uncompress, 1 G2_uncompress, 1 sha2_256,
+#                1 G2_hashToGroup, 2 millerLoop, 1 mulMlResult, 1 finalVerify
+#   pf_real_fn : same as core minus mulMlResult
+#   pf_control : 2 G1_uncompress, 1 G2_uncompress, 1 sha2_256, 1 trace
+# ============================================================
+
+{
+  "seed": 42,
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "kind": {
+      "unit": 3,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m2_bls",
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "kind": {
+          "unit": 3,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m2_bls_core",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 3629,
+            "cpu": 1192529541
+          }
+        },
+        {
+          "title": "bench_m2_bls_real",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 2857,
+            "cpu": 1190243503
+          }
+        },
+        {
+          "title": "bench_m2_bls_control",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 2376,
+            "cpu": 181398172
+          }
+        }
+      ]
+    }
+  ]
+}

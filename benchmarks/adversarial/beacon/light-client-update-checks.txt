@@ -1,0 +1,14 @@
+light-client updates fetched 2026-11-03 from ethereum-beacon-api.publicnode.com: {1790: ('fulu', ['attested_header', 'finality_branch', 'finalized_header', 'next_sync_committee', 'next_sync_committee_branch', 'signature_slot', 'sync_aggregate']), 1791: ('fulu', ['attested_header', 'finality_branch', 'finalized_header', 'next_sync_committee', 'next_sync_committee_branch', 'signature_slot', 'sync_aggregate'])}
+period-1791 update: attested_header slot 14671939 root 0xcdc682f9c2d6c1861d4ac434ffb87529d890adf7e4a9787cd34b564d2f2b8232 | finalized_header slot 14671872 root 0xfca2bad46e3e5260228fec16653435a60c133c4a2bfa02cc443c7923de25f2d2
+  signature_slot 14671940 (period 1791 ) | attested period 1791 | finalized period 1791
+  sync_committee_bits popcount 511 | sync_committee_signature 0xad6127dc7e8e8fa2e2a782de54ab88a523e0772708aa1cc9480ca92416d2b9efc07ff9a22c4e9c1b053014db8fef14080634dcb547f487d1d995db0cabcf9ccabf206c56e9a0633ca5dbe9217bef39e98c8c352ed96474b510d596e0e15a54f3
+  next_sync_committee: pubkeys 512 aggregate_pubkey 0x8eea9d4c0ade8c3c7dc3aaa17e3deaf2975e56d1258fccc0978efeccf70d8edc4244c973a7cb7ce0d4cdc10dc6a89d5c
+
+CROSS-CHECKS redeemer/datum of c8b296a9… vs the period-1791 light-client update:
+  redeemer.attested_header_root == hash_tree_root(update.attested_header.beacon): False
+  produced datum finalized_header_root == hash_tree_root(update.finalized_header.beacon): False | finalized_slot 14671808 == update 14671872 False
+  redeemer.count == popcount(sync_committee_bits): False (505, 511)
+  redeemer.signature == update.sync_aggregate.sync_committee_signature: False
+  attested root == Beacon header root of slot 14,671,872 (fetched 2 Nov): True
+  committee of period 1791 = next_sync_committee of the period-1790 update: 512 keys; committee of period 1792 = next_sync_committee of the period-1791 update: 512 keys
+saved /home/itsanos/thesis/benchmarks/adversarial/beacon/period_1791_boundary_inputs.json

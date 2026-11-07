@@ -1,0 +1,114 @@
+# M4 — MSM boundary (7 inputs); CONFIRMATORY for D3 — RAW aiken check output
+# Generated: 2026-05-28T16:38:26Z
+#
+# Command (run from validator/):  aiken check -m bench_m4 --seed 42
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: 6a545c6
+#
+# Determinism: 3 iterations, byte-identical (same md5):
+#   635bac21bb9894accab5e0de02a7dc86    iter: m4_1.json
+#   635bac21bb9894accab5e0de02a7dc86    iter: m4_2.json
+#   635bac21bb9894accab5e0de02a7dc86    iter: m4_3.json
+#
+# Headline (confirmatory):
+#   bench_m4_msm_boundary_core_n32      596,067,913 cpu / 7,270 mem
+#   bench_m4_msm_boundary_core_n2       595,881,685 cpu / 7,270 mem
+#   bench_m4_msm_boundary_control_n32    53,108,222 cpu / 1,118 mem  (same as M3 control)
+#   bench_m4_msm_boundary_control_n2     53,108,222 cpu / 1,118 mem
+#
+#   marg_A = A − C32 = 542,959,691
+#   marg_B = B − D2  = 542,773,463
+#
+#   D3-derived target Σ_A = 7·(76,433,006 + 8,868·4 + 136,000) + 7·962,335 = 542,967,691
+#   Δ_A = -8,000  (-0.00147% — Stop-5 threshold ±0.05% → PASS by 33x)
+#   size_delta = marg_A − marg_B = 186,228 EXACTLY = 7·8,868·3 → Stop-6 PASS
+#
+# D3 calibration confirmed at 7 inputs:
+#   per_sm_A = 76,603,335.14  (M3: 76,604,478; diff -1,142.86 ≈ -8K/7)
+#   per_sm_B = 76,576,731.14  (predicted 76,577,874; same -1,142.86 offset)
+#   size_delta exactly 186,228 → CEK model preserved; -8K offset is
+#     residual subtraction noise affecting both A and B equally.
+#
+# M3 cross-checks:
+#   marg_A(M4) − marg_A(M3) = 77,558,813  (predicted 77,566,813; diff -8K)
+#   per_sm_A(M4) − per_sm_A(M3) = -1,142.86  (CEK model stable across input count)
+#
+# Thesis line-item correction:
+#   Thesis boundary: 535,359,216 + 6,736,345 = 542,095,561
+#   M4 empirical:    536,223,346 + 6,736,345 = 542,959,691  (+864,130, +0.16%)
+#   Matches D3-on-7-inputs prediction (542,967,691) within -8K residual.
+#
+# UPLC builtin tally (aiken export + aiken uplc decode --cbor --hex; temp mirrors removed):
+#   pf_core_n32    : 1 G1_uncompress, 7 G1_scalarMul, 7 G1_add, 1 trace
+#   pf_core_n2     : 1 G1_uncompress, 7 G1_scalarMul, 7 G1_add, 1 trace
+#   pf_control_n32 : 1 G1_uncompress, 0 G1_scalarMul, 0 G1_add, 1 trace
+#   pf_control_n2  : 1 G1_uncompress, 0 G1_scalarMul, 0 G1_add, 1 trace
+#
+# All 6 stop conditions clear; H₀ confirmed; D3 generalizes to boundary input count.
+# ============================================================
+
+{
+  "seed": 42,
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "kind": {
+      "unit": 4,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m4_msm_boundary",
+      "summary": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "kind": {
+          "unit": 4,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m4_msm_boundary_core_n32",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 7270,
+            "cpu": 596067913
+          }
+        },
+        {
+          "title": "bench_m4_msm_boundary_core_n2",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 7270,
+            "cpu": 595881685
+          }
+        },
+        {
+          "title": "bench_m4_msm_boundary_control_n32",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1118,
+            "cpu": 53108222
+          }
+        },
+        {
+          "title": "bench_m4_msm_boundary_control_n2",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1118,
+            "cpu": 53108222
+          }
+        }
+      ]
+    }
+  ]
+}

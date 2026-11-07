@@ -1,0 +1,27 @@
+// Reads the two stored verifying-key files and prints their commitment structure.
+package main
+
+import (
+	"fmt"
+	"os"
+
+	groth16bls "github.com/consensys/gnark/backend/groth16/bls12-381"
+)
+
+func main() {
+	for _, path := range []string{"/home/itsanos/zk-artifacts/vk_regular_n512.vk", "/home/itsanos/zk-artifacts/vk_boundary_n512.vk"} {
+		file, err := os.Open(path)
+		if err != nil {
+			fmt.Println(path, err)
+			continue
+		}
+		var vk groth16bls.VerifyingKey
+		if _, err := vk.ReadFrom(file); err != nil {
+			fmt.Println(path, "read:", err)
+			continue
+		}
+		file.Close()
+		alpha := vk.G1.Alpha.Bytes()
+		fmt.Printf("%s\n  alpha %x\n  ic %d, commitment keys %d, PublicAndCommitmentCommitted %v\n", path, alpha[:8], len(vk.G1.K), len(vk.CommitmentKeys), vk.PublicAndCommitmentCommitted)
+	}
+}

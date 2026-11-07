@@ -1,0 +1,72 @@
+# M1 — Groth16 verify-sequence cost — RAW aiken check output (REVISED control)
+# Generated: 2026-05-27T12:01:52Z
+#
+# Command (run from validator/):
+#   aiken check -m bench_m1 --seed 42
+#
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: 715f952
+#
+# Determinism: 3 iterations, byte-identical (same md5):
+#   5c03d8061654f851f2e541788a9bde7a    iter: m1b_run1.json
+#   5c03d8061654f851f2e541788a9bde7a    iter: m1b_run2.json
+#   5c03d8061654f851f2e541788a9bde7a    iter: m1b_run3.json
+#
+# Control redesign (vs commit 715f952): control now does EXACTLY core's
+# two uncompress calls and no other builtin (UPLC-verified), so
+# (core - control) isolates the 6 pairing builtins with no equality-builtin
+# undercount. marginal = 1,100,648,609 ; sigma = 1,100,216,609 ;
+# Delta = +432,000 (+0.03926%) = CEK let-threading overhead; H0 holds.
+#
+# UPLC builtin tally (aiken uplc decode --cbor --hex of exported pub-fn equivalents):
+#   core : 1 G1_uncompress, 1 G2_uncompress, 3 millerLoop, 2 mulMlResult, 1 finalVerify
+#   ctrl : 1 G1_uncompress, 1 G2_uncompress
+# ============================================================
+
+{
+  "seed": 42,
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "kind": {
+      "unit": 2,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m1_groth16",
+      "summary": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "kind": {
+          "unit": 2,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m1_groth16_core",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 4315,
+            "cpu": 1228471303
+          }
+        },
+        {
+          "title": "bench_m1_control_setup",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1254,
+            "cpu": 127822694
+          }
+        }
+      ]
+    }
+  ]
+}

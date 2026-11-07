@@ -1,0 +1,9 @@
+# op-3b: finality-branch circuit (gindex 169, [R,L,L,R,L,R,L]) R1CS cost
+# native field = BLS12-381 scalar field; compile-only; x2 (determinism)
+op-3b (7-step finality branch walk) MEASURED = 507507
+
+# decomposition (op-4 references: 53,672/node-hash, 131,380 intercept; NO leaf encoding)
+7 node-hashes x 53,672 = 375704   (the assembled-circuit MARGINAL, intercept shared)
++ 131,380 intercept => expected standalone ~= 507084
+implied per-node-hash = (total - 131,380) / 7 = 53732   (vs op-4 53,672)
+op-3a standalone reference = 504,292 (7 hashes + intercept + 2 leaf-encodings)

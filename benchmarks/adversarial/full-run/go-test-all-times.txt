@@ -1,0 +1,47 @@
+Full test run of the Go module in prover/
+
+machine      the workstation: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz, 12 logical CPUs, 7.7 GiB of memory and
+             2.0 GiB of swap under WSL2 (Ubuntu 24.04.4 LTS, kernel 6.18.54.1-microsoft-standard-WSL2)
+date         2026-11-05, 20:17:34 UTC to 21:57:13 UTC
+go version   go version go1.23.6 linux/amd64
+command      go test -count=1 -v -timeout 180m ./...   (working directory prover/)
+environment  GOFLAGS and RUN_AWS_HEAVY not set
+log          go-test-all.log
+exit status  0
+elapsed      5979 s (1 h 39 min 39 s) for the whole command; packages run concurrently,
+             so the per-package times add up to more than the elapsed time
+
+Per-package wall-clock time as reported by go test (package paths relative to prover/):
+
+package              result     seconds  tests ok  skipped  failed
+circuits/common      ok        5971.201        49        1       0
+offchain/bls         ok           0.427         9        0       0
+offchain/boot        ok           0.242         2        0       0
+offchain/bootstrap   ok           3.144        11        0       0
+offchain/commitment  ok           0.032         4        0       0
+offchain/proving     ok        3301.815         4        0       0
+offchain/relayer     ok           1.128        16        0       0
+offchain/ssz         ok           0.003         2        0       0
+offchain/witness     ok        1422.162         8        0       0
+total                         10700.154       105        1       0
+
+Packages with test files: 9. Packages without test files: 31 (the 30 commands under cmd/ and offchain/beacon).
+The counts are those of the top-level tests; subtests are not counted.
+Skipped: TestPubkeysRootSolves512 (circuits/common), with the message "full-512 in-circuit solver OOMs locally (~7GB); AWS-only — set RUN_AWS_HEAVY=1".
+
+Tests with a duration of 60 s or more, in the order of the log (seconds as reported by go test):
+
+   2342.00  circuits/common      TestBoundary_ProvesSmallN
+    560.81  circuits/common      TestHeaderReconstructProvesAgainstOfficialRoot
+    434.76  circuits/common      TestFinalityBranch_ProvesOnRealData
+    796.03  circuits/common      TestAssembledOp6_ProvesSmallN
+    550.36  circuits/common      TestPubkeysRootProvesSmallN
+    678.80  circuits/common      TestRegular_ProvesSmallN
+    131.81  circuits/common      TestSha256ProvesOverBLS12381
+    199.96  circuits/common      TestSlotBindProvesAgainstOfficialRoot
+   1673.27  offchain/proving     TestProverEquivalence_ToyRegular
+   1627.03  offchain/proving     TestSetupProveRoundTrip_RegularToy
+   1401.28  offchain/witness     TestBuildRegular_RealElectraProves
+
+The packages circuits/common, offchain/proving and offchain/witness ran at the same time. For comparison,
+offchain/witness run alone on 2026-11-03 took 569.2 s (go-test-times.txt).

@@ -1,0 +1,53 @@
+tx_cbor (Koios, fetched 2026-11-03): {'90c3b3e1': (6676, '90355fc856dcdfd4575c789bcf88b7b87bce13d984a9adb299bf036b625d6f62'), 'bcae1b12': (6676, '626ecdf82e8cd0d247f6bda51726058d31e75dfa501a218f0887ff49e9715215'), 'c8b296a9': (6676, 'bbff4b2f73dbccaaf79c70c1cb68f5fd8a71c5740d088b846ed883ed6b51ecaf')}
+
+=== boundary (c8b296a91ab7cf16756f3d5c169a06985544482d817a640d36917e61b1675b55) ===
+top-level items: 4 | is_valid: True | body keys: [0, 1, 2, 3, 8, 11, 13, 14, 16, 17] | witness keys: [0, 5, 7]
+inputs: [('bcae1b1233134ef1493232aedf41ad45fd7cc250e9519ecd2031dcb18e3a38e2', 0), ('bcae1b1233134ef1493232aedf41ad45fd7cc250e9519ecd2031dcb18e3a38e2', 1)] | fee: 1010791
+output #0: bridge address, lovelace 12447280, assets {'c52599c139b6126c5bd04c303a51a8f8d5bd1633660ddd06add30054': {'zkbridge_state': 1}}, inline datum 2632 B, sha256 ce1a5a39dca6f5b698a0381ac3256bbd13888303a0eff706a25688105950f476, datum option 1, cbor tag 24
+   fields: {'finalized_header_root': '735b480fd3356204d0591d927d457ceaae10db78213a5cced79fcbfecf24b115', 'finalized_slot': 14671808, 'current_committee_commitment': '3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1', 'next_committee_commitment': '2aed783b4b821cfea89e9cdfd64e2b0a3aeb05896385cfb0d89cba386ec016db', 'fork_version': '06000000', 'genesis_validators_root': '4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95'} | ic lengths 13 14 | vk alphas 83e24e7cdd674bf7 b9d6a1295df35726
+   re-encoding with boot/datum.py identical: True
+output #1: legacy-format output, address 602611c4d0bd…, lovelace 9841368211
+redeemer set format: map | entries (tag, index, ex_units): [(0, 0, [655584, 7265427726])]
+redeemer data: purpose tag 0 index 0, byte span [3136,3742) = 606 B, sha256 25e444da676865194ad288c6a7a9e97641ad90d49d15ae3868d3918bd001fb76, ex_units mem 655584 steps 7265427726
+   decoded: {'kind': 'Boundary', 'a': '94e6963642f5e49a…(48 B)', 'b': 'a08d9253c03b1eb3…(96 B)', 'c': '956e24ee9e2fd54f…(48 B)', 'commitment': '01491890d9c75627…(96 B)', 'commitment_pok': 'afe1ab558d16c29e…(48 B)', 'apk': '07315b7ae0d3291a…(96 B)', 'signature': 'b6b0be089a8ba724…(96 B)', 'count': 505, 'attested_header_root': 'fca2bad46e3e5260…(32 B)'}
+   re-encoding with boot/redeemer.py identical: True | outer constr tag: 121 | kind constr tag: 122
+
+=== update57 (bcae1b1233134ef1493232aedf41ad45fd7cc250e9519ecd2031dcb18e3a38e2) ===
+top-level items: 4 | is_valid: True | body keys: [0, 1, 2, 3, 8, 11, 13, 14, 16, 17] | witness keys: [0, 5, 7]
+inputs: [('59020cd989936b9535d0d7577313b3983a710832c21a5ad2263c58a70ae25f99', 0), ('59020cd989936b9535d0d7577313b3983a710832c21a5ad2263c58a70ae25f99', 1)] | fee: 995880
+output #0: bridge address, lovelace 12447280, assets {'c52599c139b6126c5bd04c303a51a8f8d5bd1633660ddd06add30054': {'zkbridge_state': 1}}, inline datum 2632 B, sha256 6113243bb8e423e347dc9e5108ad31368289522eadd6f88b58737be78705e21d, datum option 1, cbor tag 24
+   fields: {'finalized_header_root': 'a94abfa5472621d6189b236da49d1b069f793d2d539bb0917c733aa4cd763419', 'finalized_slot': 14671775, 'current_committee_commitment': '4b0faa29c3a3a3e480e9323e36da8a596cac9b2adce2c4771140613e1ac92e3d', 'next_committee_commitment': '3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1', 'fork_version': '06000000', 'genesis_validators_root': '4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95'} | ic lengths 13 14 | vk alphas 83e24e7cdd674bf7 b9d6a1295df35726
+   re-encoding with boot/datum.py identical: True
+output #1: legacy-format output, address 602611c4d0bd…, lovelace 9842379002
+redeemer set format: map | entries (tag, index, ex_units): [(0, 0, [611176, 7094172930])]
+redeemer data: purpose tag 0 index 0, byte span [3136,3742) = 606 B, sha256 fb129c2619796b505c09964d96e075f536ae20a34324bf1fd5f5544b12a04366, ex_units mem 611176 steps 7094172930
+   decoded: {'kind': 'Regular', 'a': 'aaa5610f81533833…(48 B)', 'b': '944041a7503a807d…(96 B)', 'c': '94f0bff6ffadb2e4…(48 B)', 'commitment': '0f5633997c341590…(96 B)', 'commitment_pok': '81903974717a5645…(48 B)', 'apk': '16bbcaa4d2e72296…(96 B)', 'signature': 'a949484190910beb…(96 B)', 'count': 509, 'attested_header_root': '369029630fed15b7…(32 B)'}
+   re-encoding with boot/redeemer.py identical: True | outer constr tag: 121 | kind constr tag: 121
+
+=== rehearsal (90c3b3e190a452e945ff7b10cc5435e285e38da27fd8edd7f05c6464675151e8) ===
+top-level items: 4 | is_valid: True | body keys: [0, 1, 2, 3, 8, 11, 13, 14, 16, 17] | witness keys: [0, 5, 7]
+inputs: [('27c9765bcea19cb1b7def355231aa89be87a08c06272386328fec75f32e13db2', 1), ('27c9765bcea19cb1b7def355231aa89be87a08c06272386328fec75f32e13db2', 0)] | fee: 995880
+output #0: bridge address, lovelace 12447280, assets {'40c0b53a1097b4c650aacf13fb2b698bed3a08f0b4571ec2da69a044': {'zkbridge_state': 1}}, inline datum 2632 B, sha256 75d154eaecdd0c00b9b17b4fe5da9c901da8ca271bfe38cf4b0a472299a8e292, datum option 1, cbor tag 24
+   fields: {'finalized_header_root': '201a1d12d634bcf8de5a9281d8cf5974cb775be0f8741a1cf0123e0383878599', 'finalized_slot': 13107200, 'current_committee_commitment': '10041e8ce930617c420c43546f39dc8d123cec24e199f3f51dfadcb448529e1e', 'next_committee_commitment': '483e20c94d6075d0dd670d9b6fe7144456eecc96fadb501ac719e4473625510f', 'fork_version': '05000000', 'genesis_validators_root': '4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95'} | ic lengths 13 14 | vk alphas aca2f634ad5259ac a67164c9376fa5a1
+   re-encoding with boot/datum.py identical: True
+output #1: legacy-format output, address 602611c4d0bd…, lovelace 9968309537
+redeemer set format: map | entries (tag, index, ex_units): [(0, 0, [611176, 7094172930])]
+redeemer data: purpose tag 0 index 0, byte span [3136,3742) = 606 B, sha256 e9e291c5fc619e4e3520de04d8a49b2fef078c230b9d83d71d5e1c4a9082b995, ex_units mem 611176 steps 7094172930
+   decoded: {'kind': 'Regular', 'a': 'a7891ea2110b2972…(48 B)', 'b': '971e3c7590840a66…(96 B)', 'c': 'b9c2972c99eec254…(48 B)', 'commitment': '0630a6f877e0c36f…(96 B)', 'commitment_pok': '904d4780c14e53f5…(48 B)', 'apk': '07e8712375cb3ec0…(96 B)', 'signature': 'a29333064a2b8325…(96 B)', 'count': 510, 'attested_header_root': '7099a98d437bc513…(32 B)'}
+   re-encoding with boot/redeemer.py identical: True | outer constr tag: 121 | kind constr tag: 121
+
+update57 produced datum == datum_info bytes of hash: ['5e8570baad195578c3a7b104a625c2e5e16657a9c87eedbd89c0900d1225540d']
+
+boundary produced datum == datum_info bytes of hash: ['20dc4fef392675f8bcd8d4b02b00130e4d5c6e52e04ad6be984f97255ebd2867']
+boundary spends update57#0: True
+anchors identical consumed vs produced (fork, gvr, vk_regular, vk_boundary): True True True True
+rotation: produced.current == consumed.next: True | consumed current/next: 4b0faa29 3323b908 | produced current/next: 3323b908 2aed783b
+slots: consumed 14671775 produced 14671808 | roots: consumed a94abfa5472621d6 produced 735b480fd3356204
+
+JSON phase 58 keys: ['cache_period_after', 'completed_unix', 'finalized_slot', 'kind', 'plan_step_index', 'poll_detect_seconds', 'prove_seconds', 'rotated_new_next', 'rotated_promoted_current', 'signature_period', 'skipped_regulars', 'spend', 'submit_seconds', 'total_seconds'] | spend keys: ['ex_units_mem', 'ex_units_steps', 'fee_lovelace', 'tx_hash', 'tx_size_bytes']
+JSON 58: {'kind': 'BOUNDARY', 'finalized_slot': 14671808, 'signature_period': 1791, 'rotated_promoted_current': '3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1', 'rotated_new_next': '2aed783b4b821cfea89e9cdfd64e2b0a3aeb05896385cfb0d89cba386ec016db'} | spend: {'tx_hash': 'c8b296a91ab7cf16756f3d5c169a06985544482d817a640d36917e61b1675b55', 'ex_units_steps': 7265427726, 'ex_units_mem': 655584, 'fee_lovelace': 1010791, 'tx_size_bytes': 6676}
+JSON 57 finalized_slot: 14671775 | spend: {'tx_hash': 'bcae1b1233134ef1493232aedf41ad45fd7cc250e9519ecd2031dcb18e3a38e2', 'ex_units_steps': 7094172930, 'ex_units_mem': 611176, 'fee_lovelace': 995880, 'tx_size_bytes': 6676}
+
+rehearsal redeemer vs real_n512_regular.ak: {'a': True, 'apk': True, 'signature': True, 'count': 510, 'attested': True, 'kind': 'Regular', 'redeemer sha256': 'e9e291c5fc619e4e3520de04d8a49b2fef078c230b9d83d71d5e1c4a9082b995'}
+rehearsal produced datum vs fixture output datum: {'root': True, 'slot': 13107200, 'current': True, 'next': True, 'fork': '05000000', 'vk_reg_alpha': True, 'vk_bnd_alpha': True}
+saved /home/itsanos/thesis/benchmarks/adversarial/ledger/boundary-and-rehearsal-decoded.json

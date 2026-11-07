@@ -1,0 +1,31 @@
+# go test ./offchain/bootstrap/ -count=1 -v -timeout 100m, run in /home/itsanos/thesis/prover with GOTOOLCHAIN=local GOFLAGS=-mod=mod GOPROXY=off, 2026-11-03; go1.23.6 linux/amd64
+# offchain/bootstrap rc=0 elapsed_seconds=10.3
+
+=== RUN   TestBootstrap_RealPositive
+    bootstrap_realpositive_test.go:79: PASS: real period-1600 genesis verifies end-to-end (gate (iv) BLS on a real signature, 510/512 participation)
+    bootstrap_realpositive_test.go:80:   datum = {current 0x10041e8ce930617c420c43546f39dc8d123cec24e199f3f51dfadcb448529e1e, next 0x483e20c94d6075d0dd670d9b6fe7144456eecc96fadb501ac719e4473625510f, finalized_root 0x201a1d12d634bcf8de5a9281d8cf5974cb775be0f8741a1cf0123e0383878599, finalized_slot 13107200}
+--- PASS: TestBootstrap_RealPositive (0.31s)
+=== RUN   TestBootstrap_PositiveVerifies
+    bootstrap_test.go:211: PASS: all 5 conditions verify → datum {current/next commitments, finalized root/slot}
+--- PASS: TestBootstrap_PositiveVerifies (0.69s)
+=== RUN   TestBootstrap_NonCanonicalKeyRejected
+--- PASS: TestBootstrap_NonCanonicalKeyRejected (0.58s)
+=== RUN   TestBootstrap_WrongCurrentBranchRejected
+--- PASS: TestBootstrap_WrongCurrentBranchRejected (0.99s)
+=== RUN   TestBootstrap_WrongNextBranchRejected
+--- PASS: TestBootstrap_WrongNextBranchRejected (0.84s)
+=== RUN   TestBootstrap_WrongFinalityBranchRejected
+--- PASS: TestBootstrap_WrongFinalityBranchRejected (0.56s)
+=== RUN   TestBootstrap_TamperedAggregateRejected
+--- PASS: TestBootstrap_TamperedAggregateRejected (0.55s)
+=== RUN   TestBootstrap_WrongCheckpointRejected
+--- PASS: TestBootstrap_WrongCheckpointRejected (0.91s)
+=== RUN   TestBootstrap_PeriodEqualityPasses
+--- PASS: TestBootstrap_PeriodEqualityPasses (1.10s)
+=== RUN   TestBootstrap_PeriodMismatchRejected
+--- PASS: TestBootstrap_PeriodMismatchRejected (0.54s)
+=== RUN   TestBootstrap_PoseidonMatchSolveAnchor
+    bootstrap_test.go:360: PASS: bootstrap commitment SOLVES CommitteeBindCircuit — genesis datum validates against the first regular update
+--- PASS: TestBootstrap_PoseidonMatchSolveAnchor (0.23s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/bootstrap	7.387s

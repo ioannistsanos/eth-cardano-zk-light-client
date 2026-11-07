@@ -1,0 +1,63 @@
+=== probe D2 (full output): a second module under validators/ importing bridge and calling bridge.bridge.spend
+    Compiling itsanos/zkbridge-phase-a 0.1.0 (.)
+    Resolving itsanos/zkbridge-phase-a
+      Fetched 1 package in 0.04s from cache
+    Compiling aiken-lang/stdlib v2 (./build/packages/aiken-lang-stdlib)
+   Collecting test *probe_d_handler_from_second_validator_module* across all modules
+      Testing ...
+
+    ┍━ bridge_probe_d ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem: 650.43 K, cpu:   5.94 B] probe_d_handler_from_second_validator_module
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1 tests | 1 passed | 0 failed
+
+
+
+  ⚠ I found an unused (private) module constant: count
+    ╭─[./lib/zkbridge/bls_test.ak:33:1]
+ 32 │ 
+ 33 │ const count: Int = 510
+    · ───────────┬──────────
+    ·            ╰── unused (private) constant
+ 34 │ 
+    ╰────
+  help: Perhaps your forgot to make it public using the pub keyword?
+        Otherwise, you might want to get rid of it altogether.
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[./lib/benchmarks/m1_groth16.ak:102:7]
+ 101 │ 
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[./lib/benchmarks/m1_groth16.ak:103:7]
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 104 │ 
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+      Summary 1 check, 0 errors, 3 warnings
+exit=0

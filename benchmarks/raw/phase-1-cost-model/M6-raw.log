@@ -1,0 +1,89 @@
+# M6 — Synthetic Phase A BOUNDARY (Groth16 D1 4-ML + BLS-real D2 + MSM-7) — RAW aiken check output
+# Generated: 2026-05-30T08:33:13Z
+#
+# Command (run from validator/, G7 exact-match per gotcha G7):
+#   aiken check -e -m bench_m6_core -m bench_m6_control --seed 42
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: 5c68e5b
+#
+# Determinism: 3 iterations, byte-identical (same md5):
+#   e82cc659716f97d1910fafe0e890993b    iter 1
+#   e82cc659716f97d1910fafe0e890993b    iter 2
+#   e82cc659716f97d1910fafe0e890993b    iter 3
+#
+# Headline:
+#   bench_m6_core      3,268,820,792 cpu / 14,514 mem
+#   bench_m6_control     362,184,888 cpu /  3,648 mem
+#   marginal = core - control = 2,906,635,904 cpu / 10,866 mem
+#
+# Additivity (PRIMARY target, locked before measurement):
+#   target = M1b 1,354,670,882 + M2-real 1,008,845,331 + M4 542,959,691 = 2,906,475,904
+#   Delta  = marginal - target = +160,000  (+0.005505%)   H0 (+/-0.05%, band +/-1,453,238) PASS by ~9x
+#
+# Secondary (cost-model pure builtins, no CEK):
+#   2,905,156,500 ; marginal - secondary = +1,479,404 total CEK in M6 marginal
+#   expected aggregate per-builtin CEK = +1,319,404 (+448,000 M1b -72,596 M2-real +944,000 M4)
+#     [M4 CEK 944,000 = 952,000 - 8,000 reproducible M4 offset, inside the 542,959,691 marginal]
+#   residual = +160,000 = cross-structure CEK (trace symmetric -> no trace artifact)
+#
+# Tertiary (two measured composites): M6_marginal - M5_marginal vs M4-M3
+#   M6 - M5 = 2,906,635,904 - 2,829,077,091 = 77,558,813
+#   M4 - M3 =   542,959,691 -   465,400,878 = 77,558,813
+#   delta-of-deltas = 0  -> boundary - regular = EXACTLY the 7th MSM term (to the byte)
+#
+# UPLC builtin tally (aiken export + aiken uplc decode --cbor --hex; temp mirrors removed):
+#   pf_m6_core    : 6 millerLoop, 2 mulMlResult, 2 finalVerify, 1 G2_hashToGroup,
+#                   7 G1_scalarMul, 7 G1_add, 4 G1_uncompress, 2 G2_uncompress, 1 sha2_256, 1 trace
+#   pf_m6_control : 4 G1_uncompress, 2 G2_uncompress, 1 sha2_256, 1 trace ; ZERO operation builtins
+#   trace_core (1) == trace_control (1) -> symmetric -> cancels in marginal
+#
+# Gates: operation-counts == union PASS ; trace symmetric PASS ; |Delta%| <= 0.05% PASS.
+# Scope: crypto+MSM only; EXCLUDES datum/redeemer/anchor/NFT/write (Phase 4 boundary).
+# ============================================================
+{
+  "seed": 42,
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "kind": {
+      "unit": 2,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m6_phase_a_boundary",
+      "summary": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "kind": {
+          "unit": 2,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m6_core",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 14514,
+            "cpu": 3268820792
+          }
+        },
+        {
+          "title": "bench_m6_control",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 3648,
+            "cpu": 362184888
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+# M1b — realistic on-chain Groth16 (4 miller loops) — RAW aiken check output
+# Confirms docs/discrepancies.md D1 (4th miller loop reconstructs e(alpha,beta)).
+# Generated: 2026-05-27T15:59:17Z
+#
+# Command (run from validator/):  aiken check --seed 42
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: 215b77a
+#
+# Test form: bench_m1b_groth16_realistic is a `fail` test whose body is the
+# literal final_verify(combined2, ml4); on mock generators combined2=e(g1,g2)^3
+# != ml4=e(g1,g2), so final_verify returns False and the `fail` test passes.
+# final_verify cost is input-independent, so cost == a genuine verification.
+#
+# Determinism: 3 iterations, byte-identical (same md5):
+#   5b6b9d4683ccfbddcc1d18ad791c5ac8    iter: m1bv_1.json
+#   5b6b9d4683ccfbddcc1d18ad791c5ac8    iter: m1bv_2.json
+#   5b6b9d4683ccfbddcc1d18ad791c5ac8    iter: m1bv_3.json
+#
+# Results (cpu steps):
+#   bench_m1_groth16_core        1,228,471,303   (3-ML, M1, Table 2 scenario)
+#   bench_m1b_groth16_realistic  1,482,493,576   (4-ML, M1b, realistic / D1)
+#   bench_m1_control_setup         127,822,694   (2 uncompress only, reused)
+#   marginal_M1  = 1,100,648,609 ; marginal_M1b = 1,354,670,882
+#   sigma_M1b (4*ML + 2*mul + finalVerify) = 1,354,222,882
+#   Delta_M1b = +448,000 (+0.03308%)  -> H0
+#   increment (M1b - M1) = 254,022,273  vs one millerLoop 254,006,273
+#     diff = 16,000 (0.00630% of one ML) = CEK threading of the extra let
+#   => D1 confirmed: a 4th millerLoop adds ~254M CPU steps.
+# ============================================================
+
+{
+  "seed": 42,
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "kind": {
+      "unit": 3,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m1_groth16",
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "kind": {
+          "unit": 3,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m1_groth16_core",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 4315,
+            "cpu": 1228471303
+          }
+        },
+        {
+          "title": "bench_m1b_groth16_realistic",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 4487,
+            "cpu": 1482493576
+          }
+        },
+        {
+          "title": "bench_m1_control_setup",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1254,
+            "cpu": 127822694
+          }
+        }
+      ]
+    }
+  ]
+}

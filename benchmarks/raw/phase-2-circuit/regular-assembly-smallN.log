@@ -1,0 +1,7 @@
+# re-run 2026-06-09 (raw-log regeneration + regression check for D15's small-N; commit at HEAD 4719b47)
+# RegularCircuit assembly R1CS cost; native field = BLS12-381 scalar; compile-only; x2
+N=8   constraints = 1057328
+N=16  constraints = 1074256
+-> EXTRAPOLATED N=512 = 2123792 (~2.12M)   [slope 2116.0/key, intercept 1040400]
+
+# direct N=512 compile SKIPPED (set RUN_DIRECT_512=1; projection ~1.97M)

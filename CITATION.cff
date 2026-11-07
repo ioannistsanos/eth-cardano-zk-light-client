@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the thesis below."
+type: software
+title: "eth-cardano-zk-light-client"
+version: "1.0"
+date-released: "2026-11-07"
+repository-code: "https://github.com/ioannistsanos/eth-cardano-zk-light-client"
+authors:
+  - given-names: "Ioannis"
+    family-names: "Tsanos"
+license: Apache-2.0
+preferred-citation:
+  type: thesis
+  thesis-type: "Master's thesis"
+  title: "Zero-Knowledge Verification of Ethereum Sync-Committee Light-Client Updates on Cardano: Design, Implementation, and Empirical Cost Analysis"
+  authors:
+    - given-names: "Ioannis"
+      family-names: "Tsanos"
+  institution:
+    name: "National and Kapodistrian University of Athens"
+  notes: "MSc in Fintech"
+  year: 2026

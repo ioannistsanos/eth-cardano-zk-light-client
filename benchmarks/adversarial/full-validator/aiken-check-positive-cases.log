@@ -1,0 +1,68 @@
+# aiken check -e on the two positive full-validator tests of validators/real_n512_bridge_test.ak, project /home/itsanos/thesis/validator, 2026-11-03
+# aiken aiken v1.1.22+39d6b04
+# command: script -q -c "aiken check -e -m 'real_n512_bridge_test.{boundary_update_accepted}' -m 'real_n512_bridge_test.{regular_update_accepted}' /home/itsanos/thesis/validator" /dev/null
+# aiken.lock sha256 before and after (restored by copy): bcf6dc582ae586e90c12eb8571cdc8cd72a8d53c32c2191eb9d943e171c1c476
+
+    Compiling itsanos/zkbridge-phase-a 0.1.0 (/home/itsanos/thesis/validator)
+    Resolving itsanos/zkbridge-phase-a
+      Fetched 1 package in 1.76s from cache
+    Compiling aiken-lang/stdlib v2 (/home/itsanos/thesis/validator/build/packages/aiken-lang-stdlib)
+   Collecting test *boundary_update_accepted* within module(s): *real_n512_bridge_test*
+   Collecting test *regular_update_accepted* within module(s): *real_n512_bridge_test*
+      Testing ...
+
+    ┍━ real_n512_bridge_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem: 684.65 K, cpu:   6.08 B] boundary_update_accepted
+    │ PASS [mem: 650.43 K, cpu:   5.94 B] regular_update_accepted
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
+
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[/home/itsanos/thesis/validator/lib/benchmarks/m1_groth16.ak:102:7]
+ 101 │ 
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[/home/itsanos/thesis/validator/lib/benchmarks/m1_groth16.ak:103:7]
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 104 │ 
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+
+  ⚠ I found an unused (private) module constant: count
+    ╭─[/home/itsanos/thesis/validator/lib/zkbridge/bls_test.ak:33:1]
+ 32 │ 
+ 33 │ const count: Int = 510
+    · ───────────┬──────────
+    ·            ╰── unused (private) constant
+ 34 │ 
+    ╰────
+  help: Perhaps your forgot to make it public using the pub keyword?
+        Otherwise, you might want to get rid of it altogether.
+
+      Summary 2 checks, 0 errors, 3 warnings

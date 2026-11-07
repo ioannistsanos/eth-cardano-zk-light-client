@@ -1,0 +1,15 @@
+boundary (c8b296a91ab7cf16…): apk on curve True; compressed apk 87315b7ae0d3291a5272… decompresses to the redeemer coordinates True; KeyValidate True
+   fork_version 06000000, gvr 4b363db94e286120…, domain 0700000082fae541f8a3db43adb5e7997ac5f562cf682ce6bc41b8ec28ba1a07, signing_root d9477453c743e2487cdb8508fa9e06e5ef2a1d638df806f5f0383dc80e3d8904
+   BLS Verify(apk, signing_root, signature) with DST BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_POP_: True
+   control, tampered attested root: False
+   control, fork_version 05000000: False
+update57 (bcae1b1233134ef1…): apk on curve True; compressed apk b6bbcaa4d2e72296723f… decompresses to the redeemer coordinates True; KeyValidate True
+   fork_version 06000000, gvr 4b363db94e286120…, domain 0700000082fae541f8a3db43adb5e7997ac5f562cf682ce6bc41b8ec28ba1a07, signing_root 3c9dc4f388e42ca2f189270a35370c17507ddeb8870e7322bdd33f13ea38c2c9
+   BLS Verify(apk, signing_root, signature) with DST BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_POP_: True
+   control, tampered attested root: False
+   control, fork_version 05000000: False
+rehearsal (90c3b3e190a452e9…): apk on curve True; compressed apk 87e8712375cb3ec0748d… decompresses to the redeemer coordinates True; KeyValidate True
+   fork_version 05000000, gvr 4b363db94e286120…, domain 07000000ad532ceb9ec5d246daad29da8aa157bfdab35e5f069f9db81f1da754, signing_root 179e351be2b0bc73cd80dbd411b37c57ad5fa776d47ba99835cf48f568309f1f
+   BLS Verify(apk, signing_root, signature) with DST BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_POP_: True
+   control, tampered attested root: False
+   control, fork_version 05000000: True

@@ -1,0 +1,30 @@
+[31m      [0m
+   ╭─[[36;1;4m./validators/bridge_probe_d.ak:5:9[0m]
+ [2m3[0m │ 
+ [2m4[0m │ test probe_d_handler_from_second_validator_module() {
+ [2m5[0m │   bridge.spend(
+   · [35;1m        ───┬──[0m
+   ·            [35;1m╰── [35;1mnot exported by bridge?[0m[0m
+ [2m6[0m │     real_n512_regular.state_token,
+ [2m7[0m │     Some(real_n512_regular.real_input_datum()),
+   ╰────
+[36m  help: [0mDid you forget to make this value public?
+        
+        Values from module must be exported using the keyword '[94mpub[39m' in order
+        to be available from other modules.
+        For example:
+        
+          ┍━ aiken/foo.ak ━━━━━━━━
+          │ [33mfn[39m foo() { [95m"foo"[39m }
+          │
+          │ [94mpub[39m [94mtype[39m [1m[94mBar[39m[0m {
+          │   [1m[94mBar[39m[0m
+          │ }
+        
+        The function 'foo' is private and can't be accessed from outside of
+        the 'aiken/foo' module. But the data-type '[1m[94mBar[39m[0m' is public and
+        available.
+        
+
+      [1m[35mSummary[39m[0m [1m[32m[39m[0m1 [1m[31merror[39m[0m, 2 [1m[33mwarnings[39m[0m
+exit=0

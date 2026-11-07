@@ -1,0 +1,7 @@
+# re-run 2026-06-09 (raw-log regeneration + regression check for D16's small-N; commit at HEAD 4719b47)
+# BoundaryCircuit assembly R1CS cost; native field = BLS12-381 scalar; compile-only; x2
+N=8   constraints = 2292551
+N=16  constraints = 3222631
+-> EXTRAPOLATED N=512 = 60887591 (~60.9M)   [slope 116260.0/key, intercept 1362471]
+
+# direct N=512 compile SKIPPED (set RUN_DIRECT_512=1; RSS-heavy; full-512 + real proving are AWS)

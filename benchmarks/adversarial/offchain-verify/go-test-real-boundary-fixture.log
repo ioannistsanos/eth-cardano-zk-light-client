@@ -1,0 +1,36 @@
+# go test ./offchain/witness/ -run 'TestRealBoundaryFixture' -v -count=1, run in /home/itsanos/thesis/prover with GOTOOLCHAIN=local GOFLAGS=-mod=mod GOPROXY=off, 2026-11-03
+# go version go1.23.6 linux/amd64
+# test file: prover/offchain/witness/real_boundary_fixture_test.go; fixture: validator/lib/zkbridge/real_n512_boundary.ak
+
+=== RUN   TestRealBoundaryFixture_ProofVerifiesUnderConsumedDatumKey
+    real_boundary_fixture_test.go:246: public[ 0] = 3323b908045f944702f39e69df1dcbea28779d661e2a38a9a01ee359360126e1
+    real_boundary_fixture_test.go:246: public[ 1] = 00000000000000001fab1f3c777b9e054aae95b04e791423dc39b2d45fdadc57
+    real_boundary_fixture_test.go:246: public[ 2] = 000000000000000007315b7ae0d3291a527264cc901b76e6770721ac92005668
+    real_boundary_fixture_test.go:246: public[ 3] = 0000000000000000e3463c30708068b39c65aa55c8e533abad7bd5920c3b1315
+    real_boundary_fixture_test.go:246: public[ 4] = 000000000000000000c1eea99920c9be232e41b3cb82514be7a0d89066107167
+    real_boundary_fixture_test.go:246: public[ 5] = 00000000000000000000000000000000000000000000000000000000000001f9
+    real_boundary_fixture_test.go:246: public[ 6] = 00000000000000000000000000000000fca2bad46e3e5260228fec16653435a6
+    real_boundary_fixture_test.go:246: public[ 7] = 000000000000000000000000000000000c133c4a2bfa02cc443c7923de25f2d2
+    real_boundary_fixture_test.go:246: public[ 8] = 00000000000000000000000000000000735b480fd3356204d0591d927d457cea
+    real_boundary_fixture_test.go:246: public[ 9] = 00000000000000000000000000000000ae10db78213a5cced79fcbfecf24b115
+    real_boundary_fixture_test.go:246: public[10] = 0000000000000000000000000000000000000000000000000000000000dfdfc0
+    real_boundary_fixture_test.go:246: public[11] = 2aed783b4b821cfea89e9cdfd64e2b0a3aeb05896385cfb0d89cba386ec016db
+    real_boundary_fixture_test.go:251: groth16.Verify: the boundary proof verifies under the consumed datum's boundary verifying key (count 505, slot 14671808)
+--- PASS: TestRealBoundaryFixture_ProofVerifiesUnderConsumedDatumKey (0.04s)
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/count_plus_one
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/finalized_slot_equal_to_the_consumed_slot
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+=== RUN   TestRealBoundaryFixture_ChangedPublicInputRejected/produced_next_commitment_replaced_by_the_consumed_one
+    real_boundary_fixture_test.go:278: groth16.Verify rejects the changed public input: pairing doesn't match
+--- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected (0.09s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/count_plus_one (0.03s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/finalized_slot_equal_to_the_consumed_slot (0.03s)
+    --- PASS: TestRealBoundaryFixture_ChangedPublicInputRejected/produced_next_commitment_replaced_by_the_consumed_one (0.03s)
+PASS
+ok  	eth-cardano-zk-light-client/prover/offchain/witness	0.151s
+
+real	0m5.295s
+user	0m28.641s
+sys	0m9.478s

@@ -1,0 +1,12 @@
+    ╭─[[36;1;4m./lib/zkbridge/bls_test.ak:33:1[0m]
+ [2m32[0m │ 
+ [2m33[0m │ const count: Int = 510
+    · [35;1m───────────┬──────────[0m
+    ·            [35;1m╰── [35;1munused (private) constant[0m[0m
+ [2m34[0m │ 
+    ╰────
+[36m  help: [0mPerhaps your forgot to make it public using the [94mpub[39m keyword?
+        Otherwise, you might want to get rid of it altogether.
+
+      [1m[35mSummary[39m[0m 1 [1m[32mcheck, [39m[0m0 [1m[31merrors[39m[0m, 3 [1m[33mwarnings[39m[0m
+exit=0

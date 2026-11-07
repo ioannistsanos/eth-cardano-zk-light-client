@@ -1,0 +1,39 @@
+aiken v1.1.22, crates/aiken-lang/src/tipo/environment.rs lines 983-1001 (register_import):
+    #[allow(clippy::result_large_err)]
+    pub fn register_import(&mut self, def: &UntypedDefinition) -> Result<(), Error> {
+        match def {
+            Definition::Use(Use {
+                module,
+                as_name,
+                unqualified: (_, unqualified),
+                location,
+                package: _,
+            }) => {
+                let module_info = self.find_module(module, *location)?;
+
+                if module_info.kind.is_validator()
+                    && (self.current_kind.is_lib() || self.current_kind.is_env())
+                {
+                    return Err(Error::ValidatorImported {
+                        location: *location,
+                        name: module.join("/"),
+                    });
+
+crates/aiken-lang/src/ast.rs lines 50-66 (ModuleKind):
+    Config,
+}
+
+impl ModuleKind {
+    pub fn is_validator(&self) -> bool {
+        matches!(self, ModuleKind::Validator)
+    }
+
+    pub fn is_lib(&self) -> bool {
+        matches!(self, ModuleKind::Lib)
+    }
+
+    pub fn is_env(&self) -> bool {
+        matches!(self, ModuleKind::Env)
+    }
+
+    pub fn is_config(&self) -> bool {

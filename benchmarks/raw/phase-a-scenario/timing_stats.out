@@ -1,0 +1,8 @@
+input: tier3-1790-SUMMARY.json
+phases: 60 (regular 59, boundary 1)
+regular proving time, mean: 14.617 s (min 14.367, max 14.915, sum 862.38)
+boundary proving time: 432.030 s
+regular per-update time (total_seconds - poll_detect_seconds), mean: 83.30 s
+regular per-update time (total_seconds - poll_detect_seconds), median: 78.97 s (min 58.7, max 200.7, sum 4914.44)
+regular submission time (submit_seconds), mean: 68.63 s (median 64.4, min 44.1, max 186.0, sum 4049.39)
+mean interval between updates, (last - first completed_unix) / 59: 378.75 s (1782887341 - 1782864995 = 22346 s)

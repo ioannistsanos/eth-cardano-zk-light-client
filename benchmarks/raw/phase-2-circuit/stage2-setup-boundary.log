@@ -1,0 +1,41 @@
+=== SINGLE-PARTY DEMONSTRATOR SETUP (NOT an MPC) ===
+The proving key embeds toxic-waste-derived material: whoever holds it can forge proofs that
+verify under the resulting vk. pk/ccs -> SCRATCH (never transferred; destroyed at stage end);
+vk/proofs/logs -> OUTPUT (the only dir that ever leaves the machine). The vks are sound only
+under the operator's destruction of the scratch artifacts; production requires the MPC
+ceremony the thesis names. See docs/assembly-design.md "Trusted-setup honesty".
+# groth16_setup circuit=boundary n=512 output=/home/itsanos/zk-output scratch=/home/itsanos/zk-scratch
+[90m18:49:33[0m [32mINF[0m [1mcompiling circuit[0m
+[90m18:49:33[0m [32mINF[0m [1mparsed circuit inputs[0m [36mnbPublic=[0m12 [36mnbSecret=[0m34978
+[90m18:59:01[0m [32mINF[0m [1mbuilding constraint builder[0m [36mnbConstraints=[0m60889638
+constraints           = 60889638
+compile wall-clock    = 568.0s
+setup wall-clock      = 11843.8s
+peak RSS              = 108.71 GiB (process high-water mark)
+vk  -> /home/itsanos/zk-output/vk_boundary_n512.vk (1312 bytes)
+pk  -> /home/itsanos/zk-scratch/pk_boundary_n512.pk (44031872691 bytes)  [SCRATCH — never leaves; destroy at stage end]
+ccs -> /home/itsanos/zk-scratch/ccs_boundary_n512.ccs (3748104621 bytes)  [SCRATCH]
+	Command being timed: "/tmp/groth16_setup -circuit boundary -n 512 -output-dir /home/itsanos/zk-output -scratch-dir /home/itsanos/zk-scratch"
+	User time (seconds): 93473.97
+	System time (seconds): 238.72
+	Percent of CPU this job got: 742%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:30:14
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 113991696
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 50581573
+	Voluntary context switches: 2012879
+	Involuntary context switches: 2555392
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 93320304
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+BOUNDARY_SETUP_EXIT=0

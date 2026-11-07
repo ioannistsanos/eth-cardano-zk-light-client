@@ -1,0 +1,13 @@
+{
+  "circuit": "regular",
+  "period": 1600,
+  "note": "REAL period-1600 Ethereum sync-committee aggregate-signature instance (~510 participants). PUBLIC data; verifies off-chain via bls.FastAggregateVerify. The Layer-3 all-real positive. Different instance from the toy Groth16 fixture (8-key apk, count 8) — see §5 consistency tension.",
+  "signature": "a29333064a2b8325fb735901b7b074dc5058cef518a5b8d885c2eac7b19a89b550486facf50f12a74eec5246b9084e690207f0924a9fc237f5dfbc712f02b3413660f0523d7bd465a202cfc4b12ddc451aadb4d7967bdd3f569932aa41237508",
+  "apk_uncompressed": "07e8712375cb3ec0748d8f1e92eba1ff3b75baf1de7ddbb3aab34745ce511545dbd63d330143e1ff93b14cbd866cda8701c0e46b20269f6ce652b1e8f39260be61da84e112f732628f2ae9feb7c0db1434353c965068d204f13e999413ca1002",
+  "fork_version": "05000000",
+  "genesis_validators_root": "4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95",
+  "attested_header_root": "7099a98d437bc51344b7cad28193da1a9d51d79fba141b4ebb2afcd81242a52d",
+  "count": 510,
+  "expected_domain": "07000000ad532ceb9ec5d246daad29da8aa157bfdab35e5f069f9db81f1da754",
+  "expected_signing_root": "179e351be2b0bc73cd80dbd411b37c57ad5fa776d47ba99835cf48f568309f1f"
+}

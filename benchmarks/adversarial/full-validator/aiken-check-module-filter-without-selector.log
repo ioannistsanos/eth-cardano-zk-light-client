@@ -1,0 +1,18 @@
+# aiken check -e -m real_n512_bridge_test (module name without the test selector): no test collected; the filter form with the selector is recorded in aiken-check-module-run-1.log
+
+    Compiling itsanos/zkbridge-phase-a 0.1.0 (/home/itsanos/thesis/validator)
+    Resolving itsanos/zkbridge-phase-a
+      Fetched 1 package in 0.81s from cache
+    Compiling aiken-lang/stdlib v2 (/home/itsanos/thesis/validator/build/packages/aiken-lang-stdlib)
+   Collecting test *real_n512_bridge_test* across all modules
+        of let.
+        
+        
+        of let.
+        
+        
+  ⚠ Suspicious test filter (-m) yielding no test scenarios.
+  help: Did you mean to match all tests within a specific module? Like so:
+        
+        ╰─▶ -m "real_n512_bridge_test.{..}"
+      Summary 0 errors, 4 warnings

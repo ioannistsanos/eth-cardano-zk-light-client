@@ -1,0 +1,44 @@
+# M8 — Memory consolidation across M1-M7 — RAW output
+# Generated: 2026-05-30T15:12:23Z
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: a0106a6
+#
+# Confirmatory consolidation (no new measurement, no H0). Each benchmark re-run
+# live, read-only, G7 exact-match scoping (aiken check -e -m <exact names> --seed 42);
+# mem extracted per test; live max compared to the recorded M-report value.
+# Determinism: run x2, identical.
+#
+# Criterion: max mem << 16,500,000 (per-tx mem limit).
+# Result: peak = 14,514 (M6 boundary composite) = 0.088% of limit -> memory NON-BINDING.
+#   Every crypto benchmark M1-M6 reproduced its recorded mem to the unit (Delta=0).
+#   M7 (bench_m7_datum_size) = 13,228 — size/serialise test, separate category.
+#
+# Consolidation (live max mem | recorded | Delta | % of 16,500,000):
+#   M1   4,315 | 4,315 | 0 | 0.0262%
+#   M1b  4,487 | 4,487 | 0 | 0.0272%
+#   M2   3,629 | 3,629 | 0 | 0.0220%
+#   M3   6,434 | 6,434 | 0 | 0.0390%
+#   M4   7,270 | 7,270 | 0 | 0.0441%
+#   M5  13,678 |13,678 | 0 | 0.0829%
+#   M6  14,514 |14,514 | 0 | 0.0880%  <- peak
+#   M7  13,228 |  N/A  | - | 0.0802%  (size test, separate category)
+# ============================================================
+===== RUN 1 =====
+  M1   live MAX=4315 | bench_m1_groth16_core=4315  bench_m1_control_setup=1254   recorded_max=4315  Delta=0 OK
+  M1b  live MAX=4487 | bench_m1_groth16_core=4315  bench_m1b_groth16_realistic=4487  bench_m1_control_setup=1254   recorded_max=4487  Delta=0 OK
+  M2   live MAX=3629 | bench_m2_bls_core=3629  bench_m2_bls_real=2857  bench_m2_bls_control=2376   recorded_max=3629  Delta=0 OK
+  M3   live MAX=6434 | bench_m3_msm_core_n32=6434  bench_m3_msm_core_n2=6434  bench_m3_msm_control_n32=1118  bench_m3_msm_control_n2=1118   recorded_max=6434  Delta=0 OK
+  M4   live MAX=7270 | bench_m4_msm_boundary_core_n32=7270  bench_m4_msm_boundary_core_n2=7270  bench_m4_msm_boundary_control_n32=1118  bench_m4_msm_boundary_control_n2=1118   recorded_max=7270  Delta=0 OK
+  M5   live MAX=13678 | bench_m5_core=13678  bench_m5_control=3648   recorded_max=13678  Delta=0 OK
+  M6   live MAX=14514 | bench_m6_core=14514  bench_m6_control=3648   recorded_max=14514  Delta=0 OK
+  M7   live MAX=13228 | bench_m7_datum_size=13228   [recorded N/A — M7 size test]
+===== RUN 2 =====
+  M1   live MAX=4315 | bench_m1_groth16_core=4315  bench_m1_control_setup=1254   recorded_max=4315  Delta=0 OK
+  M1b  live MAX=4487 | bench_m1_groth16_core=4315  bench_m1b_groth16_realistic=4487  bench_m1_control_setup=1254   recorded_max=4487  Delta=0 OK
+  M2   live MAX=3629 | bench_m2_bls_core=3629  bench_m2_bls_real=2857  bench_m2_bls_control=2376   recorded_max=3629  Delta=0 OK
+  M3   live MAX=6434 | bench_m3_msm_core_n32=6434  bench_m3_msm_core_n2=6434  bench_m3_msm_control_n32=1118  bench_m3_msm_control_n2=1118   recorded_max=6434  Delta=0 OK
+  M4   live MAX=7270 | bench_m4_msm_boundary_core_n32=7270  bench_m4_msm_boundary_core_n2=7270  bench_m4_msm_boundary_control_n32=1118  bench_m4_msm_boundary_control_n2=1118   recorded_max=7270  Delta=0 OK
+  M5   live MAX=13678 | bench_m5_core=13678  bench_m5_control=3648   recorded_max=13678  Delta=0 OK
+  M6   live MAX=14514 | bench_m6_core=14514  bench_m6_control=3648   recorded_max=14514  Delta=0 OK
+  M7   live MAX=13228 | bench_m7_datum_size=13228   [recorded N/A — M7 size test]

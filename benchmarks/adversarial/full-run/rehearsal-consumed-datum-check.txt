@@ -1,0 +1,13 @@
+# The consumed datum of the rehearsal update 90c3b3e1... is output 0 of the rehearsal bootstrap transaction 27c9765bcea19cb1b7def355231aa89be87a08c06272386328fec75f32e13db2 (Koios tx_cbor, 2026-11-03, koios-tx-cbor-27c9765b.json), compared field by field with the consumed datum of validator/lib/zkbridge/real_n512_regular.ak (real_input_datum).
+transaction bytes 3598 sha256 70e3bc8f17af4d9e7520226448cde673bb7e787da9315c92e19ad3762cd1e497
+output 0 inline datum 2632 bytes, sha256 ad5b792934d8cad8977a0acfef497ae5ccdd8af7ddfa85750a61e4c3958b592c
+finalized_header_root: ledger 0000000000000000000000000000000000000000000000000000000000000000 | fixture 0000000000000000000000000000000000000000000000000000000000000000 | equal
+finalized_slot: ledger 13107199 | fixture 13107199 | equal
+current_committee_commitment: ledger 10041e8ce930617c420c43546f39dc8d123cec24e199f3f51dfadcb448529e1e | fixture 10041e8ce930617c420c43546f39dc8d123cec24e199f3f51dfadcb448529e1e | equal
+next_committee_commitment: ledger 483e20c94d6075d0dd670d9b6fe7144456eecc96fadb501ac719e4473625510f | fixture 483e20c94d6075d0dd670d9b6fe7144456eecc96fadb501ac719e4473625510f | equal
+fork_version: ledger 05000000 | fixture 05000000 | equal
+genesis_validators_root: ledger 4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95 | fixture 4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95 | equal
+vk_regular.alpha: ledger aca2f634ad5259ac618d579801ebfb9955ae24051e015e1f05243ef4e521f50a69bbc0ad7abf896e9fbdd169f2984d93 | fixture aca2f634ad5259ac618d579801ebfb9955ae24051e015e1f05243ef4e521f50a69bbc0ad7abf896e9fbdd169f2984d93 | equal
+vk_boundary.alpha: ledger a67164c9376fa5a16312081ac7e10959481aba9fc298b687186e8aaeb30db16c25de3cba248d4afd8840fabbb18ed891 | fixture a67164c9376fa5a16312081ac7e10959481aba9fc298b687186e8aaeb30db16c25de3cba248d4afd8840fabbb18ed891 | equal
+ic counts on the ledger: 13 14
+ALL EQUAL

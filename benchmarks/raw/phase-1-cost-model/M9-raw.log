@@ -1,0 +1,71 @@
+# M9 — point decompression (G1_uncompress, G2_uncompress) — RAW aiken check output
+# Generated: 2026-10-04T16:43:08Z
+#
+# Command (run from validator/):  aiken check -m bench_m9 --seed 42
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.18.40.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8070628 kB MemTotal
+#
+# Determinism: 5 iterations, byte-identical (same md5):
+#   6e6cc56c4b8dd2d1b5abd16db4766c52    iter: m9_1.json
+#   6e6cc56c4b8dd2d1b5abd16db4766c52    iter: m9_2.json
+#   6e6cc56c4b8dd2d1b5abd16db4766c52    iter: m9_3.json
+#   6e6cc56c4b8dd2d1b5abd16db4766c52    iter: m9_4.json
+#   6e6cc56c4b8dd2d1b5abd16db4766c52    iter: m9_5.json
+#
+# Headline result (one call per test, one real point each):
+#   bench_m9_g1_uncompress      53,108,222 cpu / 1,118 mem  (vk.alpha of validator/fixtures/groth16_regular_n512.json)
+#   bench_m9_g2_uncompress      74,858,572 cpu / 1,136 mem  (vk.beta of the same fixture)
+#
+# Against the cost model (PlutusV3 parameters 211/212 and 227/228):
+#   G1: 53,108,222 = 52,948,122 (bls12_381_G1_uncompress) + 160,100 ; mem 1,118 = 18 + 1,100
+#   G2: 74,858,572 = 74,698,472 (bls12_381_G2_uncompress) + 160,100 ; mem 1,136 = 36 + 1,100
+#   160,100 = 10 machine steps x 16,000 + 100 start-up ; 1,100 = 10 x 100 + 100 (the same test body in both tests)
+#   G2 - G1 = 21,750,350 = 74,698,472 - 52,948,122 EXACTLY
+# ============================================================
+
+{
+  "seed": 42,
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "kind": {
+      "unit": 2,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m9_uncompress",
+      "summary": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "kind": {
+          "unit": 2,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m9_g1_uncompress",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1118,
+            "cpu": 53108222
+          }
+        },
+        {
+          "title": "bench_m9_g2_uncompress",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1136,
+            "cpu": 74858572
+          }
+        }
+      ]
+    }
+  ]
+}

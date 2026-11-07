@@ -1,0 +1,6 @@
+# ephemeral Boot build products (per-seed / re-derivable)
+boot_params.json
+genesis_values_*.json
+
+# Python bytecode (spend.py imports datum/redeemer/assemble)
+__pycache__/

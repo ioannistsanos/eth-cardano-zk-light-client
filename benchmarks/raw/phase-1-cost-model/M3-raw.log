@@ -1,0 +1,108 @@
+# M3 — MSM regular (6 inputs) + scalarMul characterization — RAW aiken check output
+# Generated: 2026-05-28T15:10:36Z
+#
+# Command (run from validator/):  aiken check -m bench_m3 --seed 42
+# Toolchain: aiken v1.1.22+39d6b04
+# Host:      Linux 6.6.114.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8068188 kB MemTotal
+# Repo HEAD at run: 1ead4eb
+#
+# Determinism: 3 iterations, byte-identical (same md5):
+#   a7deb2043f83ddcdb0054965693dd81c    iter: m3_1.json
+#   a7deb2043f83ddcdb0054965693dd81c    iter: m3_2.json
+#   a7deb2043f83ddcdb0054965693dd81c    iter: m3_3.json
+#
+# Headline result (n-unit identification):
+#   bench_m3_msm_core_n32       518,509,100 cpu / 6,434 mem  (six 32-byte scalars)
+#   bench_m3_msm_core_n2        518,349,476 cpu / 6,434 mem  (six 2-byte scalars)
+#   bench_m3_msm_control_n32     53,108,222 cpu / 1,118 mem  (1 G1_uncompress + 7 expects)
+#   bench_m3_msm_control_n2      53,108,222 cpu / 1,118 mem  (1 G1_uncompress + 7 expects)
+#
+#   marg_A = A − C32 = 465,400,878  (Δ% vs Σ_n4=464,584,878 = +0.1756%)
+#   marg_B = B − D2  = 465,241,254
+#   size_delta = marg_A − marg_B = 159,624 = 6 × 8,868 × 3 EXACTLY
+#     → scalarMul charges by **64-bit words** (Δwords = 4 − 1 = 3).
+#
+# Empirical per-scalarMul decomposition (matches to the byte):
+#   per_sm_A (32-byte, 4 words) = 76,604,478 = 76,433,006 + 8,868·4 + 136,000 CEK
+#   per_sm_B (2-byte,  1 word)  = 76,577,874 = 76,433,006 + 8,868·1 + 136,000 CEK
+#   per g1_add empirical = 962,335 EXACTLY (zero CEK overhead per call)
+#   Total reconstruction: 53,108,222 (uncompress) + 6·76,604,478 + 6·962,335 = 518,509,100 ≡ A.cpu
+#
+# Thesis correction (~458.9M for 6 scalarMul implied n≈5.3, anomalous):
+#   Empirical 6 scalarMul (n=4 words + CEK) = 459,626,868 (vs thesis 458,879,328 = +747,540)
+#   Σ_MSM empirical (6 sM + 6 g1_add) = 465,400,878
+#
+# UPLC builtin tally (aiken export + aiken uplc decode --cbor --hex; temp mirrors removed):
+#   pf_core_n32    : 1 G1_uncompress, 6 G1_scalarMul, 6 G1_add, 1 trace
+#   pf_core_n2     : 1 G1_uncompress, 6 G1_scalarMul, 6 G1_add, 1 trace
+#   pf_control_n32 : 1 G1_uncompress, 0 G1_scalarMul, 0 G1_add, 1 trace
+#   pf_control_n2  : 1 G1_uncompress, 0 G1_scalarMul, 0 G1_add, 1 trace
+#
+# All 4 stop conditions clear: no compile error; UPLC matches spec; md5 byte-identical x3;
+# memory max 6,434 ≪ 16,500,000.
+# ============================================================
+
+{
+  "seed": 42,
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "kind": {
+      "unit": 4,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "benchmarks/m3_msm",
+      "summary": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "kind": {
+          "unit": 4,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "bench_m3_msm_core_n32",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6434,
+            "cpu": 518509100
+          }
+        },
+        {
+          "title": "bench_m3_msm_core_n2",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6434,
+            "cpu": 518349476
+          }
+        },
+        {
+          "title": "bench_m3_msm_control_n32",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1118,
+            "cpu": 53108222
+          }
+        },
+        {
+          "title": "bench_m3_msm_control_n2",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1118,
+            "cpu": 53108222
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "circuit": "regular",
+  "n": 512,
+  "note": "REDEEMER-shaped proof: a/b/c/commitment_pok compressed; commitment UNCOMPRESSED 96 B (Marshal X‖Y) per types.ak:26-28 — NOT the compressed proof_to_json form. Feeds the Aiken redeemer + the daemon's redeemer encoder.",
+  "proof_redeemer": {
+    "a": "a7891ea2110b29724559acb9cae29e465e9dc6bcf2f22e0ce417a6b4809d2f41650f2803c7e914778fda044cf4794975",
+    "b": "971e3c7590840a667e7fd49283f0cb17de8c39bd761db16ee1e93fb66fdaa61dbdc8ffa3b240259fc25de44a640dc50f013c31dfe2527f9ef7711a240b0dee10351ea39a578a7aa397a820a34a86c3bce0488b595293156227b4a264eec1fdef",
+    "c": "b9c2972c99eec2549f43a3a4204ca038853513d4a502b2bc83a7a9d8a1fcb264ad2b18c11e55ab4d97ad384639b7795f",
+    "commitment": "0630a6f877e0c36f7d6d05940157c516d19b01a81a490bb9301d9ed2b9f4bb70119eb207d64883cef4e2e15754e277c911d9775e9ad9bed2ecf7d979cae94fa2b559a316c0f678e01244f13a83cbf97a0c9cee1f5ab8c2b05a107f482c0b37e2",
+    "commitment_pok": "904d4780c14e53f558bcbe7220118717c8ecdcc104ad71b6d51acb121e3094ce8a5e508faab61885277950bd5ae9a983"
+  }
+}

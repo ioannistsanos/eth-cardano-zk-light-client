@@ -1,0 +1,7 @@
+offchain/witness rc=0 elapsed_seconds=569.2
+offchain/relayer rc=0 elapsed_seconds=7.0
+offchain/bootstrap rc=0 elapsed_seconds=10.3
+offchain/bls rc=0 elapsed_seconds=1.8
+offchain/commitment rc=0 elapsed_seconds=1.2
+offchain/ssz rc=0 elapsed_seconds=1.4
+offchain/boot rc=0 elapsed_seconds=1.5

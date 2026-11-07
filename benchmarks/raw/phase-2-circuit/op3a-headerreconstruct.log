@@ -1,0 +1,13 @@
+=== RUN   TestHeaderReconstructProvesAgainstOfficialRoot
+    headerreconstruct_test.go:59: PASS: header reconstructed to official root 0xa2672769763d19c79dd7a584f37fd3391c0510c1fd6eba54ec0cd78748a84800; state_root extracted 0x77134de1d4dc7a8ffb098e305ae5ccfb7cb27cba5866712f95756ddbc044d328 (504292 constraints)
+--- PASS: TestHeaderReconstructProvesAgainstOfficialRoot (122.56s)
+PASS
+ok  	github.com/jTsanos/zkbridge-phase-a/prover/circuits/common	122.745s
+# Phase 2a-2-ii-B: header-reconstruction circuit (op-3a) R1CS cost
+# native field = BLS12-381 scalar field; compile-only; x2 (determinism)
+op-3a (full reconstruction, 7 SHA-256) MEASURED = 504292
+
+# decomposition (op-4 references: 53,672/node-hash, 131,380 intercept, 569/leaf)
+7 node-hashes x 53,672 = 375704
++ 131,380 intercept + 2x569 leaf-encoding => expected ~= 508222
+implied per-node-hash = (total - 131,380 - 2x569) / 7 = 53111   (vs op-4 53,672)

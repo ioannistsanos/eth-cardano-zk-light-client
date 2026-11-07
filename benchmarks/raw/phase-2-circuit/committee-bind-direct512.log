@@ -1,0 +1,40 @@
+# committee-bind region (Poseidon bind + conditional aggregation + participation count): R1CS count, direct N=512
+# Recorded: 2026-10-04T15:30:31Z | Host: Linux 6.18.40.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8070628 kB MemTotal
+# Command (run from prover/): RUN_DIRECT_512=1 go run ./cmd/measure_committee_bind   (go1.23.6, gnark v0.13.0; wrapped in /usr/bin/time -v)
+#
+# regular committee-bind: R1CS cost (bind + op-2 aggregation + op-5 count)
+# compile-only; x2 (determinism); HALT on mismatch; small N + extrapolation
+N=8   constraints = 17142
+N=16  constraints = 33955
+-> per-key slope = 2102 ; intercept = 329
+-> EXTRAPOLATED N=512 = 1076361 (~1.08M)
+# bind ~0.38M (D9); op-2 (emulated G1 aggregation) dominant — refutes the thesis ~5-15M/op estimate (cf. D7)
+
+# direct N=512 compile (RUN_DIRECT_512=1)
+N=512 constraints = 929169 (~0.93M)
+	Command being timed: "go run ./cmd/measure_committee_bind"
+	User time (seconds): 16.48
+	System time (seconds): 3.92
+	Percent of CPU this job got: 133%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:15.24
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1543624
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 220
+	Minor (reclaiming a frame) page faults: 846903
+	Voluntary context switches: 19283
+	Involuntary context switches: 257
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+#
+# note added to this log (not program output): 929169 (N=512, above) - 380929 (packed Poseidon bind, N=512,
+# poseidon-commit.log) = 548240, i.e. about 0.55 million constraints for the conditional aggregation and the count.

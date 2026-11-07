@@ -1,0 +1,8 @@
+# Build outputs
+validator/build/
+__pycache__/
+
+# Local environment and key files
+.env
+*.skey
+*.mnemonic

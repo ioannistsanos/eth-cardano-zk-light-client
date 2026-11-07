@@ -1,0 +1,77 @@
+# aiken check -e on the seven pin tests of lib/zkbridge/real_n512_boundary_test.ak, run from validator/ on 2026-11-03
+# aiken aiken v1.1.22+39d6b04
+
+    Compiling itsanos/zkbridge-phase-a 0.1.0 (.)
+    Resolving itsanos/zkbridge-phase-a
+      Fetched 1 package in 0.72s from cache
+    Compiling aiken-lang/stdlib v2 (./build/packages/aiken-lang-stdlib)
+   Collecting test *boundary_consumed_datum_bytepin* across all modules
+   Collecting test *boundary_produced_datum_bytepin* across all modules
+   Collecting test *boundary_redeemer_bytepin* across all modules
+   Collecting test *boundary_redeemer_size* across all modules
+   Collecting test *boundary_datum_sizes* across all modules
+   Collecting test *boundary_redeemer_roundtrips* across all modules
+   Collecting test *boundary_datums_roundtrip* across all modules
+      Testing ...
+
+    ┍━ zkbridge/real_n512_boundary_test ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │ PASS [mem:   6.31 K, cpu: 119.28 M] boundary_consumed_datum_bytepin
+    │ PASS [mem:   6.31 K, cpu: 119.28 M] boundary_produced_datum_bytepin
+    │ PASS [mem:   4.66 K, cpu:  29.46 M] boundary_redeemer_bytepin
+    │ PASS [mem:   4.67 K, cpu:  27.52 M] boundary_redeemer_size
+    │ PASS [mem:  14.14 K, cpu: 223.59 M] boundary_datum_sizes
+    │ PASS [mem: 564.44 K, cpu: 175.47 M] boundary_redeemer_roundtrips
+    │ PASS [mem:   4.04 M, cpu:   1.28 B] boundary_datums_roundtrip
+    ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7 tests | 7 passed | 0 failed
+
+
+
+  ⚠ I found an unused (private) module constant: count
+    ╭─[./lib/zkbridge/bls_test.ak:33:1]
+ 32 │ 
+ 33 │ const count: Int = 510
+    · ───────────┬──────────
+    ·            ╰── unused (private) constant
+ 34 │ 
+    ╰────
+  help: Perhaps your forgot to make it public using the pub keyword?
+        Otherwise, you might want to get rid of it altogether.
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[./lib/benchmarks/m1_groth16.ak:102:7]
+ 101 │ 
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+
+  ⚠ I came across a discarded variable in a let assignment: _
+     ╭─[./lib/benchmarks/m1_groth16.ak:103:7]
+ 102 │   let _ = g1                                                          // force g1 binding (G5)
+ 103 │   let _ = g2                                                          // force g2 binding (G5)
+     ·       ┬
+     ·       ╰── discarded result
+ 104 │ 
+     ╰────
+  help: If you do want to enforce some side-effects, use expect with _ instead
+        of let.
+        
+        You should also know that, unlike in typical imperative languages,
+        unused let-bindings are fully_ignored in Aiken.
+        They will not produce any side-effect (such as error calls). Programs
+        with or without unused variables are semantically equivalent.
+        
+
+      Summary 7 checks, 0 errors, 3 warnings
+exit=0

@@ -1,0 +1,25 @@
+[31m  ╰─▶ [0mI found an unexpected token 'use'.
+[31m      [0m
+     ╭─[[36;1;4m./validators/bridge.ak:347:1[0m]
+ [2m345[0m │ }
+ [2m346[0m │ 
+ [2m347[0m │ use zkbridge/genesis_datum_test as probe_import
+     · [35;1m─┬─[0m
+     ·  [35;1m╰── [35;1mnot quite a pattern[0m[0m
+ [2m348[0m │ 
+ [2m349[0m │ test import_probe_b_appended() {
+     ╰────
+[36m  help: [0mI am looking for one of the following patterns:
+        → [35m@[39m
+        → [35mbench[39m
+        → [35mconst[39m
+        → [35mfn[39m
+        → [35mopaque[39m
+        → [35mpub[39m
+        → [35mtest[39m
+        → [35mtype[39m
+        → [35mvalidator[39m
+        → [35m<END OF FILE>[39m
+
+      [1m[35mSummary[39m[0m [1m[32m[39m[0m1 [1m[31merror[39m[0m, 0 [1m[33mwarnings[39m[0m
+exit=0

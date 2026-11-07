@@ -1,0 +1,49 @@
+# Poseidon2 commitment over N BLS12-381 G1 public keys: R1CS count, raw-limb and packed encodings
+# Recorded: 2026-10-04T15:30:55Z | Host: Linux 6.18.40.1-microsoft-standard-WSL2 x86_64 | Intel i7-9750H | 8070628 kB MemTotal
+# Command (run from prover/): go run ./cmd/measure_poseidon_commit   (go1.23.6, gnark v0.13.0; wrapped in /usr/bin/time -v)
+#
+# Phase 2 (SEC-01 A-vs-B): Poseidon2 commitment over N BLS12-381 G1 pubkeys
+# Poseidon2/BLS12-381 Fr: t=2, R_F=6, R_P=50, d=5 (gnark-crypto canonical); Merkle-Damgard (1 perm/Fr)
+# faithful: pubkeys are emulated sw_bls12381.G1Affine -> 6x64-bit limbs/coord = 12 limbs/point
+# compile-only; x2 (determinism); HALT on mismatch
+
+## encoding = limbs  (12 Fr/pubkey, raw emulated limbs)
+N=64   constraints = 142849
+N=128  constraints = 285697
+N=512  constraints = 1142785
+-> linear fit: 2232.0 constraints/pubkey, intercept 1
+-> implied 186.0 constraints/permutation (12 Fr/pubkey; ~186 predicted = 62 S-boxes x 3 muls)
+-> 512-pubkey commitment = 1142785 constraints
+-> vs Family A SSZ ~55M/update: 48x cheaper per update
+
+## encoding = packed (4 Fr/pubkey, free linear repack)
+N=64   constraints = 47617
+N=128  constraints = 95233
+N=512  constraints = 380929
+-> linear fit: 744.0 constraints/pubkey, intercept 1
+-> implied 186.0 constraints/permutation (4 Fr/pubkey; ~186 predicted = 62 S-boxes x 3 muls)
+-> 512-pubkey commitment = 380929 constraints
+-> vs Family A SSZ ~55M/update: 144x cheaper per update
+	Command being timed: "go run ./cmd/measure_poseidon_commit"
+	User time (seconds): 18.91
+	System time (seconds): 4.23
+	Percent of CPU this job got: 127%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:18.13
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1344924
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 4
+	Minor (reclaiming a frame) page faults: 1325216
+	Voluntary context switches: 15937
+	Involuntary context switches: 219
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

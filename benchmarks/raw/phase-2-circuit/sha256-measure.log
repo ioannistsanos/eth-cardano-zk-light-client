@@ -1,0 +1,24 @@
+=== RUN   TestSha256ProvesOverBLS12381
+    sha256_test.go:54: PASS: in-circuit SHA-256(64B)==crypto/sha256 over BLS12-381 (185476 constraints, 2 blocks)
+--- PASS: TestSha256ProvesOverBLS12381 (55.71s)
+PASS
+ok  	github.com/jTsanos/zkbridge-phase-a/prover/circuits/common	55.778s
+# Phase 2a-2-i: in-circuit SHA-256 per-compression-block R1CS cost
+# native field = BLS12-381 scalar field; compile-only; each count x2 (determinism)
+bytes      blocks    constraints
+32              1         158438
+96              2         186065
+160             3         213693
+224             4         241321
+288             5         268948
+608            10         407085
+
+# regression: constraints = intercept + slope*blocks
+slope (per compression block) = 27627.46
+intercept (uints/lookup setup + 32B assert) = 130810.57
+R2 = 1.000000
+
+# Merkle-node + ops 3 & 4 mapping (node-hash = 64B = 2 compression blocks)
+per-64B-node marginal = 2*slope = 55255
+op3 finality: 14 node-hashes = 28 blocks => 28*slope = 773569  (+1 shared intercept)
+op4 slot:      3 node-hashes =  6 blocks =>  6*slope = 165765  (+1 shared intercept)
